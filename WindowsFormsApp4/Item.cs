@@ -13,5 +13,6 @@ namespace WindowsFormsApp4
         public int itemFiyat { get; set; }
         public string itemSahibi { get; set; }
         public int itemOnay { get; set; }
+
     }
 }

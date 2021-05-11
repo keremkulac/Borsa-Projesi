@@ -14,9 +14,11 @@ namespace WindowsFormsApp4
     public partial class UrunAlSat : Form
     {
         string isim;
+        
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         KullanicilarDatabase baglanti = new KullanicilarDatabase();
+
         public UrunAlSat(string _user)
         {
             InitializeComponent();
@@ -27,11 +29,12 @@ namespace WindowsFormsApp4
         {
             ConnectionControl();
             SqlCommand command = new SqlCommand(
-            "Insert into itemler values(@ItemAdi,@ItemMiktari,@ItemFiyat,@itemSahibi)", _connection);
+            "Insert into itemler values(@ItemAdi,@ItemMiktari,@ItemFiyat,@itemSahibi,@itemOnay)", _connection);
             command.Parameters.AddWithValue("@ItemAdi", urunObjesi.itemAdi);
             command.Parameters.AddWithValue("@ItemMiktari", urunObjesi.itemMiktari);
             command.Parameters.AddWithValue("@ItemFiyat", urunObjesi.itemFiyat);
-            command.Parameters.AddWithValue("@itemSahibi", urunObjesi.itemSahibi); 
+            command.Parameters.AddWithValue("@itemSahibi", urunObjesi.itemSahibi);
+            command.Parameters.AddWithValue("@itemOnay", urunObjesi.itemOnay);
             command.ExecuteNonQuery();
 
             _connection.Close();
@@ -45,8 +48,8 @@ namespace WindowsFormsApp4
                 itemAdi = comboBox1.Text,
                 itemFiyat = int.Parse(textBox1.Text),
                 itemMiktari = int.Parse(textBox2.Text),
-                 itemSahibi = "cihan"
-
+                itemSahibi = "cihan",
+                itemOnay = 1
             }) ;
             MessageBox.Show("Başarıyla ürün eklendi.");
             MessageBox.Show(isim);
@@ -63,6 +66,18 @@ namespace WindowsFormsApp4
         {
             string x;
             LoginForm isimAl = new LoginForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(comboBox2.Text);
         }
     }
 }

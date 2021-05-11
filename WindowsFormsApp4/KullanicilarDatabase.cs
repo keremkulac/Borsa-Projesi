@@ -25,6 +25,7 @@ namespace WindowsFormsApp4
             return ds;
         }
 
+
         public void KullaniciEkle(kullanici kullaniciObjesi)
         {
           
