@@ -28,7 +28,7 @@ namespace WindowsFormsApp4
         public DataSet ItemleriCekByItemAdi(string itemAdi)
         {
             ConnectionControl();
-            string sorgu = string.Format("SELECT * FROM itemler WHERE itemAdi = {0}", itemAdi);
+            string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'", itemAdi);
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);

@@ -38,14 +38,21 @@ namespace WindowsFormsApp4
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.satinAlBtn = new System.Windows.Forms.Button();
+            this.urunlerDGV = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
-            this.urunlerDGV = new System.Windows.Forms.DataGridView();
+            this.bakiyeMiktar = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bakiyeMiktar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -138,6 +145,7 @@ namespace WindowsFormsApp4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.satinAlBtn);
             this.groupBox2.Controls.Add(this.urunlerDGV);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.comboBox2);
@@ -145,10 +153,27 @@ namespace WindowsFormsApp4
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(501, 169);
+            this.groupBox2.Size = new System.Drawing.Size(501, 240);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Al";
+            // 
+            // satinAlBtn
+            // 
+            this.satinAlBtn.Location = new System.Drawing.Point(206, 203);
+            this.satinAlBtn.Name = "satinAlBtn";
+            this.satinAlBtn.Size = new System.Drawing.Size(75, 30);
+            this.satinAlBtn.TabIndex = 3;
+            this.satinAlBtn.Text = "Satın al";
+            this.satinAlBtn.UseVisualStyleBackColor = true;
+            // 
+            // urunlerDGV
+            // 
+            this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.urunlerDGV.Location = new System.Drawing.Point(29, 76);
+            this.urunlerDGV.Name = "urunlerDGV";
+            this.urunlerDGV.Size = new System.Drawing.Size(447, 119);
+            this.urunlerDGV.TabIndex = 2;
             // 
             // label4
             // 
@@ -175,7 +200,7 @@ namespace WindowsFormsApp4
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(265, 474);
+            this.button2.Location = new System.Drawing.Point(12, 675);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 28);
             this.button2.TabIndex = 7;
@@ -183,19 +208,60 @@ namespace WindowsFormsApp4
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // urunlerDGV
+            // bakiyeMiktar
             // 
-            this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.urunlerDGV.Location = new System.Drawing.Point(32, 70);
-            this.urunlerDGV.Name = "urunlerDGV";
-            this.urunlerDGV.Size = new System.Drawing.Size(447, 92);
-            this.urunlerDGV.TabIndex = 2;
+            this.bakiyeMiktar.Location = new System.Drawing.Point(214, 599);
+            this.bakiyeMiktar.Name = "bakiyeMiktar";
+            this.bakiyeMiktar.Size = new System.Drawing.Size(137, 26);
+            this.bakiyeMiktar.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.label6.Location = new System.Drawing.Point(222, 565);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 22);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Bakiye Yükle";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(229, 631);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(110, 29);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Bakiye Yükle";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(437, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 19);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Bakiyem:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(508, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 19);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "100";
             // 
             // UrunAlSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 556);
+            this.ClientSize = new System.Drawing.Size(574, 715);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.bakiyeMiktar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -210,7 +276,9 @@ namespace WindowsFormsApp4
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bakiyeMiktar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,5 +298,11 @@ namespace WindowsFormsApp4
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView urunlerDGV;
+        private System.Windows.Forms.Button satinAlBtn;
+        private System.Windows.Forms.NumericUpDown bakiyeMiktar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }

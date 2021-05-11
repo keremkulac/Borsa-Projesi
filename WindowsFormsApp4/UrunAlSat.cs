@@ -18,6 +18,7 @@ namespace WindowsFormsApp4
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         KullanicilarDatabase baglanti = new KullanicilarDatabase();
+        ItemlerDatabase itemlerData = new ItemlerDatabase();
 
         public UrunAlSat(string _user)
         {
@@ -75,9 +76,18 @@ namespace WindowsFormsApp4
             loginForm.Show();
         }
 
+        void LoadItemler(string itemAdi)
+        {
+            DataSet ds = itemlerData.ItemleriCekByItemAdi(itemAdi);
+            urunlerDGV.DataSource = ds.Tables[0];
+        }
+
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            
             Console.WriteLine(comboBox2.Text);
+            LoadItemler(comboBox2.Text);
         }
     }
 }
