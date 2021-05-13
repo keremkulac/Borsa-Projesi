@@ -31,7 +31,6 @@ namespace WindowsFormsApp4
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -49,6 +48,12 @@ namespace WindowsFormsApp4
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
@@ -75,28 +80,14 @@ namespace WindowsFormsApp4
             this.label2.TabIndex = 1;
             this.label2.Text = "Ürün Fiyatını Giriniz(kg):";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Arpa",
-            "Buğday",
-            "Elma",
-            "Armut"});
-            this.comboBox1.Location = new System.Drawing.Point(192, 54);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 27);
-            this.comboBox1.TabIndex = 2;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(58, 37);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -106,10 +97,11 @@ namespace WindowsFormsApp4
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Sat";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 218);
+            this.button1.Location = new System.Drawing.Point(218, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 28);
             this.button1.TabIndex = 6;
@@ -145,6 +137,8 @@ namespace WindowsFormsApp4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.satinAlBtn);
             this.groupBox2.Controls.Add(this.urunlerDGV);
             this.groupBox2.Controls.Add(this.label4);
@@ -153,32 +147,33 @@ namespace WindowsFormsApp4
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(501, 240);
+            this.groupBox2.Size = new System.Drawing.Size(776, 190);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Al";
             // 
             // satinAlBtn
             // 
-            this.satinAlBtn.Location = new System.Drawing.Point(206, 203);
+            this.satinAlBtn.Location = new System.Drawing.Point(156, 101);
             this.satinAlBtn.Name = "satinAlBtn";
             this.satinAlBtn.Size = new System.Drawing.Size(75, 30);
             this.satinAlBtn.TabIndex = 3;
             this.satinAlBtn.Text = "Satın al";
             this.satinAlBtn.UseVisualStyleBackColor = true;
+            this.satinAlBtn.Click += new System.EventHandler(this.satinAlBtn_Click);
             // 
             // urunlerDGV
             // 
             this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.urunlerDGV.Location = new System.Drawing.Point(29, 76);
+            this.urunlerDGV.Location = new System.Drawing.Point(308, 26);
             this.urunlerDGV.Name = "urunlerDGV";
-            this.urunlerDGV.Size = new System.Drawing.Size(447, 119);
+            this.urunlerDGV.Size = new System.Drawing.Size(461, 119);
             this.urunlerDGV.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 27);
+            this.label4.Location = new System.Drawing.Point(14, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 19);
             this.label4.TabIndex = 1;
@@ -187,12 +182,7 @@ namespace WindowsFormsApp4
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Arpa",
-            "Buğday",
-            "Elma",
-            "Armut"});
-            this.comboBox2.Location = new System.Drawing.Point(192, 27);
+            this.comboBox2.Location = new System.Drawing.Point(133, 26);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(148, 27);
             this.comboBox2.TabIndex = 0;
@@ -233,6 +223,7 @@ namespace WindowsFormsApp4
             this.button3.TabIndex = 12;
             this.button3.Text = "Bakiye Yükle";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
@@ -252,12 +243,65 @@ namespace WindowsFormsApp4
             this.label7.TabIndex = 14;
             this.label7.Text = "100";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 19);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Hoşgeldiniz:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(165, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 19);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Onaylanmamış Bakiye:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(317, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 19);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "100";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 72);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 19);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Miktar(kg):";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(133, 69);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(148, 26);
+            this.textBox3.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(192, 54);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(148, 26);
+            this.textBox4.TabIndex = 7;
+            // 
             // UrunAlSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 715);
+            this.ClientSize = new System.Drawing.Size(900, 715);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
@@ -286,7 +330,6 @@ namespace WindowsFormsApp4
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
@@ -304,5 +347,11 @@ namespace WindowsFormsApp4
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

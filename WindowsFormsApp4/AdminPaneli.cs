@@ -34,16 +34,25 @@ namespace WindowsFormsApp4
 
         }
 
+        void OnaylanmamisBakiyeKullanicilari()
+        {
+            DataSet ds = data.BakiyeleriOnaylanmamisKullanicilar();
+            dataGridView3.DataSource = ds.Tables[0];
+        }
+
         void LoadItemler()
         {
-            DataSet ds = itemlerData.ItemleriCekByItemOnay();
+            DataSet ds = itemlerData.ItemleriCekByItemOnay(1); // itemOnay 1 olanları çekicek
             dataGridView2.DataSource = ds.Tables[0];
         }
+
+        
 
         private void AdminPaneli_Load(object sender, EventArgs e)
         {
             LoadKullanicilar();
             LoadItemler();
+            OnaylanmamisBakiyeKullanicilari();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -83,6 +92,19 @@ namespace WindowsFormsApp4
 
             LoadItemler();
          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        { //9 bakiye onay 10 beklemede bakiye
+            _connection.Open();
+            string kulAdi = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[0].Value.ToString();
+            int beklemedekiBakiye = int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[10].Value.ToString());
+            data.BakiyeEkle(kulAdi, beklemedekiBakiye);
+            OnaylanmamisBakiyeKullanicilari();
+            LoadKullanicilar();
+            _connection.Close();
+
+
         }
     }
 }

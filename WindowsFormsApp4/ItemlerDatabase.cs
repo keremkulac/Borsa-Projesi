@@ -14,10 +14,10 @@ namespace WindowsFormsApp4
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
 
 
-        public DataSet ItemleriCekByItemOnay()
+        public DataSet ItemleriCekByItemOnay(int itemOnay) 
         {
             ConnectionControl();
-            string sorgu = "SELECT* FROM itemler WHERE itemOnay = 1";
+            string sorgu = "SELECT* FROM itemler WHERE itemOnay = '" +itemOnay+"'";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -25,10 +25,23 @@ namespace WindowsFormsApp4
             return ds;
         }
 
-        public DataSet ItemleriCekByItemAdi(string itemAdi)
+        public DataSet ItemComboboxFill(int itemOnay)
         {
             ConnectionControl();
-            string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'", itemAdi);
+            string sorgu = "SELECT DISTINCT ItemAdi FROM itemler WHERE itemOnay = '" + itemOnay + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            _connection.Close();
+            return ds;
+        }
+
+        public DataSet ItemleriCekByItemAdi(string itemAdi, string kulAdi)
+        {
+            ConnectionControl();
+            //string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'  AND itemSahibi != '{1}' ORDERBY ItemFiyat ASC", itemAdi, kulAdi); 
+         
+            string sorgu = String.Format("SELECT* FROM itemler where ItemAdi ='" + itemAdi + "' AND itemSahibi != '" + kulAdi + "'  ORDER BY ItemFiyat ASC", itemAdi,kulAdi);
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);

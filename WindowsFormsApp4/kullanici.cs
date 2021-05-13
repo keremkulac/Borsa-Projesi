@@ -18,10 +18,14 @@ namespace WindowsFormsApp4
          public string eMail { get; set; }
          public string Adres { get; set; }
          public string KullaniciTuru { get; set; }
+         public int mevcutBakiye { get; set; }
+         public int bakiyeOnay { get; set; }
 
         public kullanici()
         {
             kulAdi = "Atanmadi";
+            mevcutBakiye = 0;
+            bakiyeOnay = 0;
             adSoyad = "Atanmadi";
         }
 
