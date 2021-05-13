@@ -49,6 +49,9 @@ namespace WindowsFormsApp4
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
@@ -106,10 +109,11 @@ namespace WindowsFormsApp4
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Sat";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 218);
+            this.button1.Location = new System.Drawing.Point(218, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 28);
             this.button1.TabIndex = 6;
@@ -233,6 +237,7 @@ namespace WindowsFormsApp4
             this.button3.TabIndex = 12;
             this.button3.Text = "Bakiye Yükle";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
@@ -252,12 +257,42 @@ namespace WindowsFormsApp4
             this.label7.TabIndex = 14;
             this.label7.Text = "100";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 19);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Hoşgeldiniz:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(165, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 19);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Onaylanmamış Bakiye:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(317, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 19);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "100";
+            // 
             // UrunAlSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 715);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
@@ -304,5 +339,8 @@ namespace WindowsFormsApp4
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -63,11 +63,11 @@ namespace WindowsFormsApp4
                         {
                             MessageBox.Show("Satıcı girdi");
 
-                            //this.Hide();
-                            ////MenuForm mf = new MenuForm();
-                            ////mf.Show();
+                            this.Hide();
+                            UrunAlSat uas = new UrunAlSat(user);
+                            uas.Show();
                             break;
-                        }
+                         }
 
                     default:
                         {

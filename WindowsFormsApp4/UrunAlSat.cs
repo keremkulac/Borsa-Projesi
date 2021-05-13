@@ -49,7 +49,7 @@ namespace WindowsFormsApp4
                 itemAdi = comboBox1.Text,
                 itemFiyat = int.Parse(textBox1.Text),
                 itemMiktari = int.Parse(textBox2.Text),
-                itemSahibi = "cihan",
+                itemSahibi = isim,
                 itemOnay = 1
             }) ;
             MessageBox.Show("Başarıyla ürün eklendi.");
@@ -67,7 +67,16 @@ namespace WindowsFormsApp4
         {
             string x;
             LoginForm isimAl = new LoginForm();
+            MessageBox.Show("isim "+isim);
+            DataRow dt = data.kullaniciDegerleri(isim);
+            label7.Text = dt["kullaniciBakiye"].ToString();
+            label10.Text = dt["beklemedeBakiye"].ToString();
+
+
         }
+
+     
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -88,6 +97,26 @@ namespace WindowsFormsApp4
             
             Console.WriteLine(comboBox2.Text);
             LoadItemler(comboBox2.Text);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // >> beklemedeOlanBakiye & bakiyeOnay 
+        private void button3_Click(object sender, EventArgs e)
+        {
+        int bakiyeEkle = Convert.ToInt32(Math.Round(bakiyeMiktar.Value, 0));
+   
+          DataRow dt = data.kullaniciDegerleri(isim);
+
+            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
+            int oncekiBakiye = int.Parse(dt["beklemedeBakiye"].ToString()) + bakiyeEkle;
+            label10.Text = oncekiBakiye.ToString();
+        
+          
         }
     }
 }
