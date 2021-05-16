@@ -32,11 +32,14 @@ namespace WindowsFormsApp4
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.satinAlBtn = new System.Windows.Forms.Button();
             this.urunlerDGV = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,9 +54,6 @@ namespace WindowsFormsApp4
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
@@ -63,7 +63,7 @@ namespace WindowsFormsApp4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 57);
+            this.label1.Location = new System.Drawing.Point(31, 68);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 19);
@@ -73,12 +73,12 @@ namespace WindowsFormsApp4
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 117);
+            this.label2.Location = new System.Drawing.Point(31, 105);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 19);
+            this.label2.Size = new System.Drawing.Size(129, 38);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Ürün Fiyatını Giriniz(kg):";
+            this.label2.Text = "Ürünün Kilogram\r\n Fiyatını Giriniz(TL):";
             // 
             // groupBox1
             // 
@@ -98,6 +98,13 @@ namespace WindowsFormsApp4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Sat";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(192, 68);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(148, 26);
+            this.textBox4.TabIndex = 7;
             // 
             // button1
             // 
@@ -120,7 +127,7 @@ namespace WindowsFormsApp4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 175);
+            this.label3.Location = new System.Drawing.Point(31, 175);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 19);
@@ -129,7 +136,7 @@ namespace WindowsFormsApp4
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 114);
+            this.textBox1.Location = new System.Drawing.Point(192, 117);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(148, 26);
@@ -151,6 +158,22 @@ namespace WindowsFormsApp4
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Al";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(133, 69);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(148, 26);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 72);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 19);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Miktar(kg):";
             // 
             // satinAlBtn
             // 
@@ -201,9 +224,24 @@ namespace WindowsFormsApp4
             // bakiyeMiktar
             // 
             this.bakiyeMiktar.Location = new System.Drawing.Point(214, 599);
+            this.bakiyeMiktar.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.bakiyeMiktar.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.bakiyeMiktar.Name = "bakiyeMiktar";
             this.bakiyeMiktar.Size = new System.Drawing.Size(137, 26);
             this.bakiyeMiktar.TabIndex = 10;
+            this.bakiyeMiktar.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
@@ -269,29 +307,6 @@ namespace WindowsFormsApp4
             this.label10.Size = new System.Drawing.Size(33, 19);
             this.label10.TabIndex = 14;
             this.label10.Text = "100";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 72);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 19);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Miktar(kg):";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(133, 69);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 26);
-            this.textBox3.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(192, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 26);
-            this.textBox4.TabIndex = 7;
             // 
             // UrunAlSat
             // 
