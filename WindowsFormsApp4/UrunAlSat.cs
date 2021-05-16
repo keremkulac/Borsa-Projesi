@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+
+
 namespace WindowsFormsApp4
 {
     public partial class UrunAlSat : Form
     {
+
+         
+
         string isim; //giriş yapan kullancıınıurunlern adı 
         
         static VeritabaniSinifi connect = new VeritabaniSinifi();
@@ -112,6 +117,9 @@ namespace WindowsFormsApp4
             LoadItemler(comboBox2.Text);
         }
 
+       
+
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -134,35 +142,78 @@ namespace WindowsFormsApp4
 
         private void satinAlBtn_Click(object sender, EventArgs e)
         {
+            DataRow dt = data.kullaniciDegerleri(isim);
+
+            int bizimBakiyemiz = Convert.ToInt32(dt["kullaniciBakiye"].ToString());
+            
+
             string seciliUrun = comboBox2.Text; // datagried 0 
             int miktarKg = int.Parse(textBox3.Text); // datagried 1 
             int bakiyedenDusulecekFiyat;
             int datagriedSayac = urunlerDGV.RowCount - 1; // - 1 deme sebebimiz en üstteki kullanıcı adı ile başlayan satırı da alıyor. o satırı almaması gerekiyor.
             int sayac = 0;
+          
             int[] urunFiyatlari = new int[datagriedSayac];
             int[] urunMiktarlari = new int[datagriedSayac];
+            string[] saticiKullaniciAdlari = new string[datagriedSayac];
          
-            foreach (DataGridViewRow Datarow in urunlerDGV.Rows) //ürün miktarlarını ve fiyatlarını bir diziye aktardık
+            foreach (DataGridViewRow Datarow in urunlerDGV.Rows) //ürün miktarlarını ve fiyatlarını, sahiplerini bir diziye aktardık
             {
                 if (Datarow.Cells[0].Value != null && Datarow.Cells[1].Value != null)
                 {
                     urunMiktarlari[sayac] = Convert.ToInt32(Datarow.Cells[1].Value.ToString());
                     urunFiyatlari[sayac] = Convert.ToInt32(Datarow.Cells[2].Value.ToString());
-
+                    saticiKullaniciAdlari[sayac] = Datarow.Cells[3].Value.ToString();
+                   
                     sayac++;
+                  
                 }
 
             }
+
+            /* 
+             * 
+             * 
+             * */
+
+            //miktarKg : kullancıının satın almak istediği miktar
+            //kacUrunAlabilirim: bakiyesi ne kadarına yetiyor
+           
             for (int i = 0; i < urunMiktarlari.Length; i++)
             {
-                if (miktarKg<=urunMiktarlari[i])
+
+                    DataRow dtSatici = data.kullaniciDegerleri(saticiKullaniciAdlari[i]);
+                    int kacUrunAlabilirim = bizimBakiyemiz / urunFiyatlari[i];
+                if ()
                 {
-                     bakiyedenDusulecekFiyat = urunMiktarlari[i] * urunFiyatlari[i];
+
+                }
+
+
+                if (kacUrunAlabilirim>=miktarKg)
+                {
+                    int saticiBakiyesi = Convert.ToInt32(dt["kullaniciBakiye"].ToString());
+
+                    bakiyedenDusulecekFiyat = miktarKg * urunFiyatlari[i];
+                    saticiBakiyesi = saticiBakiyesi - bakiyedenDusulecekFiyat;
+                    bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                    urunMiktarlari[i] = urunMiktarlari[i] - miktarKg;
+                    miktarKg = miktarKg - urunMiktarlari[i];
+                    baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                    baglanti.KullaniciBakiyeDegistir(saticiKullaniciAdlari[i], saticiBakiyesi);
+                    MessageBox.Show(saticiKullaniciAdlari[i] + " kullanıcısından " + urunMiktarlari[i] + "kg" + seciliUrun + "satın alındı!");
+                }
+                   
+                   
+                    
+                   
+
 
 
                     // satın alan kişinin parasından miktar*ürün fiyat düşecek
                     // bu değer satın aldığı kişniin bakiyesine eklenecek
-                }
+               
+                
             }
 
 

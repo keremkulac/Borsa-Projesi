@@ -123,7 +123,7 @@ namespace WindowsFormsApp4
             _connection.Open();
 
 
-            string komutString = String.Format("UPDATE kullanicilar SET kullaniciBakiye = (kullaniciBakiye - @yeniBakiye) WHERE kullaniciAdi = @kulAdimiz");
+            string komutString = String.Format("UPDATE kullanicilar SET kullaniciBakiye = @yeniBakiye WHERE kullaniciAdi = @kulAdimiz");
 
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@yeniBakiye", yeniBakiye);
