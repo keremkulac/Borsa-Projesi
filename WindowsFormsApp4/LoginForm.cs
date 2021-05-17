@@ -34,7 +34,6 @@ namespace WindowsFormsApp4
             komut.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                Console.WriteLine(dt.Rows[0]["kullaniciAdi"]);
                 switch (dt.Rows[0]["kullaniciTuru"] as string)
                 {
                     case "admin":

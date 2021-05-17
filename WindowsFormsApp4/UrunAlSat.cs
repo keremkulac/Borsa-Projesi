@@ -51,21 +51,16 @@ namespace WindowsFormsApp4
         }
         private void UrunAlSat_Load(object sender, EventArgs e)
         {
-            string x;
             LoginForm isimAl = new LoginForm();
-            MessageBox.Show("isim " + isim);
             DataRow dt = data.kullaniciDegerleri(isim);
             label7.Text = dt["kullaniciBakiye"].ToString();
             label10.Text = dt["beklemedeBakiye"].ToString();
             OnaylanmisUrunleriComboboxaDoldur();
-
-
         }
 
 
         public void OnaylanmisUrunleriComboboxaDoldur()
         {
-
             DataSet ds = itemlerData.ItemComboboxFill(0); // item onay  0 olanları çekicek
             guna2ComboBox1.DataSource = ds.Tables[0];
             guna2ComboBox1.DisplayMember = "ItemAdi";
@@ -84,7 +79,7 @@ namespace WindowsFormsApp4
             urunlerDGV.DataSource = ds.Tables[0];
         }
         // >> beklemedeOlanBakiye & bakiyeOnay 
-   
+
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -99,13 +94,11 @@ namespace WindowsFormsApp4
                 itemOnay = 1
             });
             MessageBox.Show("Ürün admin onayına gönderildi. Admin onayından sonra borsa pazarında ürününüzü görüntüleyebileceksiniz.");
-            MessageBox.Show(isim);
             _connection.Close();
         }
 
         private void guna2ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            Console.WriteLine(guna2ComboBox1.Text);
             LoadItemler(guna2ComboBox1.Text);
         }
 
@@ -154,7 +147,6 @@ namespace WindowsFormsApp4
                     int urunFiyati = (int)item.GetType().GetProperty("urunFiyati").GetValue(item);
                     int itemId = (int)item.GetType().GetProperty("itemId").GetValue(item);
 
-                    Console.WriteLine(item.GetType().GetProperty("satici").GetValue(item));
 
                     DataRow dtSatici = data.kullaniciDegerleri(satici);
                     int kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
@@ -162,7 +154,6 @@ namespace WindowsFormsApp4
 
 
                     int saticiBakiyesi = Convert.ToInt32(dtSatici["kullaniciBakiye"].ToString());
-                    //MessageBox.Show(String.Format("saticiBakiyesi: {0}, bizimBakiyemiz: {1}", saticiBakiyesi, bizimBakiyemiz));
 
                     if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
                     {
@@ -174,7 +165,7 @@ namespace WindowsFormsApp4
                             saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                             bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
 
-                            MessageBox.Show(satici + " kullanıcısından " + miktarKg + "kg" + seciliUrun + "satın alındı!");
+                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
                             baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                             baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
                             int saticiYeniUrunMiktari = urunMiktari - miktarKg;
@@ -187,7 +178,8 @@ namespace WindowsFormsApp4
                         {
 
                             miktarKg = miktarKg - urunMiktari;
-                            MessageBox.Show(satici + " kullanıcısından " + urunMiktari + "kg" + seciliUrun + "satın alındı!");
+
+                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
                             saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                             bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
                             baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);

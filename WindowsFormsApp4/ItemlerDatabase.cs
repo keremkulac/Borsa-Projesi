@@ -58,7 +58,6 @@ namespace WindowsFormsApp4
 
 
             string komutString = String.Format("UPDATE itemler SET ItemMiktari = @ItemMiktari WHERE itemId = @itemId");
-            Console.WriteLine(String.Format("satici: {0}, urunMiktari: {1}, itemId: {2}", isim, urunMiktari, itemId));
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@ItemMiktari", urunMiktari);
             komut.Parameters.AddWithValue("@itemSahibi", isim);
