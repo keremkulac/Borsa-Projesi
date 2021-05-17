@@ -3,6 +3,9 @@
 ## Borsa projesi nedir?
 > Borsa projesi ürettiği ürünü satmak isteyen (satıcı) ve ürün satın almak isteyen kullanıcıların (alıcı) sisteme kayıt yapıp bu eylemleri gerçekleştirebileceği bir sistemdir.
 
+## Proje nasıl kullanılır?
+> SQL Bağlantı yolunu belirlemek için C Diskine Test.txt dosyasını atmamız gerekli. İçerisinde SQL Bağlantı yolu olmalı.
+
 ### Kullanıcılar aşağıdaki panelden üye olabilirler veya giriş yapabilirler.
 > Login form
 > ![Image 1](https://i.imgur.com/ZKwvPDk.png) <br>
