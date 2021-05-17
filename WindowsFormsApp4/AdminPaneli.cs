@@ -48,7 +48,7 @@ namespace WindowsFormsApp4
         void LoadItemler()
         {
             DataSet ds = itemlerData.ItemleriCekByItemOnay(1); // itemOnay 1 olanları çekicek
-            dataGridView2.DataSource = ds.Tables[0];
+            dataGridView4.DataSource = ds.Tables[0];
         }
 
         
@@ -77,7 +77,7 @@ namespace WindowsFormsApp4
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             _connection.Open();
-            string itemId = dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[5].Value.ToString();
+            string itemId = dataGridView4.Rows[dataGridView4.CurrentRow.Index].Cells[5].Value.ToString();
             string komutString = String.Format("UPDATE itemler SET itemOnay=@itemOnay WHERE itemId = {0}", Int32.Parse(itemId));
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@itemOnay", 0);
@@ -106,6 +106,11 @@ namespace WindowsFormsApp4
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
             _connection.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

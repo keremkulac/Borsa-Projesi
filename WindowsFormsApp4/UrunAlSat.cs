@@ -164,8 +164,9 @@ namespace WindowsFormsApp4
 
                             saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                             bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
-
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                            
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                  
                             baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                             baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
                             int saticiYeniUrunMiktari = urunMiktari - miktarKg;
@@ -177,9 +178,9 @@ namespace WindowsFormsApp4
                         else if (miktarKg > urunMiktari)
                         {
 
-                            miktarKg = miktarKg - urunMiktari;
+                            miktarKg=miktarKg - urunMiktari;
 
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, urunMiktari, seciliUrun), "Satın alım işlemi");
                             saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                             bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
                             baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
@@ -201,17 +202,6 @@ namespace WindowsFormsApp4
                 label7.Text = bizimBakiyemiz.ToString();
             }
 
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            int bakiyeEkle = Convert.ToInt32(Math.Round(guna2NumericUpDown1.Value, 0));
-
-            DataRow dt = data.kullaniciDegerleri(isim);
-
-            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
-            int oncekiBakiye = int.Parse(dt["beklemedeBakiye"].ToString()) + bakiyeEkle;
-            label10.Text = oncekiBakiye.ToString();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -248,6 +238,17 @@ namespace WindowsFormsApp4
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void guna2Button3_Click_1(object sender, EventArgs e)
+        {
+            int bakiyeEkle = Convert.ToInt32(Math.Round(guna2NumericUpDown1.Value, 0));
+
+            DataRow dt = data.kullaniciDegerleri(isim);
+
+            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
+            int oncekiBakiye = int.Parse(dt["beklemedeBakiye"].ToString()) + bakiyeEkle;
+            label10.Text = oncekiBakiye.ToString();
         }
     }
 }

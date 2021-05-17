@@ -23,11 +23,6 @@ namespace WindowsFormsApp4
 
         KullanicilarDatabase data = new KullanicilarDatabase();
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -39,6 +34,7 @@ namespace WindowsFormsApp4
         {
             Application.Exit();
         }
+      
 
         private void label11_Click(object sender, EventArgs e)
         {
@@ -51,9 +47,12 @@ namespace WindowsFormsApp4
                 Tc = int.Parse(guna2TextBox5.Text),
                 telefonNo = int.Parse(guna2TextBox6.Text),
                 Adres = guna2TextBox7.Text,
-                KullaniciTuru = guna2ComboBox1.Text
+                KullaniciTuru = guna2ComboBox1.Text,
+                mevcutBakiye = 0,
+                bakiyeOnay = 0,
+                beklemedeBakiye=0,
 
-            });
+            }) ;
 
             MessageBox.Show("Sayın " + guna2TextBox1.Text + " Başarıyla üye oldunuz!");
             MessageBox.Show("Giriş ekranına yönlendiriliyorsunuz...");
