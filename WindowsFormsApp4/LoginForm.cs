@@ -22,13 +22,11 @@ namespace WindowsFormsApp4
         
             InitializeComponent();
         }
-    
-
-        private void button2_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            
-             user = textBox1.Text;
-            string pass = textBox2.Text;
+
+            user = guna2TextBox1.Text;
+            string pass = guna2TextBox2.Text;
             _connection.Open();
             ///  SqlCommand _sqlCommand = new SqlCommand("Select * From GirisBilgileri", _connection);
             SqlDataAdapter komut = new SqlDataAdapter("select * from kullanicilar where kullaniciAdi = '" + user + "' and sifre='" + pass + "'", _connection);
@@ -42,9 +40,9 @@ namespace WindowsFormsApp4
                     case "admin":
                         {
                             MessageBox.Show("Admin girdi");
-                           this.Hide();
+                            this.Hide();
                             AdminPaneli adminForm = new AdminPaneli();
-                            adminForm.Show();     
+                            adminForm.Show();
                             break;
                         }
 
@@ -52,7 +50,7 @@ namespace WindowsFormsApp4
                         {
 
                             MessageBox.Show("Alıcı girdi");
-                           
+
                             this.Hide();
                             UrunAlSat uas = new UrunAlSat(user);
                             uas.Show();
@@ -67,7 +65,7 @@ namespace WindowsFormsApp4
                             UrunAlSat uas = new UrunAlSat(user);
                             uas.Show();
                             break;
-                         }
+                        }
 
                     default:
                         {
@@ -82,15 +80,16 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             UyeOl form1 = new UyeOl();
             form1.Show();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
+    
 }

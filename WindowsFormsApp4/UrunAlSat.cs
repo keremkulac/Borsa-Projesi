@@ -15,16 +15,12 @@ namespace WindowsFormsApp4
 {
     public partial class UrunAlSat : Form
     {
-
-
-
         string isim; // giriş yapan kullanıcının adı
 
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         KullanicilarDatabase baglanti = new KullanicilarDatabase();
         ItemlerDatabase itemlerData = new ItemlerDatabase();
-
         public UrunAlSat(string _user)
         {
             InitializeComponent();
@@ -45,23 +41,7 @@ namespace WindowsFormsApp4
 
             _connection.Close();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ConnectionControl();
 
-            UrunEkle(new Item()
-            {
-                itemAdi = textBox4.Text,
-                itemFiyat = int.Parse(textBox1.Text),
-                itemMiktari = int.Parse(textBox2.Text),
-                itemSahibi = isim,
-                itemOnay = 1
-            });
-            MessageBox.Show("Ürün admin onayına gönderildi. Admin onayından sonra borsa pazarında ürününüzü görüntüleyebileceksiniz.");
-            MessageBox.Show(isim);
-            _connection.Close();
-
-        }
         public void ConnectionControl()
         {
             if (_connection.State == ConnectionState.Closed)
@@ -87,8 +67,8 @@ namespace WindowsFormsApp4
         {
 
             DataSet ds = itemlerData.ItemComboboxFill(0); // item onay  0 olanları çekicek
-            comboBox2.DataSource = ds.Tables[0];
-            comboBox2.DisplayMember = "ItemAdi";
+            guna2ComboBox1.DataSource = ds.Tables[0];
+            guna2ComboBox1.DisplayMember = "ItemAdi";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -102,44 +82,38 @@ namespace WindowsFormsApp4
         {
             DataSet ds = itemlerData.ItemleriCekByItemAdi(itemAdi, isim);
             urunlerDGV.DataSource = ds.Tables[0];
-
         }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine(comboBox2.Text);
-            LoadItemler(comboBox2.Text);
-        }
-
-
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
         // >> beklemedeOlanBakiye & bakiyeOnay 
-        private void button3_Click(object sender, EventArgs e)
+   
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            int bakiyeEkle = Convert.ToInt32(Math.Round(bakiyeMiktar.Value, 0));
+            ConnectionControl();
 
-            DataRow dt = data.kullaniciDegerleri(isim);
-
-            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
-            int oncekiBakiye = int.Parse(dt["beklemedeBakiye"].ToString()) + bakiyeEkle;
-            label10.Text = oncekiBakiye.ToString();
-
-
+            UrunEkle(new Item()
+            {
+                itemAdi = guna2TextBox1.Text,
+                itemFiyat = int.Parse(guna2TextBox2.Text),
+                itemMiktari = int.Parse(guna2TextBox3.Text),
+                itemSahibi = isim,
+                itemOnay = 1
+            });
+            MessageBox.Show("Ürün admin onayına gönderildi. Admin onayından sonra borsa pazarında ürününüzü görüntüleyebileceksiniz.");
+            MessageBox.Show(isim);
+            _connection.Close();
         }
 
-        private void satinAlBtn_Click(object sender, EventArgs e)
+        private void guna2ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            Console.WriteLine(guna2ComboBox1.Text);
+            LoadItemler(guna2ComboBox1.Text);
+        }
 
-            int miktarKg = int.Parse(textBox3.Text); // datagrid 1 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            int miktarKg = int.Parse(guna2TextBox4.Text); // datagrid 1 
 
-            if (miktarKg <= 0 || string.IsNullOrWhiteSpace(comboBox2.Text))
+            if (miktarKg <= 0 || string.IsNullOrWhiteSpace(guna2ComboBox1.Text))
             {
                 MessageBox.Show("Lütfen miktar için pozitif bir değer giriniz ve satın alacağınız ürünü seçiniz");
             }
@@ -151,7 +125,7 @@ namespace WindowsFormsApp4
                 int bizimBakiyemiz = Convert.ToInt32(dt["kullaniciBakiye"].ToString());
 
 
-                string seciliUrun = comboBox2.Text; // datagrid 0 
+                string seciliUrun = guna2ComboBox1.Text; // datagrid 0 
                 int bakiyedenDusulecekFiyat;
                 int datagridSayac = urunlerDGV.RowCount - 1; // - 1 deme sebebimiz en üstteki kullanıcı adı ile başlayan satırı da alıyor. o satırı almaması gerekiyor.
                 List<object> urunler = new List<object>();
@@ -205,7 +179,7 @@ namespace WindowsFormsApp4
                             baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
                             int saticiYeniUrunMiktari = urunMiktari - miktarKg;
                             itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
-                            LoadItemler(comboBox2.Text);
+                            LoadItemler(guna2ComboBox1.Text);
                             miktarKg = miktarKg - urunMiktari;
                             break;
                         }
@@ -221,7 +195,7 @@ namespace WindowsFormsApp4
                             // O ürünün tamamı satın alındı
                             urunMiktari = 0;
                             itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
-                            LoadItemler(comboBox2.Text);
+                            LoadItemler(guna2ComboBox1.Text);
                         }
                     }
                     else
@@ -235,7 +209,53 @@ namespace WindowsFormsApp4
                 label7.Text = bizimBakiyemiz.ToString();
             }
 
-            //Console.WriteLine(urunler);
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            int bakiyeEkle = Convert.ToInt32(Math.Round(guna2NumericUpDown1.Value, 0));
+
+            DataRow dt = data.kullaniciDegerleri(isim);
+
+            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
+            int oncekiBakiye = int.Parse(dt["beklemedeBakiye"].ToString()) + bakiyeEkle;
+            label10.Text = oncekiBakiye.ToString();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }

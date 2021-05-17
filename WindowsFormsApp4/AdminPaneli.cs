@@ -18,7 +18,12 @@ namespace WindowsFormsApp4
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         string secilmisItem = null;
-
+        public void LoginFormDon()
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
         public AdminPaneli()
         {
             InitializeComponent();
@@ -55,15 +60,6 @@ namespace WindowsFormsApp4
             OnaylanmamisBakiyeKullanicilari();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
@@ -71,31 +67,38 @@ namespace WindowsFormsApp4
             {
                 secilmisItem = row.Cells[0].Value.ToString();
                 //...
+ 
             }
         }
 
-        private void onaylaBtn_Click(object sender, EventArgs e)
+
+     
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             _connection.Open();
             string itemId = dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[5].Value.ToString();
-
             string komutString = String.Format("UPDATE itemler SET itemOnay=@itemOnay WHERE itemId = {0}", Int32.Parse(itemId));
-
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@itemOnay", 0);
             //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
             komut.ExecuteNonQuery();
-
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
             MessageBox.Show("Item onay bilgisi Güncellendi.");
 
             LoadItemler();
-         
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        { //9 bakiye onay 10 beklemede bakiye
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
             _connection.Open();
             string kulAdi = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[0].Value.ToString();
             int beklemedekiBakiye = int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[10].Value.ToString());
@@ -103,15 +106,6 @@ namespace WindowsFormsApp4
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
             _connection.Close();
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            this.Hide();
-            loginForm.Show();
         }
     }
 }

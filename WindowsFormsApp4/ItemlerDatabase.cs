@@ -46,6 +46,7 @@ namespace WindowsFormsApp4
             DataSet ds = new DataSet();
             da.Fill(ds);
             _connection.Close();
+
             return ds;
         }
 
