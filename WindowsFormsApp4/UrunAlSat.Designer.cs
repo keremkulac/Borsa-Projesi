@@ -106,7 +106,6 @@ namespace WindowsFormsApp4
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tabPage3.Controls.Add(this.guna2GroupBox1);
             this.tabPage3.Controls.Add(this.pictureBox5);
             this.tabPage3.Controls.Add(this.pictureBox6);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
@@ -643,7 +642,6 @@ namespace WindowsFormsApp4
             this.btnCiktiAl.Size = new System.Drawing.Size(180, 45);
             this.btnCiktiAl.TabIndex = 2;
             this.btnCiktiAl.Text = "Çıktı Al";
-            this.btnCiktiAl.Click += new System.EventHandler(this.btnCiktiAl_Click);
             // 
             // pictureBox7
             // 

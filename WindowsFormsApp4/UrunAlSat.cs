@@ -233,7 +233,7 @@ namespace WindowsFormsApp4
                     {
                         // veritabanina kaydet ve admin her item onayi verdiginde kontrol et
                         MessageBox.Show("item bulunamadi");
-                        
+
                     }
                     else
                     {
@@ -257,44 +257,45 @@ namespace WindowsFormsApp4
                             {
 
 
-                            saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
-                            bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
 
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
-                            baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
-                            baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
-                            int saticiYeniUrunMiktari = urunMiktari - miktarKg;
-                            itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
-                            LoadItemler(guna2ComboBox1.Text);
-                            miktarKg = miktarKg - urunMiktari;
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                int saticiYeniUrunMiktari = urunMiktari - miktarKg;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                                miktarKg = miktarKg - urunMiktari;
+                                break;
+                            }
+                            else if (miktarKg > urunMiktari)
+                            {
+
+                                miktarKg = miktarKg - urunMiktari;
+
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                // O ürünün tamamı satın alındı
+                                urunMiktari = 0;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bakiyeniz yetersiz");
                             break;
                         }
-                        else if (miktarKg > urunMiktari)
-                        {
 
-                            miktarKg = miktarKg - urunMiktari;
 
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
-                            saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
-                            bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
-                            baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
-                            baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
-                            // O ürünün tamamı satın alındı
-                            urunMiktari = 0;
-                            itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
-                            LoadItemler(guna2ComboBox1.Text);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Bakiyeniz yetersiz");
-                        break;
                     }
 
-
+                    label7.Text = bizimBakiyemiz.ToString();
                 }
-
-                label7.Text = bizimBakiyemiz.ToString();
             }
         }
 
