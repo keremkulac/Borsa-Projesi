@@ -43,7 +43,7 @@ namespace WindowsFormsApp4
 
             ConnectionControl();
             SqlCommand command = new SqlCommand(
-                "Insert into kullanicilar values(@kullaniciAdi,@AdSoyad,@sifre,@TcNo,@telefon,@email,@adres,@kullaniciTuru, @kullaniciBakiye, @bakiyeOnay)", _connection);
+                "Insert into kullanicilar values(@kullaniciAdi,@AdSoyad,@sifre,@TcNo,@telefon,@email,@adres,@kullaniciTuru, @kullaniciBakiye, @bakiyeOnay,@beklemedeBakiye)", _connection);
 
             command.Parameters.AddWithValue("@kullaniciAdi", kullaniciObjesi.kulAdi);
             command.Parameters.AddWithValue("@AdSoyad", kullaniciObjesi.adSoyad);
@@ -55,7 +55,7 @@ namespace WindowsFormsApp4
             command.Parameters.AddWithValue("@kullaniciTuru", kullaniciObjesi.KullaniciTuru);
             command.Parameters.AddWithValue("@kullaniciBakiye", kullaniciObjesi.mevcutBakiye);
             command.Parameters.AddWithValue("@bakiyeOnay", kullaniciObjesi.bakiyeOnay);
-
+            command.Parameters.AddWithValue("@beklemedeBakiye", kullaniciObjesi.beklemedeBakiye);
             command.ExecuteNonQuery();
 
             _connection.Close();

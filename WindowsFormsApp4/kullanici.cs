@@ -20,6 +20,7 @@ namespace WindowsFormsApp4
          public string KullaniciTuru { get; set; }
          public int mevcutBakiye { get; set; }
          public int bakiyeOnay { get; set; }
+        public int beklemedeBakiye { get; set; }
 
         public kullanici()
         {
