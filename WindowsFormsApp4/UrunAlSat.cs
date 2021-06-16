@@ -102,105 +102,202 @@ namespace WindowsFormsApp4
             LoadItemler(guna2ComboBox1.Text);
         }
 
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             int miktarKg = int.Parse(guna2TextBox4.Text); // datagrid 1 
 
-            if (miktarKg <= 0 || string.IsNullOrWhiteSpace(guna2ComboBox1.Text))
+            DataRow dt = data.kullaniciDegerleri(isim);
+
+            int bizimBakiyemiz = Convert.ToInt32(dt["kullaniciBakiye"].ToString());
+
+
+            string seciliUrun = guna2ComboBox1.Text; // datagrid 0 
+            int bakiyedenDusulecekFiyat;
+            int datagridSayac = urunlerDGV.RowCount - 1; // - 1 deme sebebimiz en üstteki kullanıcı adı ile başlayan satırı da alıyor. o satırı almaması gerekiyor.
+            List<object> urunler = new List<object>();
+
+            foreach (DataGridViewRow Datarow in urunlerDGV.Rows) // ürün miktarlarını ve fiyatlarını, sahiplerini bir diziye aktardık
             {
-                MessageBox.Show("Lütfen miktar için pozitif bir değer giriniz ve satın alacağınız ürünü seçiniz");
+                if (Datarow.Cells[0].Value != null && Datarow.Cells[1].Value != null)
+                {
+                    var obj = new
+                    {
+                        urunAdi = Datarow.Cells[0].Value.ToString(),
+                        urunMiktari = Convert.ToInt32(Datarow.Cells[1].Value.ToString()),
+                        urunFiyati = Convert.ToInt32(Datarow.Cells[2].Value.ToString()),
+                        satici = Datarow.Cells[3].Value.ToString(),
+                        itemId = Convert.ToInt32(Datarow.Cells[5].Value.ToString())
+                    };
+
+                    urunler.Add(obj);
+                }
+
+            }
+
+            if (string.IsNullOrWhiteSpace(fiyatTextBox.Text))
+            {
+                if (miktarKg <= 0 || string.IsNullOrWhiteSpace(guna2ComboBox1.Text))
+                {
+                    MessageBox.Show("Lütfen miktar için pozitif bir değer giriniz ve satın alacağınız ürünü seçiniz");
+                }
+                else
+                {
+
+                    foreach (object item in urunler)
+                    {
+                        int itemId = (int)item.GetType().GetProperty("itemId").GetValue(item);
+                        string satici = (string)item.GetType().GetProperty("satici").GetValue(item);
+                        int urunFiyati = (int)item.GetType().GetProperty("urunFiyati").GetValue(item);
+                        int urunMiktari = (int)item.GetType().GetProperty("urunMiktari").GetValue(item);
+                        string itemAdi = (string)item.GetType().GetProperty("urunAdi").GetValue(item);
+
+                        DataRow dtSatici = data.kullaniciDegerleri(satici);
+                        int kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
+                        bakiyedenDusulecekFiyat = miktarKg * urunFiyati;
+
+                        int saticiBakiyesi = Convert.ToInt32(dtSatici["kullaniciBakiye"].ToString());
+
+                        if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
+                        {
+
+                            if (miktarKg <= urunMiktari)
+                            {
+
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                int saticiYeniUrunMiktari = urunMiktari - miktarKg;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                                miktarKg = miktarKg - urunMiktari;
+
+                                string alimTarihi = DateTime.UtcNow.ToString("dd-MM-yyyy");
+
+                                itemlerData.ItemKaydiEkle(itemAdi, itemId, satici, urunFiyati, urunMiktari, alimTarihi, isim);
+                                // alicinin odeyecegi tutara %1 ekleyip bunu alicidan kes ve muhasebeciye ekle
+                                break;
+                            }
+                            else if (miktarKg > urunMiktari)
+                            {
+
+                                miktarKg = miktarKg - urunMiktari;
+
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                // O ürünün tamamı satın alındı
+                                urunMiktari = 0;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bakiyeniz yetersiz");
+                            break;
+                        }
+
+                    }
+
+                    label7.Text = bizimBakiyemiz.ToString();
+                }
             }
             else
             {
 
-                DataRow dt = data.kullaniciDegerleri(isim);
+                int istenilenFiyat;
+                object bulunanItem;
 
-                int bizimBakiyemiz = Convert.ToInt32(dt["kullaniciBakiye"].ToString());
+                istenilenFiyat = int.Parse(fiyatTextBox.Text);
+                bulunanItem = urunler.Find(urun => (int)urun.GetType().GetProperty("urunFiyati").GetValue(urun) == istenilenFiyat);
 
-
-                string seciliUrun = guna2ComboBox1.Text; // datagrid 0 
-                int bakiyedenDusulecekFiyat;
-                int datagridSayac = urunlerDGV.RowCount - 1; // - 1 deme sebebimiz en üstteki kullanıcı adı ile başlayan satırı da alıyor. o satırı almaması gerekiyor.
-                List<object> urunler = new List<object>();
-
-                foreach (DataGridViewRow Datarow in urunlerDGV.Rows) // ürün miktarlarını ve fiyatlarını, sahiplerini bir diziye aktardık
-                {
-                    if (Datarow.Cells[0].Value != null && Datarow.Cells[1].Value != null)
-                    {
-                        var obj = new
-                        {
-                            urunMiktari = Convert.ToInt32(Datarow.Cells[1].Value.ToString()),
-                            urunFiyati = Convert.ToInt32(Datarow.Cells[2].Value.ToString()),
-                            satici = Datarow.Cells[3].Value.ToString(),
-                            itemId = Convert.ToInt32(Datarow.Cells[5].Value.ToString())
-                        };
-
-                        urunler.Add(obj);
-                    }
-
-                }
 
                 foreach (object item in urunler)
                 {
-                    string satici = (string)item.GetType().GetProperty("satici").GetValue(item);
-                    int urunMiktari = (int)item.GetType().GetProperty("urunMiktari").GetValue(item);
-                    int urunFiyati = (int)item.GetType().GetProperty("urunFiyati").GetValue(item);
-                    int itemId = (int)item.GetType().GetProperty("itemId").GetValue(item);
+                    string satici;
+                    int urunMiktari;
+                    int urunFiyati;
+                    int itemId;
 
-
-                    DataRow dtSatici = data.kullaniciDegerleri(satici);
-                    int kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
-                    bakiyedenDusulecekFiyat = miktarKg * urunFiyati;
-
-
-                    int saticiBakiyesi = Convert.ToInt32(dtSatici["kullaniciBakiye"].ToString());
-
-                    if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
+                    if (bulunanItem == null)
                     {
-
-                        if (miktarKg <= urunMiktari)
-                        {
-
-
-                            saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
-                            bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
-
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
-                            baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
-                            baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
-                            int saticiYeniUrunMiktari = urunMiktari - miktarKg;
-                            itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
-                            LoadItemler(guna2ComboBox1.Text);
-                            miktarKg = miktarKg - urunMiktari;
-                            break;
-                        }
-                        else if (miktarKg > urunMiktari)
-                        {
-
-                            miktarKg = miktarKg - urunMiktari;
-
-                            MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
-                            saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
-                            bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
-                            baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
-                            baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
-                            // O ürünün tamamı satın alındı
-                            urunMiktari = 0;
-                            itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
-                            LoadItemler(guna2ComboBox1.Text);
-                        }
+                        // veritabanina kaydet ve admin her item onayi verdiginde kontrol et
+                        MessageBox.Show("item bulunamadi");
+                        
                     }
                     else
                     {
-                        MessageBox.Show("Bakiyeniz yetersiz");
-                        break;
+                        itemId = (int)bulunanItem.GetType().GetProperty("itemId").GetValue(bulunanItem);
+                        satici = (string)bulunanItem.GetType().GetProperty("satici").GetValue(bulunanItem);
+                        urunFiyati = (int)bulunanItem.GetType().GetProperty("urunFiyati").GetValue(bulunanItem);
+                        urunMiktari = (int)bulunanItem.GetType().GetProperty("urunMiktari").GetValue(bulunanItem);
+
+
+
+                        DataRow dtSatici = data.kullaniciDegerleri(satici);
+                        int kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
+                        bakiyedenDusulecekFiyat = miktarKg * urunFiyati;
+
+                        int saticiBakiyesi = Convert.ToInt32(dtSatici["kullaniciBakiye"].ToString());
+
+                        if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
+                        {
+
+                            if (miktarKg <= urunMiktari)
+                            {
+
+
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                int saticiYeniUrunMiktari = urunMiktari - miktarKg;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                                miktarKg = miktarKg - urunMiktari;
+
+                                break;
+                            }
+                            else if (miktarKg > urunMiktari)
+                            {
+
+                                miktarKg = miktarKg - urunMiktari;
+
+                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, miktarKg, seciliUrun), "Satın alım işlemi");
+                                saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
+                                baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                // O ürünün tamamı satın alındı
+                                urunMiktari = 0;
+                                itemlerData.ItemlerUrunMiktariGuncelle(satici, urunMiktari, itemId);
+                                LoadItemler(guna2ComboBox1.Text);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bakiyeniz yetersiz");
+                            break;
+                        }
                     }
+
 
                 }
 
                 label7.Text = bizimBakiyemiz.ToString();
             }
-
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -248,6 +345,34 @@ namespace WindowsFormsApp4
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void btnCiktiAl_Click(object sender, EventArgs e)
+        {
+
+            string raporBaslangic = raporTarihBaslangic.Text;
+            string raporBitis = raporTarihBitis.Text;
+            Rapor rapor = new Rapor(raporBaslangic, raporBitis);
+
+            string raporTuru = comboRaporTuru.Text;
+            switch (raporTuru)
+            {
+                case "XSLX":
+                    rapor.ExcelCiktisiAl();
+                    break;
+                case "CSV":
+                    rapor.CSVCiktisiAl();
+                    break;
+                case "PDF":
+                    rapor.PDFCiktisiAl();
+                    break;
+                case "DAT":
+                    rapor.DATCiktisiAl();
+                    break;
+
+            }
+           
+
         }
     }
 }

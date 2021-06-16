@@ -56,6 +56,7 @@
       <DependentUpon>AdminPaneli.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemlerDatabase.cs" />
+    <Compile Include="Rapor.cs" />
     <Compile Include="UrunAlSat.cs">
       <SubType>Form</SubType>
     </Compile>

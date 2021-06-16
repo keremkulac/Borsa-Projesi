@@ -31,10 +31,9 @@ namespace WindowsFormsApp4
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunAlSat));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -52,12 +51,13 @@ namespace WindowsFormsApp4
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.fiyatTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.urunlerDGV = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -70,6 +70,14 @@ namespace WindowsFormsApp4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.raporTarihBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.raporTarihBitis = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnCiktiAl = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.comboRaporTuru = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.urunlerDGV = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -78,12 +86,15 @@ namespace WindowsFormsApp4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -251,10 +262,10 @@ namespace WindowsFormsApp4
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tabPage2.Controls.Add(this.urunlerDGV);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.pictureBox4);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.urunlerDGV);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -286,6 +297,8 @@ namespace WindowsFormsApp4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.fiyatTextBox);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.guna2Button2);
             this.groupBox2.Controls.Add(this.guna2TextBox4);
             this.groupBox2.Controls.Add(this.guna2ComboBox1);
@@ -301,6 +314,46 @@ namespace WindowsFormsApp4
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Al";
+            // 
+            // fiyatTextBox
+            // 
+            this.fiyatTextBox.AutoRoundedCorners = true;
+            this.fiyatTextBox.BorderRadius = 17;
+            this.fiyatTextBox.BorderThickness = 0;
+            this.fiyatTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fiyatTextBox.DefaultText = "";
+            this.fiyatTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.fiyatTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.fiyatTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fiyatTextBox.DisabledState.Parent = this.fiyatTextBox;
+            this.fiyatTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fiyatTextBox.FillColor = System.Drawing.Color.Silver;
+            this.fiyatTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fiyatTextBox.FocusedState.Parent = this.fiyatTextBox;
+            this.fiyatTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.fiyatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fiyatTextBox.HoverState.Parent = this.fiyatTextBox;
+            this.fiyatTextBox.Location = new System.Drawing.Point(497, 26);
+            this.fiyatTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fiyatTextBox.Name = "fiyatTextBox";
+            this.fiyatTextBox.PasswordChar = '\0';
+            this.fiyatTextBox.PlaceholderText = "";
+            this.fiyatTextBox.SelectedText = "";
+            this.fiyatTextBox.ShadowDecoration.Parent = this.fiyatTextBox;
+            this.fiyatTextBox.Size = new System.Drawing.Size(189, 36);
+            this.fiyatTextBox.TabIndex = 10;
+            this.fiyatTextBox.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.ForeColor = System.Drawing.Color.Aqua;
+            this.label8.Location = new System.Drawing.Point(338, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(152, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Fiyat (İsteğe bağlı):";
             // 
             // guna2Button2
             // 
@@ -395,45 +448,6 @@ namespace WindowsFormsApp4
             this.label4.Size = new System.Drawing.Size(110, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ürün Seçiniz:";
-            // 
-            // urunlerDGV
-            // 
-            this.urunlerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.urunlerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.urunlerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.urunlerDGV.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.urunlerDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.urunlerDGV.Location = new System.Drawing.Point(8, 205);
-            this.urunlerDGV.Name = "urunlerDGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.urunlerDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.urunlerDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Aqua;
-            this.urunlerDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.urunlerDGV.Size = new System.Drawing.Size(753, 159);
-            this.urunlerDGV.TabIndex = 2;
             // 
             // tabPage1
             // 
@@ -638,12 +652,175 @@ namespace WindowsFormsApp4
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(862, 425);
             this.tabControl1.TabIndex = 16;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.comboRaporTuru);
+            this.tabPage4.Controls.Add(this.pictureBox7);
+            this.tabPage4.Controls.Add(this.pictureBox8);
+            this.tabPage4.Controls.Add(this.btnCiktiAl);
+            this.tabPage4.Controls.Add(this.raporTarihBitis);
+            this.tabPage4.Controls.Add(this.raporTarihBaslangic);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(854, 393);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Rapor";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // raporTarihBaslangic
+            // 
+            this.raporTarihBaslangic.CheckedState.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.raporTarihBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.raporTarihBaslangic.HoverState.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Location = new System.Drawing.Point(179, 101);
+            this.raporTarihBaslangic.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.raporTarihBaslangic.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.raporTarihBaslangic.Name = "raporTarihBaslangic";
+            this.raporTarihBaslangic.ShadowDecoration.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Size = new System.Drawing.Size(200, 36);
+            this.raporTarihBaslangic.TabIndex = 0;
+            this.raporTarihBaslangic.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
+            // 
+            // raporTarihBitis
+            // 
+            this.raporTarihBitis.CheckedState.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.raporTarihBitis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.raporTarihBitis.HoverState.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Location = new System.Drawing.Point(441, 101);
+            this.raporTarihBitis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.raporTarihBitis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.raporTarihBitis.Name = "raporTarihBitis";
+            this.raporTarihBitis.ShadowDecoration.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Size = new System.Drawing.Size(200, 36);
+            this.raporTarihBitis.TabIndex = 1;
+            this.raporTarihBitis.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
+            // 
+            // btnCiktiAl
+            // 
+            this.btnCiktiAl.CheckedState.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.CustomImages.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCiktiAl.ForeColor = System.Drawing.Color.White;
+            this.btnCiktiAl.HoverState.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Location = new System.Drawing.Point(315, 253);
+            this.btnCiktiAl.Name = "btnCiktiAl";
+            this.btnCiktiAl.ShadowDecoration.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Size = new System.Drawing.Size(180, 45);
+            this.btnCiktiAl.TabIndex = 2;
+            this.btnCiktiAl.Text = "Çıktı Al";
+            this.btnCiktiAl.Click += new System.EventHandler(this.btnCiktiAl_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(822, 6);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(786, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 29);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 28;
+            this.pictureBox8.TabStop = false;
+            // 
+            // comboRaporTuru
+            // 
+            this.comboRaporTuru.BackColor = System.Drawing.Color.Transparent;
+            this.comboRaporTuru.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboRaporTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboRaporTuru.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboRaporTuru.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboRaporTuru.FocusedState.Parent = this.comboRaporTuru;
+            this.comboRaporTuru.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboRaporTuru.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboRaporTuru.HoverState.Parent = this.comboRaporTuru;
+            this.comboRaporTuru.ItemHeight = 30;
+            this.comboRaporTuru.Items.AddRange(new object[] {
+            "CSV",
+            "XLSX",
+            "DAT",
+            "PDF"});
+            this.comboRaporTuru.ItemsAppearance.Parent = this.comboRaporTuru;
+            this.comboRaporTuru.Location = new System.Drawing.Point(336, 174);
+            this.comboRaporTuru.Name = "comboRaporTuru";
+            this.comboRaporTuru.ShadowDecoration.Parent = this.comboRaporTuru;
+            this.comboRaporTuru.Size = new System.Drawing.Size(140, 36);
+            this.comboRaporTuru.TabIndex = 30;
+            // 
+            // urunlerDGV
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.urunlerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.urunlerDGV.BackgroundColor = System.Drawing.Color.White;
+            this.urunlerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.urunlerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.urunlerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.urunlerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.urunlerDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            this.urunlerDGV.EnableHeadersVisualStyles = false;
+            this.urunlerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.Location = new System.Drawing.Point(8, 215);
+            this.urunlerDGV.Name = "urunlerDGV";
+            this.urunlerDGV.RowHeadersVisible = false;
+            this.urunlerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.urunlerDGV.Size = new System.Drawing.Size(753, 150);
+            this.urunlerDGV.TabIndex = 26;
+            this.urunlerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.Height = 4;
+            this.urunlerDGV.ThemeStyle.ReadOnly = false;
+            this.urunlerDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.urunlerDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.urunlerDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.urunlerDGV.ThemeStyle.RowsStyle.Height = 22;
+            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // UrunAlSat
             // 
@@ -671,7 +848,6 @@ namespace WindowsFormsApp4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -679,6 +855,11 @@ namespace WindowsFormsApp4
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -697,7 +878,6 @@ namespace WindowsFormsApp4
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView urunlerDGV;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
@@ -719,5 +899,15 @@ namespace WindowsFormsApp4
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private Guna.UI2.WinForms.Guna2TextBox fiyatTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tabPage4;
+        private Guna.UI2.WinForms.Guna2DateTimePicker raporTarihBaslangic;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private Guna.UI2.WinForms.Guna2Button btnCiktiAl;
+        private Guna.UI2.WinForms.Guna2DateTimePicker raporTarihBitis;
+        private Guna.UI2.WinForms.Guna2ComboBox comboRaporTuru;
+        private Guna.UI2.WinForms.Guna2DataGridView urunlerDGV;
     }
 }
