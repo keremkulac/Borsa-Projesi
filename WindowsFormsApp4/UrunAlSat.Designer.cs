@@ -31,9 +31,9 @@ namespace WindowsFormsApp4
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunAlSat));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -45,6 +45,7 @@ namespace WindowsFormsApp4
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.urunlerDGV = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -68,17 +69,17 @@ namespace WindowsFormsApp4
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.raporTarihBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.raporTarihBitis = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.btnCiktiAl = new Guna.UI2.WinForms.Guna2Button();
+            this.comboRaporTuru = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.comboRaporTuru = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.urunlerDGV = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnCiktiAl = new Guna.UI2.WinForms.Guna2Button();
+            this.raporTarihBitis = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.raporTarihBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -90,7 +91,6 @@ namespace WindowsFormsApp4
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -191,6 +191,63 @@ namespace WindowsFormsApp4
             this.tabPage2.Size = new System.Drawing.Size(854, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ürün Al";
+            // 
+            // urunlerDGV
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.urunlerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.urunlerDGV.BackgroundColor = System.Drawing.Color.White;
+            this.urunlerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.urunlerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.urunlerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.urunlerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.urunlerDGV.ColumnHeadersHeight = 4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.urunlerDGV.DefaultCellStyle = dataGridViewCellStyle3;
+            this.urunlerDGV.EnableHeadersVisualStyles = false;
+            this.urunlerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.Location = new System.Drawing.Point(8, 215);
+            this.urunlerDGV.Name = "urunlerDGV";
+            this.urunlerDGV.RowHeadersVisible = false;
+            this.urunlerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.urunlerDGV.Size = new System.Drawing.Size(753, 150);
+            this.urunlerDGV.TabIndex = 26;
+            this.urunlerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.urunlerDGV.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.urunlerDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.urunlerDGV.ThemeStyle.HeaderStyle.Height = 4;
+            this.urunlerDGV.ThemeStyle.ReadOnly = false;
+            this.urunlerDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.urunlerDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.urunlerDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.urunlerDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.urunlerDGV.ThemeStyle.RowsStyle.Height = 22;
+            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // pictureBox1
             // 
@@ -368,7 +425,6 @@ namespace WindowsFormsApp4
             this.label4.Size = new System.Drawing.Size(110, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ürün Seçiniz:";
-            // 
             // 
             // tabPage1
             // 
@@ -583,6 +639,7 @@ namespace WindowsFormsApp4
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(862, 425);
             this.tabControl1.TabIndex = 16;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.comboRaporTuru);
@@ -598,70 +655,6 @@ namespace WindowsFormsApp4
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rapor";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // raporTarihBaslangic
-            // 
-            this.raporTarihBaslangic.CheckedState.Parent = this.raporTarihBaslangic;
-            this.raporTarihBaslangic.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.raporTarihBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.raporTarihBaslangic.HoverState.Parent = this.raporTarihBaslangic;
-            this.raporTarihBaslangic.Location = new System.Drawing.Point(179, 101);
-            this.raporTarihBaslangic.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.raporTarihBaslangic.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.raporTarihBaslangic.Name = "raporTarihBaslangic";
-            this.raporTarihBaslangic.ShadowDecoration.Parent = this.raporTarihBaslangic;
-            this.raporTarihBaslangic.Size = new System.Drawing.Size(200, 36);
-            this.raporTarihBaslangic.TabIndex = 0;
-            this.raporTarihBaslangic.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
-            // 
-            // raporTarihBitis
-            // 
-            this.raporTarihBitis.CheckedState.Parent = this.raporTarihBitis;
-            this.raporTarihBitis.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.raporTarihBitis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.raporTarihBitis.HoverState.Parent = this.raporTarihBitis;
-            this.raporTarihBitis.Location = new System.Drawing.Point(441, 101);
-            this.raporTarihBitis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.raporTarihBitis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.raporTarihBitis.Name = "raporTarihBitis";
-            this.raporTarihBitis.ShadowDecoration.Parent = this.raporTarihBitis;
-            this.raporTarihBitis.Size = new System.Drawing.Size(200, 36);
-            this.raporTarihBitis.TabIndex = 1;
-            this.raporTarihBitis.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
-            // 
-            // btnCiktiAl
-            // 
-            this.btnCiktiAl.CheckedState.Parent = this.btnCiktiAl;
-            this.btnCiktiAl.CustomImages.Parent = this.btnCiktiAl;
-            this.btnCiktiAl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCiktiAl.ForeColor = System.Drawing.Color.White;
-            this.btnCiktiAl.HoverState.Parent = this.btnCiktiAl;
-            this.btnCiktiAl.Location = new System.Drawing.Point(315, 253);
-            this.btnCiktiAl.Name = "btnCiktiAl";
-            this.btnCiktiAl.ShadowDecoration.Parent = this.btnCiktiAl;
-            this.btnCiktiAl.Size = new System.Drawing.Size(180, 45);
-            this.btnCiktiAl.TabIndex = 2;
-            this.btnCiktiAl.Text = "Çıktı Al";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(822, 6);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox7.TabIndex = 29;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(786, 2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 28;
-            this.pictureBox8.TabStop = false;
             // 
             // comboRaporTuru
             // 
@@ -687,63 +680,70 @@ namespace WindowsFormsApp4
             this.comboRaporTuru.Size = new System.Drawing.Size(140, 36);
             this.comboRaporTuru.TabIndex = 30;
             // 
-            // urunlerDGV
+            // pictureBox7
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.urunlerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.urunlerDGV.BackgroundColor = System.Drawing.Color.White;
-            this.urunlerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.urunlerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.urunlerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.urunlerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.urunlerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.urunlerDGV.DefaultCellStyle = dataGridViewCellStyle6;
-            this.urunlerDGV.EnableHeadersVisualStyles = false;
-            this.urunlerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.Location = new System.Drawing.Point(8, 215);
-            this.urunlerDGV.Name = "urunlerDGV";
-            this.urunlerDGV.RowHeadersVisible = false;
-            this.urunlerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.urunlerDGV.Size = new System.Drawing.Size(753, 150);
-            this.urunlerDGV.TabIndex = 26;
-            this.urunlerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.Height = 4;
-            this.urunlerDGV.ThemeStyle.ReadOnly = false;
-            this.urunlerDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.urunlerDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.urunlerDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.urunlerDGV.ThemeStyle.RowsStyle.Height = 22;
-            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(822, 6);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.TabStop = false;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(786, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 29);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 28;
+            this.pictureBox8.TabStop = false;
+            // 
+            // btnCiktiAl
+            // 
+            this.btnCiktiAl.CheckedState.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.CustomImages.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCiktiAl.ForeColor = System.Drawing.Color.White;
+            this.btnCiktiAl.HoverState.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Location = new System.Drawing.Point(315, 253);
+            this.btnCiktiAl.Name = "btnCiktiAl";
+            this.btnCiktiAl.ShadowDecoration.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.Size = new System.Drawing.Size(180, 45);
+            this.btnCiktiAl.TabIndex = 2;
+            this.btnCiktiAl.Text = "Çıktı Al";
+            this.btnCiktiAl.Click += new System.EventHandler(this.btnCiktiAl_Click);
+            // 
+            // raporTarihBitis
+            // 
+            this.raporTarihBitis.CheckedState.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.raporTarihBitis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.raporTarihBitis.HoverState.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Location = new System.Drawing.Point(441, 101);
+            this.raporTarihBitis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.raporTarihBitis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.raporTarihBitis.Name = "raporTarihBitis";
+            this.raporTarihBitis.ShadowDecoration.Parent = this.raporTarihBitis;
+            this.raporTarihBitis.Size = new System.Drawing.Size(200, 36);
+            this.raporTarihBitis.TabIndex = 1;
+            this.raporTarihBitis.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
+            // 
+            // raporTarihBaslangic
+            // 
+            this.raporTarihBaslangic.CheckedState.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.raporTarihBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.raporTarihBaslangic.HoverState.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Location = new System.Drawing.Point(179, 101);
+            this.raporTarihBaslangic.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.raporTarihBaslangic.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.raporTarihBaslangic.Name = "raporTarihBaslangic";
+            this.raporTarihBaslangic.ShadowDecoration.Parent = this.raporTarihBaslangic;
+            this.raporTarihBaslangic.Size = new System.Drawing.Size(200, 36);
+            this.raporTarihBaslangic.TabIndex = 0;
+            this.raporTarihBaslangic.Value = new System.DateTime(2021, 6, 16, 21, 47, 25, 989);
             // 
             // UrunAlSat
             // 
@@ -766,6 +766,7 @@ namespace WindowsFormsApp4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -776,12 +777,11 @@ namespace WindowsFormsApp4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

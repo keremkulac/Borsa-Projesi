@@ -334,5 +334,31 @@ namespace WindowsFormsApp4
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void btnCiktiAl_Click(object sender, EventArgs e)
+        {
+
+            string raporBaslangic = raporTarihBaslangic.Text;
+            string raporBitis = raporTarihBitis.Text;
+
+            Rapor rapor = new Rapor(raporBaslangic, raporBitis);
+
+            switch (comboRaporTuru.Text)
+            {
+                case "CSV":
+                    rapor.CSVCiktisiAl();
+                    break;
+                case "XLSX":
+                    rapor.ExcelCiktisiAl();
+                    break;
+                case "DAT":
+                    rapor.DATCiktisiAl();
+                    break;
+                case "PDF":
+                    rapor.PDFCiktisiAl();
+                    break;
+            }
+
+        }
     }
 }
