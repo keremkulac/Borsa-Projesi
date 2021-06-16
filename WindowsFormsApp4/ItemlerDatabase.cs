@@ -71,6 +71,29 @@ namespace WindowsFormsApp4
 
         }
 
+
+        public void ItemKaydiEkle(string itemAdi, int itemId, string satici, int urunFiyati, int urunMiktari, string alimTarihi, string alici)
+        {
+
+
+            ConnectionControl();
+            SqlCommand command = new SqlCommand(
+                "Insert into kayitlar values(@ItemAdi,@itemSahibi,@ItemFiyat,@ItemMiktari,@itemId,@alimTarihi,@itemAlici)", _connection);
+
+            command.Parameters.AddWithValue("@ItemAdi", itemAdi);
+            command.Parameters.AddWithValue("@itemSahibi", satici);
+            command.Parameters.AddWithValue("@ItemFiyat", urunFiyati);
+            command.Parameters.AddWithValue("@ItemMiktari", urunMiktari);
+            command.Parameters.AddWithValue("@itemId", itemId);
+            command.Parameters.AddWithValue("@alimTarihi", alimTarihi);
+            command.Parameters.AddWithValue("@itemAlici", alici);
+
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+
+        }
+
         public void ConnectionControl()
         {
             if (_connection.State == ConnectionState.Closed)
