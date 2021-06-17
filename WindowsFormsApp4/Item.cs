@@ -8,11 +8,11 @@ namespace WindowsFormsApp4
 {
     class Item
     {
-        public string itemAdi { get; set; }
-        public int itemMiktari { get; set; }
-        public int itemFiyat { get; set; }
-        public string itemSahibi { get; set; }
-        public int itemOnay { get; set; }
+        public string ItemAdi { get; set; }
+        public int ItemMiktari { get; set; }
+        public int ItemFiyat { get; set; }
+        public string ItemSahibi { get; set; }
+        public int ItemOnay { get; set; }
 
     }
 }

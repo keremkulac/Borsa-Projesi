@@ -23,52 +23,49 @@ namespace WindowsFormsApp4
 
         KullanicilarDatabase data = new KullanicilarDatabase();
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void btnGeri_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm girisEkrani = new LoginForm();
             girisEkrani.Show();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-      
 
-        private void label11_Click(object sender, EventArgs e)
+        private void lblKayitOl_Click(object sender, EventArgs e)
         {
-            data.KullaniciEkle(new kullanici()
+            data.KullaniciEkle(new Kullanici()
             {
-                kulAdi = guna2TextBox1.Text,
-                sifre = guna2TextBox2.Text,
-                adSoyad = guna2TextBox3.Text,
-                eMail = guna2TextBox4.Text,
-                Tc = int.Parse(guna2TextBox5.Text),
-                telefonNo = int.Parse(guna2TextBox6.Text),
-                Adres = guna2TextBox7.Text,
-                KullaniciTuru = guna2ComboBox1.Text,
-                mevcutBakiye = 0,
-                bakiyeOnay = 0,
-                beklemedeBakiye=0,
+                KulAdi = txtKullaniciAdi.Text,
+                Sifre = txtSifre.Text,
+                AdSoyad = txtAdSoyad.Text,
+                Email = txtEmail.Text,
+                Tc = Convert.ToInt64(txtTcNo.Text),
+                TelefonNo = Convert.ToInt64(txtTelNo.Text),
+                Adres = txtAdres.Text,
+                KullaniciTuru = cmbKullaniciTuru.Text,
+                MevcutBakiye = 0,
+                BakiyeOnay = 0,
+                BeklemedeBakiye = 0,
+            });
 
-            }) ;
-
-            MessageBox.Show("Sayın " + guna2TextBox1.Text + " Başarıyla üye oldunuz!");
+            MessageBox.Show("Sayın " + txtKullaniciAdi.Text + " Başarıyla üye oldunuz!");
             MessageBox.Show("Giriş ekranına yönlendiriliyorsunuz...");
             this.Hide();
             LoginForm girisEkrani = new LoginForm();
             girisEkrani.Show();
         }
 
-        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        private void btnGeri_MouseHover(object sender, EventArgs e)
         {
             this.Opacity = 5;
         }
 
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        private void btnGeri_MouseLeave(object sender, EventArgs e)
         {
-
             if (!this.ClientRectangle.Contains(this.PointToClient(Cursor.Position)))
             {
                 this.Opacity = 0.5;

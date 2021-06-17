@@ -14,7 +14,6 @@ namespace WindowsFormsApp4
     public partial class AdminPaneli : Form
     {
 
-
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         string secilmisItem = null;
@@ -31,27 +30,23 @@ namespace WindowsFormsApp4
         KullanicilarDatabase data = new KullanicilarDatabase();
         ItemlerDatabase itemlerData = new ItemlerDatabase();
 
-
         void LoadKullanicilar()
         {
             DataSet ds = data.KullanicilariCek();
-            dataGridView1.DataSource = ds.Tables[0];
-
+            dgvMevcutUye.DataSource = ds.Tables[0];
         }
 
         void OnaylanmamisBakiyeKullanicilari()
         {
             DataSet ds = data.BakiyeleriOnaylanmamisKullanicilar();
-            dataGridView3.DataSource = ds.Tables[0];
+            dgvBeklemedeBakiye.DataSource = ds.Tables[0];
         }
 
         void LoadItemler()
         {
             DataSet ds = itemlerData.ItemleriCekByItemOnay(1); // itemOnay 1 olanları çekicek
-            dataGridView4.DataSource = ds.Tables[0];
+            dgvUrunOnay.DataSource = ds.Tables[0];
         }
-
-        
 
         private void AdminPaneli_Load(object sender, EventArgs e)
         {
@@ -61,54 +56,50 @@ namespace WindowsFormsApp4
         }
 
 
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-            {
-                secilmisItem = row.Cells[0].Value.ToString();
-                //...
- 
-            }
-        }
+        //private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+        //    {
+        //        secilmisItem = row.Cells[0].Value.ToString();
+        //        //...
 
+        //    }
+        //}
 
-     
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnUrunOnay_Click(object sender, EventArgs e)
         {
             _connection.Open();
-            string itemId = dataGridView4.Rows[dataGridView4.CurrentRow.Index].Cells[5].Value.ToString();
-            string komutString = String.Format("UPDATE itemler SET itemOnay=@itemOnay WHERE itemId = {0}", Int32.Parse(itemId));
+            string itemId = dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[5].Value.ToString();
+            string komutString = String.Format("UPDATE Itemler SET ItemOnay=@ItemOnay WHERE ItemID = {0}", Int32.Parse(itemId));
             SqlCommand komut = new SqlCommand(komutString, _connection);
-            komut.Parameters.AddWithValue("@itemOnay", 0);
+            komut.Parameters.AddWithValue("@ItemOnay", 0);
             //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
             komut.ExecuteNonQuery();
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
             MessageBox.Show("Item onay bilgisi Güncellendi.");
-
             LoadItemler();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void btnGeri_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btnBeklemedeBakiyeOnay_Click(object sender, EventArgs e)
         {
             _connection.Open();
-            string kulAdi = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[0].Value.ToString();
-            int beklemedekiBakiye = int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[10].Value.ToString());
+            string kulAdi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[0].Value.ToString();
+            int beklemedekiBakiye = int.Parse(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[10].Value.ToString());
             data.BakiyeEkle(kulAdi, beklemedekiBakiye);
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
             _connection.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

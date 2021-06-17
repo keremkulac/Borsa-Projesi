@@ -32,15 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGirisYap = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txtKullaniciAdi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSifre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblUyeOl = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnCikisYap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,95 +67,96 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Şifreniz";
             // 
-            // guna2Button1
+            // btnGirisYap
             // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BorderRadius = 21;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Aqua;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(110, 428);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(190, 45);
-            this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Giriş Yap";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnGirisYap.AutoRoundedCorners = true;
+            this.btnGirisYap.BorderRadius = 21;
+            this.btnGirisYap.CheckedState.Parent = this.btnGirisYap;
+            this.btnGirisYap.CustomImages.Parent = this.btnGirisYap;
+            this.btnGirisYap.DisabledState.Parent = this.btnGirisYap;
+            this.btnGirisYap.FillColor = System.Drawing.Color.Aqua;
+            this.btnGirisYap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGirisYap.ForeColor = System.Drawing.Color.Black;
+            this.btnGirisYap.HoverState.Parent = this.btnGirisYap;
+            this.btnGirisYap.Location = new System.Drawing.Point(110, 428);
+            this.btnGirisYap.Name = "btnGirisYap";
+            this.btnGirisYap.ShadowDecoration.Parent = this.btnGirisYap;
+            this.btnGirisYap.Size = new System.Drawing.Size(190, 45);
+            this.btnGirisYap.TabIndex = 2;
+            this.btnGirisYap.Text = "Giriş Yap";
+            this.btnGirisYap.Click += new System.EventHandler(this.btnGirisYap_Click);
             // 
-            // guna2TextBox1
+            // txtKullaniciAdi
             // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Silver;
-            this.guna2TextBox1.BorderRadius = 19;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(65, 280);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(270, 40);
-            this.guna2TextBox1.TabIndex = 0;
-            this.guna2TextBox1.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtKullaniciAdi.AutoRoundedCorners = true;
+            this.txtKullaniciAdi.BorderColor = System.Drawing.Color.Silver;
+            this.txtKullaniciAdi.BorderRadius = 19;
+            this.txtKullaniciAdi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtKullaniciAdi.DefaultText = "";
+            this.txtKullaniciAdi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtKullaniciAdi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtKullaniciAdi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtKullaniciAdi.DisabledState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtKullaniciAdi.FillColor = System.Drawing.Color.Silver;
+            this.txtKullaniciAdi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtKullaniciAdi.FocusedState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtKullaniciAdi.ForeColor = System.Drawing.Color.Black;
+            this.txtKullaniciAdi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtKullaniciAdi.HoverState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(65, 280);
+            this.txtKullaniciAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKullaniciAdi.Name = "txtKullaniciAdi";
+            this.txtKullaniciAdi.PasswordChar = '\0';
+            this.txtKullaniciAdi.PlaceholderText = "";
+            this.txtKullaniciAdi.SelectedText = "";
+            this.txtKullaniciAdi.ShadowDecoration.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Size = new System.Drawing.Size(270, 40);
+            this.txtKullaniciAdi.TabIndex = 0;
+            this.txtKullaniciAdi.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox2
+            // txtSifre
             // 
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.Silver;
-            this.guna2TextBox2.BorderRadius = 19;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(65, 360);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(270, 40);
-            this.guna2TextBox2.TabIndex = 2;
-            this.guna2TextBox2.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtSifre.AutoRoundedCorners = true;
+            this.txtSifre.BorderColor = System.Drawing.Color.Silver;
+            this.txtSifre.BorderRadius = 19;
+            this.txtSifre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSifre.DefaultText = "";
+            this.txtSifre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSifre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSifre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSifre.DisabledState.Parent = this.txtSifre;
+            this.txtSifre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSifre.FillColor = System.Drawing.Color.Silver;
+            this.txtSifre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSifre.FocusedState.Parent = this.txtSifre;
+            this.txtSifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtSifre.ForeColor = System.Drawing.Color.Black;
+            this.txtSifre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSifre.HoverState.Parent = this.txtSifre;
+            this.txtSifre.Location = new System.Drawing.Point(65, 360);
+            this.txtSifre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSifre.Name = "txtSifre";
+            this.txtSifre.PasswordChar = '\0';
+            this.txtSifre.PlaceholderText = "";
+            this.txtSifre.SelectedText = "";
+            this.txtSifre.ShadowDecoration.Parent = this.txtSifre;
+            this.txtSifre.Size = new System.Drawing.Size(270, 40);
+            this.txtSifre.TabIndex = 2;
+            this.txtSifre.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // linkLabel1
+            // lblUyeOl
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Silver;
-            this.linkLabel1.Location = new System.Drawing.Point(173, 491);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(53, 19);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Üye Ol";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lblUyeOl.AutoSize = true;
+            this.lblUyeOl.LinkColor = System.Drawing.Color.Silver;
+            this.lblUyeOl.Location = new System.Drawing.Point(173, 491);
+            this.lblUyeOl.Name = "lblUyeOl";
+            this.lblUyeOl.Size = new System.Drawing.Size(53, 19);
+            this.lblUyeOl.TabIndex = 3;
+            this.lblUyeOl.TabStop = true;
+            this.lblUyeOl.Text = "Üye Ol";
+            this.lblUyeOl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUyeOl_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -167,16 +168,16 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // btnCikisYap
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(364, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.btnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("btnCikisYap.Image")));
+            this.btnCikisYap.Location = new System.Drawing.Point(364, 12);
+            this.btnCikisYap.Name = "btnCikisYap";
+            this.btnCikisYap.Size = new System.Drawing.Size(24, 24);
+            this.btnCikisYap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnCikisYap.TabIndex = 9;
+            this.btnCikisYap.TabStop = false;
+            this.btnCikisYap.Click += new System.EventHandler(this.btnCikisYap_Click);
             // 
             // LoginForm
             // 
@@ -184,12 +185,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(400, 552);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnCikisYap);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.guna2TextBox2);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.lblUyeOl);
+            this.Controls.Add(this.txtSifre);
+            this.Controls.Add(this.txtKullaniciAdi);
+            this.Controls.Add(this.btnGirisYap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -198,7 +199,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,12 +208,12 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnGirisYap;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtKullaniciAdi;
+        private Guna.UI2.WinForms.Guna2TextBox txtSifre;
+        private System.Windows.Forms.LinkLabel lblUyeOl;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox btnCikisYap;
     }
 }

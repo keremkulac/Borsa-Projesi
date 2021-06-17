@@ -13,28 +13,26 @@ namespace WindowsFormsApp4
 {
     public partial class LoginForm : Form
     {
-        
+
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         public string user;
         public LoginForm()
         {
-        
             InitializeComponent();
         }
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnGirisYap_Click(object sender, EventArgs e)
         {
-
-            user = guna2TextBox1.Text;
-            string pass = guna2TextBox2.Text;
+            user = txtKullaniciAdi.Text;
+            string pass = txtSifre.Text;
             _connection.Open();
             ///  SqlCommand _sqlCommand = new SqlCommand("Select * From GirisBilgileri", _connection);
-            SqlDataAdapter komut = new SqlDataAdapter("select * from kullanicilar where kullaniciAdi = '" + user + "' and sifre='" + pass + "'", _connection);
+            SqlDataAdapter komut = new SqlDataAdapter("select * from Kullanicilar where KullaniciAdi = '" + user + "' and sifre='" + pass + "'", _connection);
             DataTable dt = new System.Data.DataTable();
             komut.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                switch (dt.Rows[0]["kullaniciTuru"] as string)
+                switch (dt.Rows[0]["KullaniciTuru"] as string)
                 {
                     case "admin":
                         {
@@ -47,9 +45,7 @@ namespace WindowsFormsApp4
 
                     case "Alıcı":
                         {
-
                             MessageBox.Show("Alıcı girdi");
-
                             this.Hide();
                             UrunAlSat uas = new UrunAlSat(user);
                             uas.Show();
@@ -59,7 +55,6 @@ namespace WindowsFormsApp4
                     case "Satıcı":
                         {
                             MessageBox.Show("Satıcı girdi");
-
                             this.Hide();
                             UrunAlSat uas = new UrunAlSat(user);
                             uas.Show();
@@ -75,20 +70,19 @@ namespace WindowsFormsApp4
             }
             else
                 MessageBox.Show("Kullanıcı adı ya da şifre yanlış");
-
             _connection.Close();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblUyeOl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             UyeOl form1 = new UyeOl();
             form1.Show();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void btnCikisYap_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
     }
-    
+
 }

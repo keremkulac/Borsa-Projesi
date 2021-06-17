@@ -29,41 +29,42 @@ namespace WindowsFormsApp4
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunAlSat));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunAlSat));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
-        //    this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnBakiyeYukle = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBakiyeMiktar = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.urunlerDGV = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.dgvUrunler = new Guna.UI2.WinForms.Guna2DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.fiyatTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUrunAlFiyat = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnUrunAl = new Guna.UI2.WinForms.Guna2Button();
+            this.txtUrunAlMiktar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbUrunSecimi = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnCikisYap = new System.Windows.Forms.PictureBox();
+            this.btnGeri = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnUrunSat = new Guna.UI2.WinForms.Guna2Button();
+            this.txtUrunSatMiktar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUrunSatFiyat = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUrunAd = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,16 +77,14 @@ namespace WindowsFormsApp4
             this.raporTarihBitis = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.raporTarihBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBakiyeMiktar)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -106,35 +105,134 @@ namespace WindowsFormsApp4
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tabPage3.Controls.Add(this.pictureBox5);
-            this.tabPage3.Controls.Add(this.pictureBox6);
+            this.tabPage3.Controls.Add(this.guna2GroupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(854, 393);
+            this.tabPage3.Size = new System.Drawing.Size(842, 402);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bakiye Yükle";
             // 
-            // pictureBox5
+            // guna2GroupBox1
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(822, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 27;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
+            this.guna2GroupBox1.Controls.Add(this.btnBakiyeYukle);
+            this.guna2GroupBox1.Controls.Add(this.txtBakiyeMiktar);
+            this.guna2GroupBox1.Controls.Add(this.label6);
+            this.guna2GroupBox1.Controls.Add(this.label12);
+            this.guna2GroupBox1.Controls.Add(this.label13);
+            this.guna2GroupBox1.Controls.Add(this.label14);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Aqua;
+            this.guna2GroupBox1.Location = new System.Drawing.Point(8, 23);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(607, 257);
+            this.guna2GroupBox1.TabIndex = 29;
+            this.guna2GroupBox1.Text = "Bakiye Yükle";
             // 
-            // pictureBox6
+            // btnBakiyeYukle
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(786, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 26;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.btnBakiyeYukle.AutoRoundedCorners = true;
+            this.btnBakiyeYukle.BorderRadius = 19;
+            this.btnBakiyeYukle.CheckedState.Parent = this.btnBakiyeYukle;
+            this.btnBakiyeYukle.CustomImages.Parent = this.btnBakiyeYukle;
+            this.btnBakiyeYukle.DisabledState.Parent = this.btnBakiyeYukle;
+            this.btnBakiyeYukle.FillColor = System.Drawing.Color.Aqua;
+            this.btnBakiyeYukle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.btnBakiyeYukle.ForeColor = System.Drawing.Color.Black;
+            this.btnBakiyeYukle.HoverState.Parent = this.btnBakiyeYukle;
+            this.btnBakiyeYukle.Location = new System.Drawing.Point(25, 134);
+            this.btnBakiyeYukle.Name = "btnBakiyeYukle";
+            this.btnBakiyeYukle.ShadowDecoration.Parent = this.btnBakiyeYukle;
+            this.btnBakiyeYukle.Size = new System.Drawing.Size(125, 40);
+            this.btnBakiyeYukle.TabIndex = 19;
+            this.btnBakiyeYukle.Text = "Onayla";
+            this.btnBakiyeYukle.Click += new System.EventHandler(this.btnBakiyeYukle_Click);
+            // 
+            // txtBakiyeMiktar
+            // 
+            this.txtBakiyeMiktar.AutoRoundedCorners = true;
+            this.txtBakiyeMiktar.BackColor = System.Drawing.Color.Transparent;
+            this.txtBakiyeMiktar.BorderColor = System.Drawing.Color.White;
+            this.txtBakiyeMiktar.BorderRadius = 22;
+            this.txtBakiyeMiktar.BorderThickness = 0;
+            this.txtBakiyeMiktar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBakiyeMiktar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBakiyeMiktar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBakiyeMiktar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBakiyeMiktar.DisabledState.Parent = this.txtBakiyeMiktar;
+            this.txtBakiyeMiktar.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.txtBakiyeMiktar.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.txtBakiyeMiktar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBakiyeMiktar.FocusedState.Parent = this.txtBakiyeMiktar;
+            this.txtBakiyeMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.txtBakiyeMiktar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.txtBakiyeMiktar.Location = new System.Drawing.Point(25, 65);
+            this.txtBakiyeMiktar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBakiyeMiktar.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBakiyeMiktar.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBakiyeMiktar.Name = "txtBakiyeMiktar";
+            this.txtBakiyeMiktar.ShadowDecoration.Parent = this.txtBakiyeMiktar;
+            this.txtBakiyeMiktar.Size = new System.Drawing.Size(170, 46);
+            this.txtBakiyeMiktar.TabIndex = 18;
+            this.txtBakiyeMiktar.UpDownButtonFillColor = System.Drawing.Color.Aqua;
+            this.txtBakiyeMiktar.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.Aqua;
+            this.label6.Location = new System.Drawing.Point(335, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Bakiyem:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.ForeColor = System.Drawing.Color.Aqua;
+            this.label12.Location = new System.Drawing.Point(553, 129);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 20);
+            this.label12.TabIndex = 14;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.ForeColor = System.Drawing.Color.Aqua;
+            this.label13.Location = new System.Drawing.Point(451, 65);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 20);
+            this.label13.TabIndex = 14;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.ForeColor = System.Drawing.Color.Aqua;
+            this.label14.Location = new System.Drawing.Point(316, 134);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(180, 20);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Onaylanmamış Bakiye:";
             // 
             // label10
             // 
@@ -181,26 +279,24 @@ namespace WindowsFormsApp4
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tabPage2.Controls.Add(this.urunlerDGV);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.pictureBox4);
+            this.tabPage2.Controls.Add(this.dgvUrunler);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(854, 393);
+            this.tabPage2.Size = new System.Drawing.Size(842, 402);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ürün Al";
             // 
-            // urunlerDGV
+            // dgvUrunler
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.urunlerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.urunlerDGV.BackgroundColor = System.Drawing.Color.White;
-            this.urunlerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.urunlerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.urunlerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUrunler.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUrunler.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUrunler.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUrunler.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -208,8 +304,8 @@ namespace WindowsFormsApp4
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.urunlerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.urunlerDGV.ColumnHeadersHeight = 4;
+            this.dgvUrunler.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUrunler.ColumnHeadersHeight = 4;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -217,67 +313,44 @@ namespace WindowsFormsApp4
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.urunlerDGV.DefaultCellStyle = dataGridViewCellStyle3;
-            this.urunlerDGV.EnableHeadersVisualStyles = false;
-            this.urunlerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.Location = new System.Drawing.Point(8, 215);
-            this.urunlerDGV.Name = "urunlerDGV";
-            this.urunlerDGV.RowHeadersVisible = false;
-            this.urunlerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.urunlerDGV.Size = new System.Drawing.Size(753, 150);
-            this.urunlerDGV.TabIndex = 26;
-            this.urunlerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.urunlerDGV.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.urunlerDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.urunlerDGV.ThemeStyle.HeaderStyle.Height = 4;
-            this.urunlerDGV.ThemeStyle.ReadOnly = false;
-            this.urunlerDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.urunlerDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.urunlerDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.urunlerDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.urunlerDGV.ThemeStyle.RowsStyle.Height = 22;
-            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.urunlerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(821, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(785, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.dgvUrunler.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUrunler.EnableHeadersVisualStyles = false;
+            this.dgvUrunler.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUrunler.Location = new System.Drawing.Point(8, 215);
+            this.dgvUrunler.Name = "dgvUrunler";
+            this.dgvUrunler.RowHeadersVisible = false;
+            this.dgvUrunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUrunler.Size = new System.Drawing.Size(753, 150);
+            this.dgvUrunler.TabIndex = 26;
+            this.dgvUrunler.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUrunler.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvUrunler.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvUrunler.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvUrunler.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvUrunler.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUrunler.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUrunler.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvUrunler.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUrunler.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvUrunler.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvUrunler.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvUrunler.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvUrunler.ThemeStyle.ReadOnly = false;
+            this.dgvUrunler.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUrunler.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUrunler.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvUrunler.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvUrunler.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvUrunler.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUrunler.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.fiyatTextBox);
+            this.groupBox2.Controls.Add(this.txtUrunAlFiyat);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.guna2Button2);
-            this.groupBox2.Controls.Add(this.guna2TextBox4);
-            this.groupBox2.Controls.Add(this.guna2ComboBox1);
+            this.groupBox2.Controls.Add(this.btnUrunAl);
+            this.groupBox2.Controls.Add(this.txtUrunAlMiktar);
+            this.groupBox2.Controls.Add(this.cmbUrunSecimi);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -291,34 +364,34 @@ namespace WindowsFormsApp4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Al";
             // 
-            // fiyatTextBox
+            // txtUrunAlFiyat
             // 
-            this.fiyatTextBox.AutoRoundedCorners = true;
-            this.fiyatTextBox.BorderRadius = 17;
-            this.fiyatTextBox.BorderThickness = 0;
-            this.fiyatTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fiyatTextBox.DefaultText = "";
-            this.fiyatTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.fiyatTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.fiyatTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fiyatTextBox.DisabledState.Parent = this.fiyatTextBox;
-            this.fiyatTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fiyatTextBox.FillColor = System.Drawing.Color.Silver;
-            this.fiyatTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fiyatTextBox.FocusedState.Parent = this.fiyatTextBox;
-            this.fiyatTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.fiyatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fiyatTextBox.HoverState.Parent = this.fiyatTextBox;
-            this.fiyatTextBox.Location = new System.Drawing.Point(497, 26);
-            this.fiyatTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.fiyatTextBox.Name = "fiyatTextBox";
-            this.fiyatTextBox.PasswordChar = '\0';
-            this.fiyatTextBox.PlaceholderText = "";
-            this.fiyatTextBox.SelectedText = "";
-            this.fiyatTextBox.ShadowDecoration.Parent = this.fiyatTextBox;
-            this.fiyatTextBox.Size = new System.Drawing.Size(189, 36);
-            this.fiyatTextBox.TabIndex = 10;
-            this.fiyatTextBox.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtUrunAlFiyat.AutoRoundedCorners = true;
+            this.txtUrunAlFiyat.BorderRadius = 17;
+            this.txtUrunAlFiyat.BorderThickness = 0;
+            this.txtUrunAlFiyat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrunAlFiyat.DefaultText = "";
+            this.txtUrunAlFiyat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUrunAlFiyat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUrunAlFiyat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAlFiyat.DisabledState.Parent = this.txtUrunAlFiyat;
+            this.txtUrunAlFiyat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAlFiyat.FillColor = System.Drawing.Color.Silver;
+            this.txtUrunAlFiyat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAlFiyat.FocusedState.Parent = this.txtUrunAlFiyat;
+            this.txtUrunAlFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.txtUrunAlFiyat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAlFiyat.HoverState.Parent = this.txtUrunAlFiyat;
+            this.txtUrunAlFiyat.Location = new System.Drawing.Point(497, 26);
+            this.txtUrunAlFiyat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunAlFiyat.Name = "txtUrunAlFiyat";
+            this.txtUrunAlFiyat.PasswordChar = '\0';
+            this.txtUrunAlFiyat.PlaceholderText = "";
+            this.txtUrunAlFiyat.SelectedText = "";
+            this.txtUrunAlFiyat.ShadowDecoration.Parent = this.txtUrunAlFiyat;
+            this.txtUrunAlFiyat.Size = new System.Drawing.Size(189, 36);
+            this.txtUrunAlFiyat.TabIndex = 10;
+            this.txtUrunAlFiyat.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // label8
             // 
@@ -331,78 +404,79 @@ namespace WindowsFormsApp4
             this.label8.TabIndex = 9;
             this.label8.Text = "Fiyat (İsteğe bağlı):";
             // 
-            // guna2Button2
+            // btnUrunAl
             // 
-            this.guna2Button2.AutoRoundedCorners = true;
-            this.guna2Button2.BorderRadius = 19;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Aqua;
-            this.guna2Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(128, 114);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(125, 40);
-            this.guna2Button2.TabIndex = 8;
-            this.guna2Button2.Text = "Onayla";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnUrunAl.AutoRoundedCorners = true;
+            this.btnUrunAl.BorderRadius = 19;
+            this.btnUrunAl.CheckedState.Parent = this.btnUrunAl;
+            this.btnUrunAl.CustomImages.Parent = this.btnUrunAl;
+            this.btnUrunAl.DisabledState.Parent = this.btnUrunAl;
+            this.btnUrunAl.FillColor = System.Drawing.Color.Aqua;
+            this.btnUrunAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.btnUrunAl.ForeColor = System.Drawing.Color.Black;
+            this.btnUrunAl.HoverState.Parent = this.btnUrunAl;
+            this.btnUrunAl.Location = new System.Drawing.Point(128, 114);
+            this.btnUrunAl.Name = "btnUrunAl";
+            this.btnUrunAl.ShadowDecoration.Parent = this.btnUrunAl;
+            this.btnUrunAl.Size = new System.Drawing.Size(125, 40);
+            this.btnUrunAl.TabIndex = 8;
+            this.btnUrunAl.Text = "Onayla";
+            this.btnUrunAl.Click += new System.EventHandler(this.btnUrunAl_Click);
             // 
-            // guna2TextBox4
+            // txtUrunAlMiktar
             // 
-            this.guna2TextBox4.AutoRoundedCorners = true;
-            this.guna2TextBox4.BorderRadius = 17;
-            this.guna2TextBox4.BorderThickness = 0;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(128, 68);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(189, 36);
-            this.guna2TextBox4.TabIndex = 7;
-            this.guna2TextBox4.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtUrunAlMiktar.AutoRoundedCorners = true;
+            this.txtUrunAlMiktar.BorderRadius = 17;
+            this.txtUrunAlMiktar.BorderThickness = 0;
+            this.txtUrunAlMiktar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrunAlMiktar.DefaultText = "";
+            this.txtUrunAlMiktar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUrunAlMiktar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUrunAlMiktar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAlMiktar.DisabledState.Parent = this.txtUrunAlMiktar;
+            this.txtUrunAlMiktar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAlMiktar.FillColor = System.Drawing.Color.Silver;
+            this.txtUrunAlMiktar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAlMiktar.FocusedState.Parent = this.txtUrunAlMiktar;
+            this.txtUrunAlMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.txtUrunAlMiktar.ForeColor = System.Drawing.Color.Black;
+            this.txtUrunAlMiktar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAlMiktar.HoverState.Parent = this.txtUrunAlMiktar;
+            this.txtUrunAlMiktar.Location = new System.Drawing.Point(128, 68);
+            this.txtUrunAlMiktar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunAlMiktar.Name = "txtUrunAlMiktar";
+            this.txtUrunAlMiktar.PasswordChar = '\0';
+            this.txtUrunAlMiktar.PlaceholderText = "";
+            this.txtUrunAlMiktar.SelectedText = "";
+            this.txtUrunAlMiktar.ShadowDecoration.Parent = this.txtUrunAlMiktar;
+            this.txtUrunAlMiktar.Size = new System.Drawing.Size(189, 36);
+            this.txtUrunAlMiktar.TabIndex = 7;
+            this.txtUrunAlMiktar.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2ComboBox1
+            // cmbUrunSecimi
             // 
-            this.guna2ComboBox1.AutoRoundedCorners = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.BorderThickness = 0;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(128, 26);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(189, 36);
-            this.guna2ComboBox1.TabIndex = 6;
-            this.guna2ComboBox1.TextOffset = new System.Drawing.Point(10, 0);
-            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged_1);
+            this.cmbUrunSecimi.AutoRoundedCorners = true;
+            this.cmbUrunSecimi.BackColor = System.Drawing.Color.Transparent;
+            this.cmbUrunSecimi.BorderRadius = 17;
+            this.cmbUrunSecimi.BorderThickness = 0;
+            this.cmbUrunSecimi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbUrunSecimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUrunSecimi.FillColor = System.Drawing.Color.Silver;
+            this.cmbUrunSecimi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbUrunSecimi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbUrunSecimi.FocusedState.Parent = this.cmbUrunSecimi;
+            this.cmbUrunSecimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbUrunSecimi.ForeColor = System.Drawing.Color.Black;
+            this.cmbUrunSecimi.HoverState.Parent = this.cmbUrunSecimi;
+            this.cmbUrunSecimi.ItemHeight = 30;
+            this.cmbUrunSecimi.ItemsAppearance.Parent = this.cmbUrunSecimi;
+            this.cmbUrunSecimi.Location = new System.Drawing.Point(128, 26);
+            this.cmbUrunSecimi.Name = "cmbUrunSecimi";
+            this.cmbUrunSecimi.ShadowDecoration.Parent = this.cmbUrunSecimi;
+            this.cmbUrunSecimi.Size = new System.Drawing.Size(189, 36);
+            this.cmbUrunSecimi.TabIndex = 6;
+            this.cmbUrunSecimi.TextOffset = new System.Drawing.Point(10, 0);
+            this.cmbUrunSecimi.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged_1);
             // 
             // label11
             // 
@@ -430,46 +504,44 @@ namespace WindowsFormsApp4
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tabPage1.Controls.Add(this.pictureBox3);
-            this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabPage1.ForeColor = System.Drawing.Color.Aqua;
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(854, 393);
+            this.tabPage1.Size = new System.Drawing.Size(842, 402);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ürün Sat";
             // 
-            // pictureBox3
+            // btnCikisYap
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(822, 7);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 23;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("btnCikisYap.Image")));
+            this.btnCikisYap.Location = new System.Drawing.Point(826, 12);
+            this.btnCikisYap.Name = "btnCikisYap";
+            this.btnCikisYap.Size = new System.Drawing.Size(24, 24);
+            this.btnCikisYap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnCikisYap.TabIndex = 23;
+            this.btnCikisYap.TabStop = false;
+            this.btnCikisYap.Click += new System.EventHandler(this.btnCikisYap_Click);
             // 
-            // pictureBox2
+            // btnGeri
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(786, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
+            this.btnGeri.Location = new System.Drawing.Point(12, 7);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(30, 29);
+            this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnGeri.TabIndex = 22;
+            this.btnGeri.TabStop = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.guna2Button1);
-            this.groupBox1.Controls.Add(this.guna2TextBox3);
-            this.groupBox1.Controls.Add(this.guna2TextBox2);
-            this.groupBox1.Controls.Add(this.guna2TextBox1);
+            this.groupBox1.Controls.Add(this.btnUrunSat);
+            this.groupBox1.Controls.Add(this.txtUrunSatMiktar);
+            this.groupBox1.Controls.Add(this.txtUrunSatFiyat);
+            this.groupBox1.Controls.Add(this.txtUrunAd);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -484,112 +556,113 @@ namespace WindowsFormsApp4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Sat";
             // 
-            // guna2Button1
+            // btnUrunSat
             // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BorderRadius = 21;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Aqua;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(340, 216);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 11;
-            this.guna2Button1.Text = "Onayla";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnUrunSat.AutoRoundedCorners = true;
+            this.btnUrunSat.BorderRadius = 21;
+            this.btnUrunSat.CheckedState.Parent = this.btnUrunSat;
+            this.btnUrunSat.CustomImages.Parent = this.btnUrunSat;
+            this.btnUrunSat.DisabledState.Parent = this.btnUrunSat;
+            this.btnUrunSat.FillColor = System.Drawing.Color.Aqua;
+            this.btnUrunSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUrunSat.ForeColor = System.Drawing.Color.Black;
+            this.btnUrunSat.HoverState.Parent = this.btnUrunSat;
+            this.btnUrunSat.Location = new System.Drawing.Point(340, 216);
+            this.btnUrunSat.Name = "btnUrunSat";
+            this.btnUrunSat.ShadowDecoration.Parent = this.btnUrunSat;
+            this.btnUrunSat.Size = new System.Drawing.Size(180, 45);
+            this.btnUrunSat.TabIndex = 11;
+            this.btnUrunSat.Text = "Onayla";
+            this.btnUrunSat.Click += new System.EventHandler(this.btnUrunSat_Click);
             // 
-            // guna2TextBox3
+            // txtUrunSatMiktar
             // 
-            this.guna2TextBox3.BorderRadius = 16;
-            this.guna2TextBox3.BorderThickness = 0;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(320, 159);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(200, 36);
-            this.guna2TextBox3.TabIndex = 10;
-            this.guna2TextBox3.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtUrunSatMiktar.BorderRadius = 16;
+            this.txtUrunSatMiktar.BorderThickness = 0;
+            this.txtUrunSatMiktar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrunSatMiktar.DefaultText = "";
+            this.txtUrunSatMiktar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUrunSatMiktar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUrunSatMiktar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunSatMiktar.DisabledState.Parent = this.txtUrunSatMiktar;
+            this.txtUrunSatMiktar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunSatMiktar.FillColor = System.Drawing.Color.Silver;
+            this.txtUrunSatMiktar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunSatMiktar.FocusedState.Parent = this.txtUrunSatMiktar;
+            this.txtUrunSatMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunSatMiktar.ForeColor = System.Drawing.Color.Black;
+            this.txtUrunSatMiktar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunSatMiktar.HoverState.Parent = this.txtUrunSatMiktar;
+            this.txtUrunSatMiktar.Location = new System.Drawing.Point(320, 159);
+            this.txtUrunSatMiktar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunSatMiktar.Name = "txtUrunSatMiktar";
+            this.txtUrunSatMiktar.PasswordChar = '\0';
+            this.txtUrunSatMiktar.PlaceholderText = "";
+            this.txtUrunSatMiktar.SelectedText = "";
+            this.txtUrunSatMiktar.ShadowDecoration.Parent = this.txtUrunSatMiktar;
+            this.txtUrunSatMiktar.Size = new System.Drawing.Size(200, 36);
+            this.txtUrunSatMiktar.TabIndex = 10;
+            this.txtUrunSatMiktar.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox2
+            // txtUrunSatFiyat
             // 
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderRadius = 17;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(320, 102);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(200, 36);
-            this.guna2TextBox2.TabIndex = 9;
-            this.guna2TextBox2.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtUrunSatFiyat.AutoRoundedCorners = true;
+            this.txtUrunSatFiyat.BorderRadius = 17;
+            this.txtUrunSatFiyat.BorderThickness = 0;
+            this.txtUrunSatFiyat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrunSatFiyat.DefaultText = "";
+            this.txtUrunSatFiyat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUrunSatFiyat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUrunSatFiyat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunSatFiyat.DisabledState.Parent = this.txtUrunSatFiyat;
+            this.txtUrunSatFiyat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunSatFiyat.FillColor = System.Drawing.Color.Silver;
+            this.txtUrunSatFiyat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunSatFiyat.FocusedState.Parent = this.txtUrunSatFiyat;
+            this.txtUrunSatFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunSatFiyat.ForeColor = System.Drawing.Color.Black;
+            this.txtUrunSatFiyat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunSatFiyat.HoverState.Parent = this.txtUrunSatFiyat;
+            this.txtUrunSatFiyat.Location = new System.Drawing.Point(320, 102);
+            this.txtUrunSatFiyat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunSatFiyat.Name = "txtUrunSatFiyat";
+            this.txtUrunSatFiyat.PasswordChar = '\0';
+            this.txtUrunSatFiyat.PlaceholderText = "";
+            this.txtUrunSatFiyat.SelectedText = "";
+            this.txtUrunSatFiyat.ShadowDecoration.Parent = this.txtUrunSatFiyat;
+            this.txtUrunSatFiyat.Size = new System.Drawing.Size(200, 36);
+            this.txtUrunSatFiyat.TabIndex = 9;
+            this.txtUrunSatFiyat.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox1
+            // txtUrunAd
             // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderRadius = 17;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(320, 42);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(200, 36);
-            this.guna2TextBox1.TabIndex = 8;
-            this.guna2TextBox1.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtUrunAd.AutoRoundedCorners = true;
+            this.txtUrunAd.BorderRadius = 17;
+            this.txtUrunAd.BorderThickness = 0;
+            this.txtUrunAd.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrunAd.DefaultText = "";
+            this.txtUrunAd.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUrunAd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUrunAd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAd.DisabledState.Parent = this.txtUrunAd;
+            this.txtUrunAd.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUrunAd.FillColor = System.Drawing.Color.Silver;
+            this.txtUrunAd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAd.FocusedState.Parent = this.txtUrunAd;
+            this.txtUrunAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunAd.ForeColor = System.Drawing.Color.Black;
+            this.txtUrunAd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUrunAd.HoverState.Parent = this.txtUrunAd;
+            this.txtUrunAd.Location = new System.Drawing.Point(320, 42);
+            this.txtUrunAd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunAd.Name = "txtUrunAd";
+            this.txtUrunAd.PasswordChar = '\0';
+            this.txtUrunAd.PlaceholderText = "";
+            this.txtUrunAd.SelectedText = "";
+            this.txtUrunAd.ShadowDecoration.Parent = this.txtUrunAd;
+            this.txtUrunAd.Size = new System.Drawing.Size(200, 36);
+            this.txtUrunAd.TabIndex = 8;
+            this.txtUrunAd.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // label3
             // 
@@ -633,11 +706,10 @@ namespace WindowsFormsApp4
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 55);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(862, 425);
+            this.tabControl1.Size = new System.Drawing.Size(850, 434);
             this.tabControl1.TabIndex = 16;
             // 
             // tabPage4
@@ -651,7 +723,7 @@ namespace WindowsFormsApp4
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(854, 393);
+            this.tabPage4.Size = new System.Drawing.Size(842, 402);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rapor";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -704,6 +776,7 @@ namespace WindowsFormsApp4
             // 
             this.btnCiktiAl.CheckedState.Parent = this.btnCiktiAl;
             this.btnCiktiAl.CustomImages.Parent = this.btnCiktiAl;
+            this.btnCiktiAl.DisabledState.Parent = this.btnCiktiAl;
             this.btnCiktiAl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCiktiAl.ForeColor = System.Drawing.Color.White;
             this.btnCiktiAl.HoverState.Parent = this.btnCiktiAl;
@@ -750,7 +823,9 @@ namespace WindowsFormsApp4
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(862, 425);
+            this.ClientSize = new System.Drawing.Size(862, 486);
+            this.Controls.Add(this.btnCikisYap);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button2);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -761,20 +836,16 @@ namespace WindowsFormsApp4
             this.Text = "Ürün Alım-Satım";
             this.Load += new System.EventHandler(this.UrunAlSat_Load);
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBakiyeMiktar)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -783,6 +854,7 @@ namespace WindowsFormsApp4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -801,23 +873,20 @@ namespace WindowsFormsApp4
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtUrunSatMiktar;
+        private Guna.UI2.WinForms.Guna2TextBox txtUrunSatFiyat;
+        private Guna.UI2.WinForms.Guna2TextBox txtUrunAd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private Guna.UI2.WinForms.Guna2TextBox fiyatTextBox;
+        private Guna.UI2.WinForms.Guna2Button btnUrunSat;
+        private Guna.UI2.WinForms.Guna2TextBox txtUrunAlMiktar;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbUrunSecimi;
+        private Guna.UI2.WinForms.Guna2Button btnUrunAl;
+        private System.Windows.Forms.PictureBox btnCikisYap;
+        private System.Windows.Forms.PictureBox btnGeri;
+        private Guna.UI2.WinForms.Guna2TextBox txtUrunAlFiyat;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPage4;
         private Guna.UI2.WinForms.Guna2DateTimePicker raporTarihBaslangic;
@@ -826,7 +895,13 @@ namespace WindowsFormsApp4
         private Guna.UI2.WinForms.Guna2Button btnCiktiAl;
         private Guna.UI2.WinForms.Guna2DateTimePicker raporTarihBitis;
         private Guna.UI2.WinForms.Guna2ComboBox comboRaporTuru;
-        private Guna.UI2.WinForms.Guna2DataGridView urunlerDGV;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvUrunler;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2Button btnBakiyeYukle;
+        private Guna.UI2.WinForms.Guna2NumericUpDown txtBakiyeMiktar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

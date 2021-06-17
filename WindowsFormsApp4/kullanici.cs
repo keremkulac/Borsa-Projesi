@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp4
 {
-    class kullanici
+    class Kullanici
     {
   
 
-         public string kulAdi { get; set; }
-         public string adSoyad { get; set; }
-         public string sifre { get; set; }
-         public int Tc { get; set; }
-         public int telefonNo { get; set; }
-         public string eMail { get; set; }
+         public string KulAdi { get; set; }
+         public string AdSoyad { get; set; }
+         public string Sifre { get; set; }
+         public long Tc { get; set; }
+         public long TelefonNo { get; set; }
+         public string Email { get; set; }
          public string Adres { get; set; }
          public string KullaniciTuru { get; set; }
-         public int mevcutBakiye { get; set; }
-         public int bakiyeOnay { get; set; }
-        public int beklemedeBakiye { get; set; }
+         public int MevcutBakiye { get; set; }
+         public int BakiyeOnay { get; set; }
+        public int BeklemedeBakiye { get; set; }
 
-        public kullanici()
+        public Kullanici()
         {
-            kulAdi = "Atanmadi";
-            mevcutBakiye = 0;
-            bakiyeOnay = 0;
-            adSoyad = "Atanmadi";
+            KulAdi = "Atanmadi";
+            MevcutBakiye = 0;
+            BakiyeOnay = 0;
+            AdSoyad = "Atanmadi";
         }
 
 

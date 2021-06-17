@@ -70,7 +70,7 @@
       <DependentUpon>UyeOl.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
-    <Compile Include="kullanici.cs" />
+    <Compile Include="Kullanici.cs" />
     <Compile Include="KullanicilarDatabase.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>

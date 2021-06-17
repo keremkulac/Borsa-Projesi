@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UyeOl));
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtKullaniciAdi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSifre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAdSoyad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTcNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTelNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAdres = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbKullaniciTuru = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,246 +47,252 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnGeri = new System.Windows.Forms.PictureBox();
+            this.btnCikis = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblKayitOl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2TextBox1
+            // txtKullaniciAdi
             // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderRadius = 16;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(585, 296);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox1.TabIndex = 5;
-            this.guna2TextBox1.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtKullaniciAdi.AutoRoundedCorners = true;
+            this.txtKullaniciAdi.BorderRadius = 16;
+            this.txtKullaniciAdi.BorderThickness = 0;
+            this.txtKullaniciAdi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtKullaniciAdi.DefaultText = "";
+            this.txtKullaniciAdi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtKullaniciAdi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtKullaniciAdi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtKullaniciAdi.DisabledState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtKullaniciAdi.FillColor = System.Drawing.Color.Silver;
+            this.txtKullaniciAdi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtKullaniciAdi.FocusedState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtKullaniciAdi.ForeColor = System.Drawing.Color.Black;
+            this.txtKullaniciAdi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtKullaniciAdi.HoverState.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(585, 296);
+            this.txtKullaniciAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKullaniciAdi.Name = "txtKullaniciAdi";
+            this.txtKullaniciAdi.PasswordChar = '\0';
+            this.txtKullaniciAdi.PlaceholderText = "";
+            this.txtKullaniciAdi.SelectedText = "";
+            this.txtKullaniciAdi.ShadowDecoration.Parent = this.txtKullaniciAdi;
+            this.txtKullaniciAdi.Size = new System.Drawing.Size(190, 35);
+            this.txtKullaniciAdi.TabIndex = 5;
+            this.txtKullaniciAdi.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox2
+            // txtSifre
             // 
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderRadius = 16;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(585, 349);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox2.TabIndex = 6;
-            this.guna2TextBox2.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtSifre.AutoRoundedCorners = true;
+            this.txtSifre.BorderRadius = 16;
+            this.txtSifre.BorderThickness = 0;
+            this.txtSifre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSifre.DefaultText = "";
+            this.txtSifre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSifre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSifre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSifre.DisabledState.Parent = this.txtSifre;
+            this.txtSifre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSifre.FillColor = System.Drawing.Color.Silver;
+            this.txtSifre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSifre.FocusedState.Parent = this.txtSifre;
+            this.txtSifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSifre.ForeColor = System.Drawing.Color.Black;
+            this.txtSifre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSifre.HoverState.Parent = this.txtSifre;
+            this.txtSifre.Location = new System.Drawing.Point(585, 349);
+            this.txtSifre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSifre.Name = "txtSifre";
+            this.txtSifre.PasswordChar = '\0';
+            this.txtSifre.PlaceholderText = "";
+            this.txtSifre.SelectedText = "";
+            this.txtSifre.ShadowDecoration.Parent = this.txtSifre;
+            this.txtSifre.Size = new System.Drawing.Size(190, 35);
+            this.txtSifre.TabIndex = 6;
+            this.txtSifre.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox3
+            // txtAdSoyad
             // 
-            this.guna2TextBox3.AutoRoundedCorners = true;
-            this.guna2TextBox3.BorderRadius = 16;
-            this.guna2TextBox3.BorderThickness = 0;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(186, 296);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox3.TabIndex = 0;
-            this.guna2TextBox3.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtAdSoyad.AutoRoundedCorners = true;
+            this.txtAdSoyad.BorderRadius = 16;
+            this.txtAdSoyad.BorderThickness = 0;
+            this.txtAdSoyad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAdSoyad.DefaultText = "";
+            this.txtAdSoyad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAdSoyad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAdSoyad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAdSoyad.DisabledState.Parent = this.txtAdSoyad;
+            this.txtAdSoyad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAdSoyad.FillColor = System.Drawing.Color.Silver;
+            this.txtAdSoyad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAdSoyad.FocusedState.Parent = this.txtAdSoyad;
+            this.txtAdSoyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAdSoyad.ForeColor = System.Drawing.Color.Black;
+            this.txtAdSoyad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAdSoyad.HoverState.Parent = this.txtAdSoyad;
+            this.txtAdSoyad.Location = new System.Drawing.Point(186, 296);
+            this.txtAdSoyad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdSoyad.Name = "txtAdSoyad";
+            this.txtAdSoyad.PasswordChar = '\0';
+            this.txtAdSoyad.PlaceholderText = "";
+            this.txtAdSoyad.SelectedText = "";
+            this.txtAdSoyad.ShadowDecoration.Parent = this.txtAdSoyad;
+            this.txtAdSoyad.Size = new System.Drawing.Size(190, 35);
+            this.txtAdSoyad.TabIndex = 0;
+            this.txtAdSoyad.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox4
+            // txtEmail
             // 
-            this.guna2TextBox4.AutoRoundedCorners = true;
-            this.guna2TextBox4.BorderRadius = 16;
-            this.guna2TextBox4.BorderThickness = 0;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(189, 406);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox4.TabIndex = 2;
-            this.guna2TextBox4.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtEmail.AutoRoundedCorners = true;
+            this.txtEmail.BorderRadius = 16;
+            this.txtEmail.BorderThickness = 0;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.Parent = this.txtEmail;
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.FillColor = System.Drawing.Color.Silver;
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.FocusedState.Parent = this.txtEmail;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.HoverState.Parent = this.txtEmail;
+            this.txtEmail.Location = new System.Drawing.Point(189, 406);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
+            this.txtEmail.Size = new System.Drawing.Size(190, 35);
+            this.txtEmail.TabIndex = 2;
+            this.txtEmail.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox5
+            // txtTcNo
             // 
-            this.guna2TextBox5.AutoRoundedCorners = true;
-            this.guna2TextBox5.BorderRadius = 16;
-            this.guna2TextBox5.BorderThickness = 0;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.FocusedState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Location = new System.Drawing.Point(186, 351);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.ShadowDecoration.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox5.TabIndex = 1;
-            this.guna2TextBox5.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtTcNo.AutoRoundedCorners = true;
+            this.txtTcNo.BorderRadius = 16;
+            this.txtTcNo.BorderThickness = 0;
+            this.txtTcNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTcNo.DefaultText = "";
+            this.txtTcNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTcNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTcNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTcNo.DisabledState.Parent = this.txtTcNo;
+            this.txtTcNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTcNo.FillColor = System.Drawing.Color.Silver;
+            this.txtTcNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTcNo.FocusedState.Parent = this.txtTcNo;
+            this.txtTcNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTcNo.ForeColor = System.Drawing.Color.Black;
+            this.txtTcNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTcNo.HoverState.Parent = this.txtTcNo;
+            this.txtTcNo.Location = new System.Drawing.Point(186, 351);
+            this.txtTcNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTcNo.Name = "txtTcNo";
+            this.txtTcNo.PasswordChar = '\0';
+            this.txtTcNo.PlaceholderText = "";
+            this.txtTcNo.SelectedText = "";
+            this.txtTcNo.ShadowDecoration.Parent = this.txtTcNo;
+            this.txtTcNo.Size = new System.Drawing.Size(190, 35);
+            this.txtTcNo.TabIndex = 1;
+            this.txtTcNo.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox6
+            // txtTelNo
             // 
-            this.guna2TextBox6.AutoRoundedCorners = true;
-            this.guna2TextBox6.BorderRadius = 16;
-            this.guna2TextBox6.BorderThickness = 0;
-            this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox6.DefaultText = "";
-            this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.DisabledState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.FocusedState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox6.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.HoverState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Location = new System.Drawing.Point(189, 463);
-            this.guna2TextBox6.Name = "guna2TextBox6";
-            this.guna2TextBox6.PasswordChar = '\0';
-            this.guna2TextBox6.PlaceholderText = "";
-            this.guna2TextBox6.SelectedText = "";
-            this.guna2TextBox6.ShadowDecoration.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Size = new System.Drawing.Size(190, 35);
-            this.guna2TextBox6.TabIndex = 3;
-            this.guna2TextBox6.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtTelNo.AutoRoundedCorners = true;
+            this.txtTelNo.BorderRadius = 16;
+            this.txtTelNo.BorderThickness = 0;
+            this.txtTelNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTelNo.DefaultText = "";
+            this.txtTelNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTelNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTelNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelNo.DisabledState.Parent = this.txtTelNo;
+            this.txtTelNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelNo.FillColor = System.Drawing.Color.Silver;
+            this.txtTelNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelNo.FocusedState.Parent = this.txtTelNo;
+            this.txtTelNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTelNo.ForeColor = System.Drawing.Color.Black;
+            this.txtTelNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelNo.HoverState.Parent = this.txtTelNo;
+            this.txtTelNo.Location = new System.Drawing.Point(189, 463);
+            this.txtTelNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelNo.Name = "txtTelNo";
+            this.txtTelNo.PasswordChar = '\0';
+            this.txtTelNo.PlaceholderText = "";
+            this.txtTelNo.SelectedText = "";
+            this.txtTelNo.ShadowDecoration.Parent = this.txtTelNo;
+            this.txtTelNo.Size = new System.Drawing.Size(190, 35);
+            this.txtTelNo.TabIndex = 3;
+            this.txtTelNo.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2TextBox7
+            // txtAdres
             // 
-            this.guna2TextBox7.AutoRoundedCorners = true;
-            this.guna2TextBox7.BorderRadius = 38;
-            this.guna2TextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox7.DefaultText = "";
-            this.guna2TextBox7.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.DisabledState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.FillColor = System.Drawing.Color.Silver;
-            this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.FocusedState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TextBox7.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.HoverState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Location = new System.Drawing.Point(189, 521);
-            this.guna2TextBox7.Name = "guna2TextBox7";
-            this.guna2TextBox7.PasswordChar = '\0';
-            this.guna2TextBox7.PlaceholderText = "";
-            this.guna2TextBox7.SelectedText = "";
-            this.guna2TextBox7.ShadowDecoration.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Size = new System.Drawing.Size(396, 78);
-            this.guna2TextBox7.TabIndex = 4;
-            this.guna2TextBox7.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtAdres.AutoRoundedCorners = true;
+            this.txtAdres.BorderRadius = 38;
+            this.txtAdres.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAdres.DefaultText = "";
+            this.txtAdres.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAdres.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAdres.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAdres.DisabledState.Parent = this.txtAdres;
+            this.txtAdres.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAdres.FillColor = System.Drawing.Color.Silver;
+            this.txtAdres.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAdres.FocusedState.Parent = this.txtAdres;
+            this.txtAdres.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAdres.ForeColor = System.Drawing.Color.Black;
+            this.txtAdres.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAdres.HoverState.Parent = this.txtAdres;
+            this.txtAdres.Location = new System.Drawing.Point(189, 521);
+            this.txtAdres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdres.Name = "txtAdres";
+            this.txtAdres.PasswordChar = '\0';
+            this.txtAdres.PlaceholderText = "";
+            this.txtAdres.SelectedText = "";
+            this.txtAdres.ShadowDecoration.Parent = this.txtAdres;
+            this.txtAdres.Size = new System.Drawing.Size(396, 78);
+            this.txtAdres.TabIndex = 4;
+            this.txtAdres.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // guna2ComboBox1
+            // cmbKullaniciTuru
             // 
-            this.guna2ComboBox1.AutoRoundedCorners = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.BorderThickness = 0;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.cmbKullaniciTuru.AutoRoundedCorners = true;
+            this.cmbKullaniciTuru.BackColor = System.Drawing.Color.Transparent;
+            this.cmbKullaniciTuru.BorderRadius = 17;
+            this.cmbKullaniciTuru.BorderThickness = 0;
+            this.cmbKullaniciTuru.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbKullaniciTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKullaniciTuru.FillColor = System.Drawing.Color.Silver;
+            this.cmbKullaniciTuru.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbKullaniciTuru.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbKullaniciTuru.FocusedState.Parent = this.cmbKullaniciTuru;
+            this.cmbKullaniciTuru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbKullaniciTuru.ForeColor = System.Drawing.Color.Black;
+            this.cmbKullaniciTuru.HoverState.Parent = this.cmbKullaniciTuru;
+            this.cmbKullaniciTuru.ItemHeight = 30;
+            this.cmbKullaniciTuru.Items.AddRange(new object[] {
             "Alıcı",
             "Satıcı"});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(585, 406);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(190, 36);
-            this.guna2ComboBox1.TabIndex = 7;
-            this.guna2ComboBox1.TextOffset = new System.Drawing.Point(10, 0);
+            this.cmbKullaniciTuru.ItemsAppearance.Parent = this.cmbKullaniciTuru;
+            this.cmbKullaniciTuru.Location = new System.Drawing.Point(585, 406);
+            this.cmbKullaniciTuru.Name = "cmbKullaniciTuru";
+            this.cmbKullaniciTuru.ShadowDecoration.Parent = this.cmbKullaniciTuru;
+            this.cmbKullaniciTuru.Size = new System.Drawing.Size(190, 36);
+            this.cmbKullaniciTuru.TabIndex = 7;
+            this.cmbKullaniciTuru.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // label1
             // 
@@ -397,29 +403,29 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Hoşgeldiniz";
             // 
-            // pictureBox2
+            // btnGeri
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(24, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
-            this.pictureBox2.MouseHover += new System.EventHandler(this.pictureBox2_MouseHover);
+            this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
+            this.btnGeri.Location = new System.Drawing.Point(24, 12);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(30, 29);
+            this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnGeri.TabIndex = 20;
+            this.btnGeri.TabStop = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            this.btnGeri.MouseLeave += new System.EventHandler(this.btnGeri_MouseLeave);
+            this.btnGeri.MouseHover += new System.EventHandler(this.btnGeri_MouseHover);
             // 
-            // pictureBox3
+            // btnCikis
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(799, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnCikis.Image = ((System.Drawing.Image)(resources.GetObject("btnCikis.Image")));
+            this.btnCikis.Location = new System.Drawing.Point(799, 12);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(24, 24);
+            this.btnCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnCikis.TabIndex = 21;
+            this.btnCikis.TabStop = false;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
             // label10
             // 
@@ -442,17 +448,17 @@
             this.pictureBox4.TabIndex = 23;
             this.pictureBox4.TabStop = false;
             // 
-            // label11
+            // lblKayitOl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label11.ForeColor = System.Drawing.Color.Aqua;
-            this.label11.Location = new System.Drawing.Point(245, 626);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 25);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Kayıt Ol";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.lblKayitOl.AutoSize = true;
+            this.lblKayitOl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblKayitOl.ForeColor = System.Drawing.Color.Aqua;
+            this.lblKayitOl.Location = new System.Drawing.Point(245, 626);
+            this.lblKayitOl.Name = "lblKayitOl";
+            this.lblKayitOl.Size = new System.Drawing.Size(81, 25);
+            this.lblKayitOl.TabIndex = 8;
+            this.lblKayitOl.Text = "Kayıt Ol";
+            this.lblKayitOl.Click += new System.EventHandler(this.lblKayitOl_Click);
             // 
             // UyeOl
             // 
@@ -460,36 +466,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(835, 677);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblKayitOl);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnCikis);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.guna2TextBox6);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.txtTelNo);
+            this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.guna2TextBox4);
+            this.Controls.Add(this.txtKullaniciAdi);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.guna2TextBox7);
+            this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2TextBox5);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.txtTcNo);
+            this.Controls.Add(this.cmbKullaniciTuru);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.guna2TextBox3);
+            this.Controls.Add(this.txtAdSoyad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UyeOl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Üye Ol";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -497,14 +503,14 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtKullaniciAdi;
+        private Guna.UI2.WinForms.Guna2TextBox txtSifre;
+        private Guna.UI2.WinForms.Guna2TextBox txtAdSoyad;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
+        private Guna.UI2.WinForms.Guna2TextBox txtTcNo;
+        private Guna.UI2.WinForms.Guna2TextBox txtTelNo;
+        private Guna.UI2.WinForms.Guna2TextBox txtAdres;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbKullaniciTuru;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -515,11 +521,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btnGeri;
+        private System.Windows.Forms.PictureBox btnCikis;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblKayitOl;
     }
 }
 
