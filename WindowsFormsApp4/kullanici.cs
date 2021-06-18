@@ -18,9 +18,9 @@ namespace WindowsFormsApp4
          public string Email { get; set; }
          public string Adres { get; set; }
          public string KullaniciTuru { get; set; }
-         public int MevcutBakiye { get; set; }
+         public decimal MevcutBakiye { get; set; }
          public int BakiyeOnay { get; set; }
-        public int BeklemedeBakiye { get; set; }
+        public decimal BeklemedeBakiye { get; set; }
 
         public Kullanici()
         {

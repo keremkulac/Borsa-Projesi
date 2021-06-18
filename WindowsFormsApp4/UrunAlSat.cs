@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.Globalization;
 
 namespace WindowsFormsApp4
 {
@@ -30,11 +31,11 @@ namespace WindowsFormsApp4
             ConnectionControl();
             SqlCommand command = new SqlCommand(
             "Insert into Itemler values(@ItemAdi,@ItemMiktari,@ItemFiyat,@ItemSahibi,@ItemOnay)", _connection);
-            command.Parameters.AddWithValue("@ItemAdi", urunObjesi.itemAdi);
-            command.Parameters.AddWithValue("@ItemMiktari", urunObjesi.itemMiktari);
-            command.Parameters.AddWithValue("@ItemFiyat", urunObjesi.itemFiyat);
-            command.Parameters.AddWithValue("@ItemSahibi", urunObjesi.itemSahibi);
-            command.Parameters.AddWithValue("@ItemOnay", urunObjesi.itemOnay);
+            command.Parameters.AddWithValue("@ItemAdi", urunObjesi.ItemAdi);
+            command.Parameters.AddWithValue("@ItemMiktari", urunObjesi.ItemMiktari);
+            command.Parameters.AddWithValue("@ItemFiyat", urunObjesi.ItemFiyat);
+            command.Parameters.AddWithValue("@ItemSahibi", urunObjesi.ItemSahibi);
+            command.Parameters.AddWithValue("@ItemOnay", urunObjesi.ItemOnay);
             command.ExecuteNonQuery();
             _connection.Close();
         }
@@ -50,8 +51,7 @@ namespace WindowsFormsApp4
         {
             LoginForm isimAl = new LoginForm();
             DataRow dt = data.kullaniciDegerleri(isim);
-            label7.Text = dt["KullaniciBakiye"].ToString();
-            label10.Text = dt["BeklemedeBakiye"].ToString();
+            lblBakiye.Text = dt["KullaniciBakiye"].ToString();
             OnaylanmisUrunleriComboboxaDoldur();
         }
 
@@ -288,14 +288,41 @@ namespace WindowsFormsApp4
                     break;
             }
         }
-
+        public void bakiyeEkle(string dovizKur)
+        {
+            dovizKur = dovizKur.Replace('.', ',');
+            double bakiyeTLDegeri = Convert.ToDouble(dovizKur) * Convert.ToDouble(txtBakiyeMiktar.Text);
+            bakiyeTLDegeri = Math.Round(bakiyeTLDegeri, 2);
+            DataRow dt = data.kullaniciDegerleri(isim);
+            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeTLDegeri);
+            //double beklemedeBakiye = Convert.ToDouble(dt["BeklemedeBakiye"].ToString());
+            //lblOnaylanmamisBakiye.Text = beklemedeBakiye.ToString();
+            double bakiye = Convert.ToDouble(dt["KullaniciBakiye"].ToString());
+            lblBakiye.Text = bakiye.ToString();
+            Console.WriteLine(bakiyeTLDegeri);
+        }
         private void btnBakiyeYukle_Click(object sender, EventArgs e)
         {
-            int bakiyeEkle = Convert.ToInt32(Math.Round(txtBakiyeMiktar.Value, 0));
-            DataRow dt = data.kullaniciDegerleri(isim);
-            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeEkle);
-            int oncekiBakiye = int.Parse(dt["BeklemedeBakiye"].ToString()) + bakiyeEkle;
-            label10.Text = oncekiBakiye.ToString();
+            string paraBirimi = cmbParaBirimi.Text;
+            string dovizKur;
+            if (paraBirimi == "TRY")
+            {
+                dovizKur = "1";
+                bakiyeEkle(dovizKur);
+            }
+            else
+            {
+                string bugun = " http://www.tcmb.gov.tr/kurlar/today.xml";
+                var xmldoc = new XmlDocument();
+                xmldoc.Load(bugun);
+                DateTime tarih = Convert.ToDateTime(xmldoc.SelectSingleNode("//Tarih_Date").Attributes["Tarih"].Value);
+                dovizKur = xmldoc.SelectSingleNode("Tarih_Date/Currency[@Kod='" + paraBirimi + "']/BanknoteSelling").InnerXml;
+                bakiyeEkle(dovizKur);
+            }
         }
+
     }
 }
+
+
+

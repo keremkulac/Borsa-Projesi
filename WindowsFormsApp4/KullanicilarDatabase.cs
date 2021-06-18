@@ -64,7 +64,7 @@ namespace WindowsFormsApp4
             }
         }
 
-        public void BakiyeEkle(string kulAdi, int bakiyeMiktari) // Admin
+        public void BakiyeEkle(string kulAdi, double bakiyeMiktari) // Admin
         {
             _connection.Open();
             string komutString = String.Format("UPDATE Kullanicilar SET KullaniciBakiye = (KullaniciBakiye + @BakiyeMiktari), BakiyeOnay = 0, BeklemedeBakiye = 0 WHERE  KullaniciAdi = @KulAdimiz");
@@ -77,7 +77,7 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-        public void BeklemeyeBakiyeYolla(string kulAdi, int bakiyeMiktari)
+        public void BeklemeyeBakiyeYolla(string kulAdi, double bakiyeMiktari)
         {
             _connection.Open();
             string komutString = String.Format("UPDATE Kullanicilar SET BeklemedeBakiye = (BeklemedeBakiye+ @BekleyenBakiyeMiktari), BakiyeOnay = 1 WHERE KullaniciAdi = @KulAdimiz");

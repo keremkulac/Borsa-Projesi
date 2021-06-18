@@ -29,20 +29,21 @@ namespace WindowsFormsApp4
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunAlSat));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.btnBakiyeYukle = new Guna.UI2.WinForms.Guna2Button();
-            this.txtBakiyeMiktar = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtBakiyeMiktar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblBakiye = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.cmbParaBirimi = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,8 +59,6 @@ namespace WindowsFormsApp4
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnCikisYap = new System.Windows.Forms.PictureBox();
-            this.btnGeri = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUrunSat = new Guna.UI2.WinForms.Guna2Button();
             this.txtUrunSatMiktar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -68,6 +67,8 @@ namespace WindowsFormsApp4
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCikisYap = new System.Windows.Forms.PictureBox();
+            this.btnGeri = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.comboRaporTuru = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -77,15 +78,14 @@ namespace WindowsFormsApp4
             this.raporTarihBitis = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.raporTarihBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tabPage3.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBakiyeMiktar)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -105,134 +105,138 @@ namespace WindowsFormsApp4
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tabPage3.Controls.Add(this.guna2GroupBox1);
+            this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(842, 402);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bakiye Yükle";
             // 
-            // guna2GroupBox1
+            // groupBox3
             // 
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
-            this.guna2GroupBox1.Controls.Add(this.btnBakiyeYukle);
-            this.guna2GroupBox1.Controls.Add(this.txtBakiyeMiktar);
-            this.guna2GroupBox1.Controls.Add(this.label6);
-            this.guna2GroupBox1.Controls.Add(this.label12);
-            this.guna2GroupBox1.Controls.Add(this.label13);
-            this.guna2GroupBox1.Controls.Add(this.label14);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Aqua;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(8, 23);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(607, 257);
-            this.guna2GroupBox1.TabIndex = 29;
-            this.guna2GroupBox1.Text = "Bakiye Yükle";
-            // 
-            // btnBakiyeYukle
-            // 
-            this.btnBakiyeYukle.AutoRoundedCorners = true;
-            this.btnBakiyeYukle.BorderRadius = 19;
-            this.btnBakiyeYukle.CheckedState.Parent = this.btnBakiyeYukle;
-            this.btnBakiyeYukle.CustomImages.Parent = this.btnBakiyeYukle;
-            this.btnBakiyeYukle.DisabledState.Parent = this.btnBakiyeYukle;
-            this.btnBakiyeYukle.FillColor = System.Drawing.Color.Aqua;
-            this.btnBakiyeYukle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.btnBakiyeYukle.ForeColor = System.Drawing.Color.Black;
-            this.btnBakiyeYukle.HoverState.Parent = this.btnBakiyeYukle;
-            this.btnBakiyeYukle.Location = new System.Drawing.Point(25, 134);
-            this.btnBakiyeYukle.Name = "btnBakiyeYukle";
-            this.btnBakiyeYukle.ShadowDecoration.Parent = this.btnBakiyeYukle;
-            this.btnBakiyeYukle.Size = new System.Drawing.Size(125, 40);
-            this.btnBakiyeYukle.TabIndex = 19;
-            this.btnBakiyeYukle.Text = "Onayla";
-            this.btnBakiyeYukle.Click += new System.EventHandler(this.btnBakiyeYukle_Click);
+            this.groupBox3.Controls.Add(this.txtBakiyeMiktar);
+            this.groupBox3.Controls.Add(this.lblBakiye);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.cmbParaBirimi);
+            this.groupBox3.Controls.Add(this.guna2Button1);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Aqua;
+            this.groupBox3.Location = new System.Drawing.Point(24, 31);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(779, 329);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Bakiye Yükle";
             // 
             // txtBakiyeMiktar
             // 
-            this.txtBakiyeMiktar.AutoRoundedCorners = true;
-            this.txtBakiyeMiktar.BackColor = System.Drawing.Color.Transparent;
-            this.txtBakiyeMiktar.BorderColor = System.Drawing.Color.White;
-            this.txtBakiyeMiktar.BorderRadius = 22;
-            this.txtBakiyeMiktar.BorderThickness = 0;
             this.txtBakiyeMiktar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBakiyeMiktar.DefaultText = "";
             this.txtBakiyeMiktar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtBakiyeMiktar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtBakiyeMiktar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBakiyeMiktar.DisabledState.Parent = this.txtBakiyeMiktar;
-            this.txtBakiyeMiktar.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.txtBakiyeMiktar.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.txtBakiyeMiktar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBakiyeMiktar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBakiyeMiktar.FocusedState.Parent = this.txtBakiyeMiktar;
-            this.txtBakiyeMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.txtBakiyeMiktar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.txtBakiyeMiktar.Location = new System.Drawing.Point(25, 65);
-            this.txtBakiyeMiktar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBakiyeMiktar.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.txtBakiyeMiktar.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.txtBakiyeMiktar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBakiyeMiktar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBakiyeMiktar.HoverState.Parent = this.txtBakiyeMiktar;
+            this.txtBakiyeMiktar.Location = new System.Drawing.Point(142, 151);
             this.txtBakiyeMiktar.Name = "txtBakiyeMiktar";
+            this.txtBakiyeMiktar.PasswordChar = '\0';
+            this.txtBakiyeMiktar.PlaceholderText = "";
+            this.txtBakiyeMiktar.SelectedText = "";
             this.txtBakiyeMiktar.ShadowDecoration.Parent = this.txtBakiyeMiktar;
-            this.txtBakiyeMiktar.Size = new System.Drawing.Size(170, 46);
-            this.txtBakiyeMiktar.TabIndex = 18;
-            this.txtBakiyeMiktar.UpDownButtonFillColor = System.Drawing.Color.Aqua;
-            this.txtBakiyeMiktar.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.txtBakiyeMiktar.Size = new System.Drawing.Size(108, 36);
+            this.txtBakiyeMiktar.TabIndex = 35;
             // 
-            // label6
+            // lblBakiye
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.Aqua;
-            this.label6.Location = new System.Drawing.Point(335, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Bakiyem:";
+            this.lblBakiye.AutoSize = true;
+            this.lblBakiye.Location = new System.Drawing.Point(679, 26);
+            this.lblBakiye.Name = "lblBakiye";
+            this.lblBakiye.Size = new System.Drawing.Size(0, 25);
+            this.lblBakiye.TabIndex = 26;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.ForeColor = System.Drawing.Color.Aqua;
-            this.label12.Location = new System.Drawing.Point(553, 129);
+            this.label12.Location = new System.Drawing.Point(22, 156);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(0, 20);
-            this.label12.TabIndex = 14;
+            this.label12.Size = new System.Drawing.Size(115, 25);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Para Miktarı";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.Aqua;
+            this.label6.Location = new System.Drawing.Point(581, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 25);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Bakiyem:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.ForeColor = System.Drawing.Color.Aqua;
-            this.label13.Location = new System.Drawing.Point(451, 65);
+            this.label13.Location = new System.Drawing.Point(22, 77);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 20);
-            this.label13.TabIndex = 14;
+            this.label13.Size = new System.Drawing.Size(105, 25);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Para Birimi";
             // 
-            // label14
+            // cmbParaBirimi
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.ForeColor = System.Drawing.Color.Aqua;
-            this.label14.Location = new System.Drawing.Point(316, 134);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(180, 20);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Onaylanmamış Bakiye:";
+            this.cmbParaBirimi.BackColor = System.Drawing.Color.Transparent;
+            this.cmbParaBirimi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbParaBirimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbParaBirimi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbParaBirimi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbParaBirimi.FocusedState.Parent = this.cmbParaBirimi;
+            this.cmbParaBirimi.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbParaBirimi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbParaBirimi.HoverState.Parent = this.cmbParaBirimi;
+            this.cmbParaBirimi.ItemHeight = 30;
+            this.cmbParaBirimi.Items.AddRange(new object[] {
+            "TRY",
+            "USD",
+            "EUR",
+            "JPY",
+            "AUD",
+            "DKK",
+            "GBP",
+            "CHF",
+            "SEK",
+            "CAD"});
+            this.cmbParaBirimi.ItemsAppearance.Parent = this.cmbParaBirimi;
+            this.cmbParaBirimi.Location = new System.Drawing.Point(142, 72);
+            this.cmbParaBirimi.Name = "cmbParaBirimi";
+            this.cmbParaBirimi.ShadowDecoration.Parent = this.cmbParaBirimi;
+            this.cmbParaBirimi.Size = new System.Drawing.Size(108, 36);
+            this.cmbParaBirimi.TabIndex = 32;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BorderRadius = 17;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.DisabledState.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Aqua;
+            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Location = new System.Drawing.Point(162, 223);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(88, 36);
+            this.guna2Button1.TabIndex = 31;
+            this.guna2Button1.Text = "Onayla";
             // 
             // label10
             // 
@@ -290,30 +294,30 @@ namespace WindowsFormsApp4
             // 
             // dgvUrunler
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvUrunler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUrunler.BackgroundColor = System.Drawing.Color.White;
             this.dgvUrunler.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUrunler.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUrunler.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUrunler.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUrunler.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUrunler.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUrunler.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvUrunler.ColumnHeadersHeight = 36;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUrunler.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvUrunler.EnableHeadersVisualStyles = false;
             this.dgvUrunler.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUrunler.Location = new System.Drawing.Point(8, 215);
@@ -334,7 +338,7 @@ namespace WindowsFormsApp4
             this.dgvUrunler.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dgvUrunler.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvUrunler.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvUrunler.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvUrunler.ThemeStyle.HeaderStyle.Height = 36;
             this.dgvUrunler.ThemeStyle.ReadOnly = false;
             this.dgvUrunler.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUrunler.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -514,28 +518,6 @@ namespace WindowsFormsApp4
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ürün Sat";
             // 
-            // btnCikisYap
-            // 
-            this.btnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("btnCikisYap.Image")));
-            this.btnCikisYap.Location = new System.Drawing.Point(826, 12);
-            this.btnCikisYap.Name = "btnCikisYap";
-            this.btnCikisYap.Size = new System.Drawing.Size(24, 24);
-            this.btnCikisYap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnCikisYap.TabIndex = 23;
-            this.btnCikisYap.TabStop = false;
-            this.btnCikisYap.Click += new System.EventHandler(this.btnCikisYap_Click);
-            // 
-            // btnGeri
-            // 
-            this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
-            this.btnGeri.Location = new System.Drawing.Point(12, 7);
-            this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(30, 29);
-            this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnGeri.TabIndex = 22;
-            this.btnGeri.TabStop = false;
-            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnUrunSat);
@@ -700,6 +682,28 @@ namespace WindowsFormsApp4
             this.label1.TabIndex = 0;
             this.label1.Text = "Ürün Adı:";
             // 
+            // btnCikisYap
+            // 
+            this.btnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("btnCikisYap.Image")));
+            this.btnCikisYap.Location = new System.Drawing.Point(826, 12);
+            this.btnCikisYap.Name = "btnCikisYap";
+            this.btnCikisYap.Size = new System.Drawing.Size(24, 24);
+            this.btnCikisYap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnCikisYap.TabIndex = 23;
+            this.btnCikisYap.TabStop = false;
+            this.btnCikisYap.Click += new System.EventHandler(this.btnCikisYap_Click);
+            // 
+            // btnGeri
+            // 
+            this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
+            this.btnGeri.Location = new System.Drawing.Point(12, 7);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(30, 29);
+            this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnGeri.TabIndex = 22;
+            this.btnGeri.TabStop = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -823,7 +827,7 @@ namespace WindowsFormsApp4
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(862, 486);
+            this.ClientSize = new System.Drawing.Size(907, 522);
             this.Controls.Add(this.btnCikisYap);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.tabControl1);
@@ -836,18 +840,17 @@ namespace WindowsFormsApp4
             this.Text = "Ürün Alım-Satım";
             this.Load += new System.EventHandler(this.UrunAlSat_Load);
             this.tabPage3.ResumeLayout(false);
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBakiyeMiktar)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikisYap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -896,12 +899,13 @@ namespace WindowsFormsApp4
         private Guna.UI2.WinForms.Guna2DateTimePicker raporTarihBitis;
         private Guna.UI2.WinForms.Guna2ComboBox comboRaporTuru;
         private Guna.UI2.WinForms.Guna2DataGridView dgvUrunler;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private Guna.UI2.WinForms.Guna2Button btnBakiyeYukle;
-        private Guna.UI2.WinForms.Guna2NumericUpDown txtBakiyeMiktar;
+        private System.Windows.Forms.Label lblBakiye;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private Guna.UI2.WinForms.Guna2TextBox txtBakiyeMiktar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbParaBirimi;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

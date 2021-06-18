@@ -33,7 +33,7 @@ namespace WindowsFormsApp4
         void LoadKullanicilar()
         {
             DataSet ds = data.KullanicilariCek();
-            dgvMevcutUye.DataSource = ds.Tables[0];
+            dgvUrunOnay.DataSource = ds.Tables[0];
         }
 
         void OnaylanmamisBakiyeKullanicilari()
@@ -53,6 +53,8 @@ namespace WindowsFormsApp4
             LoadKullanicilar();
             LoadItemler();
             OnaylanmamisBakiyeKullanicilari();
+            string bugun = DateTime.UtcNow.ToString("dd-MM-yyyy");
+            lblTarih.Text = bugun.ToString();
         }
 
 
@@ -90,9 +92,10 @@ namespace WindowsFormsApp4
 
         private void btnBeklemedeBakiyeOnay_Click(object sender, EventArgs e)
         {
+            
             _connection.Open();
             string kulAdi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[0].Value.ToString();
-            int beklemedekiBakiye = int.Parse(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[10].Value.ToString());
+            double beklemedekiBakiye = Convert.ToDouble(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[10].Value.ToString());
             data.BakiyeEkle(kulAdi, beklemedekiBakiye);
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
@@ -102,6 +105,11 @@ namespace WindowsFormsApp4
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dgvMevcutUye_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
