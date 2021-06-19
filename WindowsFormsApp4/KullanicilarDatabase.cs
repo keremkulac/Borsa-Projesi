@@ -17,7 +17,7 @@ namespace WindowsFormsApp4
         public DataSet KullanicilariCek()
         {
             ConnectionControl();
-            string sorgu = "SELECT* FROM Kullanicilar";
+            string sorgu = "SELECT [Kullanıcı Adı]=KullaniciAdi,Şifre=Sifre,[Ad Soyad]=AdSoyad,[TC Kimlik No]=TcNo,Telefon=Telefon,Email=Email,Adres=Adres,Bakiye=KullaniciBakiye FROM Kullanicilar";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -28,7 +28,7 @@ namespace WindowsFormsApp4
         public DataSet BakiyeleriOnaylanmamisKullanicilar()
         {
             ConnectionControl();
-            string sorgu = "SELECT* FROM Kullanicilar where BakiyeOnay = 1";
+            string sorgu = "SELECT [Kullanıcı Adı]=KullaniciAdi,[Ad Soyad]=AdSoyad,Bakiye=KullaniciBakiye,[Onaylanacak Bakiye Miktar]=BeklemedeBakiye FROM Kullanicilar where BakiyeOnay = 1";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -40,10 +40,10 @@ namespace WindowsFormsApp4
         {
             ConnectionControl();
             SqlCommand command = new SqlCommand(
-                "Insert into Kullanicilar values(@KullaniciAdi,@AdSoyad,@Sifre,@TcNo,@Telefon,@Email,@Adres,@KullaniciTuru, @KullaniciBakiye, @BakiyeOnay,@BeklemedeBakiye)", _connection);
+                "Insert into Kullanicilar values(@KullaniciAdi,@Sifre,@AdSoyad,@TcNo,@Telefon,@Email,@Adres,@KullaniciTuru, @KullaniciBakiye, @BakiyeOnay,@BeklemedeBakiye)", _connection);
             command.Parameters.AddWithValue("@KullaniciAdi", kullaniciObjesi.KulAdi);
-            command.Parameters.AddWithValue("@AdSoyad", kullaniciObjesi.AdSoyad);
             command.Parameters.AddWithValue("@Sifre", kullaniciObjesi.Sifre);
+            command.Parameters.AddWithValue("@AdSoyad", kullaniciObjesi.AdSoyad);  
             command.Parameters.AddWithValue("@TcNo", kullaniciObjesi.Tc);
             command.Parameters.AddWithValue("@Telefon", kullaniciObjesi.TelefonNo);
             command.Parameters.AddWithValue("@Email", kullaniciObjesi.Email);
@@ -98,7 +98,7 @@ namespace WindowsFormsApp4
             return dt.Rows[0];
         }
 
-        public void KullaniciBakiyeDegistir(string isim, int yeniBakiye)
+        public void KullaniciBakiyeDegistir(string isim, double yeniBakiye)
         {
             _connection.Open();
             string komutString = String.Format("UPDATE Kullanicilar SET KullaniciBakiye = @YeniBakiye WHERE KullaniciAdi = @KulAdimiz");

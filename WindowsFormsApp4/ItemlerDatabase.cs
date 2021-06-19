@@ -16,7 +16,7 @@ namespace WindowsFormsApp4
         public DataSet ItemleriCekByItemOnay(int itemOnay)
         {
             ConnectionControl();
-            string sorgu = "SELECT* FROM Itemler WHERE ItemOnay = '" + itemOnay + "'";
+            string sorgu = "SELECT ID=IslemID,[Ürün Adı]=ItemAdi,[Ürün Fiyat]=ItemFiyat,[Ürün Miktar]=ItemMiktar,Satıcı=ItemSatici,Tarih=ItemIslemTarih,[İşlem Türü]=IslemTur,Onay=ItemOnay FROM ItemIslemKaydi WHERE ItemOnay = '" + itemOnay + "'";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -27,7 +27,7 @@ namespace WindowsFormsApp4
         public DataSet ItemComboboxFill(int itemOnay)
         {
             ConnectionControl();
-            string sorgu = "SELECT DISTINCT ItemAdi FROM Itemler WHERE ItemOnay = '" + itemOnay + "'";
+            string sorgu = "SELECT DISTINCT ItemAdi FROM ItemIslemKaydi WHERE ItemOnay = '" + itemOnay + "'";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -35,11 +35,10 @@ namespace WindowsFormsApp4
             return ds;
         }
 
-        public DataSet ItemleriCekByItemAdi(string itemAdi, string kulAdi)
+        public DataSet ItemleriCekByItemAdi(string itemAdi, string kulAdi,string islemTur)
         {
-            ConnectionControl();
-            //string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'  AND itemSahibi != '{1}' ORDERBY ItemFiyat ASC", itemAdi, kulAdi); 
-            string sorgu = String.Format("SELECT* FROM Itemler where ItemAdi ='" + itemAdi + "' AND ItemSahibi != '" + kulAdi + "' AND ItemMiktari != 0 ORDER BY ItemFiyat ASC", itemAdi, kulAdi);
+            ConnectionControl();          
+            string sorgu = String.Format("SELECT [Ürün Adı]=ItemAdi,[Ürün Fiyatı]=ItemFiyat,[Ürün Miktarı]=ItemMiktar,Satıcı=ItemSatici,ID=IslemID FROM ItemIslemKaydi where ItemAdi ='" + itemAdi + "' AND IslemTur ='" + islemTur + "' AND ItemSatici != '" + kulAdi + "' AND ItemMiktar != 0 ORDER BY ItemFiyat ASC", itemAdi, kulAdi);
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -47,37 +46,48 @@ namespace WindowsFormsApp4
             return ds;
         }
 
-        public void ItemlerUrunMiktariGuncelle(string isim, int urunMiktari, int itemId)
+        public void ItemlerUrunMiktariGuncelle(string isim, int urunMiktari, int islemID)
         {
             _connection.Open();
-            string komutString = String.Format("UPDATE Itemler SET ItemMiktari = @ItemMiktari WHERE ItemID = @ItemID");
+            string komutString = String.Format("UPDATE ItemIslemKaydi SET ItemMiktar =@ItemMiktari WHERE IslemID = @IslemID");
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@ItemMiktari", urunMiktari);
             komut.Parameters.AddWithValue("@ItemSahibi", isim);
-            komut.Parameters.AddWithValue("@ItemID", itemId);
+            komut.Parameters.AddWithValue("@IslemID", islemID);
             //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
             komut.ExecuteNonQuery();
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
         }
 
-        public void ItemKaydiEkle(string itemAdi, int itemId, string satici, int urunFiyati, int urunMiktari, string alimTarihi, string alici)
+        public void islemKaydiEkle(string itemAdi, double urunFiyati, int urunMiktari, string saticiAdi,string aliciAdi , string islemTarihi,string islemTuru,int itemOnay)
         {
             ConnectionControl();
             SqlCommand command = new SqlCommand(
-                "Insert into kayitlar values(@ItemAdi,@itemSahibi,@ItemFiyat,@ItemMiktari,@itemId,@alimTarihi,@itemAlici,@tur)", _connection);
+                "Insert into ItemIslemKaydi values(@ItemAdi,@ItemFiyat,@ItemMiktar,@ItemSatici,@ItemAlici,@ItemIslemTarih,@IslemTur,@ItemOnay)", _connection);
             command.Parameters.AddWithValue("@ItemAdi", itemAdi);
-            command.Parameters.AddWithValue("@itemSahibi", satici);
             command.Parameters.AddWithValue("@ItemFiyat", urunFiyati);
-            command.Parameters.AddWithValue("@ItemMiktari", urunMiktari);
-            command.Parameters.AddWithValue("@itemId", itemId);
-            command.Parameters.AddWithValue("@alimTarihi", alimTarihi);
-            command.Parameters.AddWithValue("@itemAlici", alici);
-            command.Parameters.AddWithValue("@tur", "x");
+            command.Parameters.AddWithValue("@ItemMiktar", urunMiktari);
+            command.Parameters.AddWithValue("@ItemSatici", saticiAdi);
+            command.Parameters.AddWithValue("@ItemAlici", aliciAdi);
+            command.Parameters.AddWithValue("@ItemIslemTarih", islemTarihi);
+            command.Parameters.AddWithValue("@IslemTur", islemTuru);
+            command.Parameters.AddWithValue("@ItemOnay", itemOnay);
             command.ExecuteNonQuery();
             _connection.Close();
         }
 
+        public DataSet ItemKaydiCek(string itemAdi,string baslangic,string bitis)
+        {
+            ConnectionControl();
+            //string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'  AND itemSahibi != '{1}' ORDERBY ItemFiyat ASC", itemAdi, kulAdi); 
+            string sorgu = "select[Ürün Adı] = ItemAdi, Fiyat = ItemFiyat, Miktar = ItemMiktar, Satıcı = ItemSatici, Alıcı = ItemAlici, Tarih = ItemIslemTarih,[İşlem Tür] = IslemTur From ItemIslemKaydi where ItemAdi='" + itemAdi + "' and ItemIslemTarih between '"+ baslangic + "' and '"+ bitis + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            _connection.Close();
+            return ds;        
+        }
         public void ConnectionControl()
         {
             if (_connection.State == ConnectionState.Closed)

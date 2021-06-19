@@ -41,14 +41,14 @@
             this.btnGeri = new System.Windows.Forms.PictureBox();
             this.btnCikis = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.dgvUrunOnay = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnUrunOnay = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTarih = new System.Windows.Forms.Label();
             this.dgvBeklemedeBakiye = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBeklemedeBakiyeOnay = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvMevcutUye = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lblTarih = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -84,7 +84,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUrunOnay);
-            this.groupBox1.Controls.Add(this.guna2Button1);
+            this.groupBox1.Controls.Add(this.btnUrunOnay);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.Aqua;
             this.groupBox1.Location = new System.Drawing.Point(61, 42);
@@ -93,24 +93,6 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Satış Onayı Bekleyen Kullanıcılar";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BorderRadius = 21;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.DisabledState.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Aqua;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(921, 174);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(190, 45);
-            this.guna2Button1.TabIndex = 26;
-            this.guna2Button1.Text = "Onayla";
             // 
             // dgvUrunOnay
             // 
@@ -168,11 +150,30 @@
             this.dgvUrunOnay.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUrunOnay.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // btnUrunOnay
+            // 
+            this.btnUrunOnay.AutoRoundedCorners = true;
+            this.btnUrunOnay.BorderRadius = 21;
+            this.btnUrunOnay.CheckedState.Parent = this.btnUrunOnay;
+            this.btnUrunOnay.CustomImages.Parent = this.btnUrunOnay;
+            this.btnUrunOnay.DisabledState.Parent = this.btnUrunOnay;
+            this.btnUrunOnay.FillColor = System.Drawing.Color.Aqua;
+            this.btnUrunOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUrunOnay.ForeColor = System.Drawing.Color.Black;
+            this.btnUrunOnay.HoverState.Parent = this.btnUrunOnay;
+            this.btnUrunOnay.Location = new System.Drawing.Point(921, 174);
+            this.btnUrunOnay.Name = "btnUrunOnay";
+            this.btnUrunOnay.ShadowDecoration.Parent = this.btnUrunOnay;
+            this.btnUrunOnay.Size = new System.Drawing.Size(190, 45);
+            this.btnUrunOnay.TabIndex = 26;
+            this.btnUrunOnay.Text = "Onayla";
+            this.btnUrunOnay.Click += new System.EventHandler(this.btnUrunOnay_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblTarih);
             this.groupBox2.Controls.Add(this.dgvBeklemedeBakiye);
-            this.groupBox2.Controls.Add(this.guna2Button2);
+            this.groupBox2.Controls.Add(this.btnBeklemedeBakiyeOnay);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.ForeColor = System.Drawing.Color.Aqua;
             this.groupBox2.Location = new System.Drawing.Point(61, 291);
@@ -181,6 +182,14 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bakiye Onayı Bekleyen Kullanıcılar";
+            // 
+            // lblTarih
+            // 
+            this.lblTarih.AutoSize = true;
+            this.lblTarih.Location = new System.Drawing.Point(1001, 21);
+            this.lblTarih.Name = "lblTarih";
+            this.lblTarih.Size = new System.Drawing.Size(0, 25);
+            this.lblTarih.TabIndex = 29;
             // 
             // dgvBeklemedeBakiye
             // 
@@ -238,23 +247,24 @@
             this.dgvBeklemedeBakiye.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBeklemedeBakiye.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2Button2
+            // btnBeklemedeBakiyeOnay
             // 
-            this.guna2Button2.AutoRoundedCorners = true;
-            this.guna2Button2.BorderRadius = 21;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.DisabledState.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Aqua;
-            this.guna2Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(921, 175);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(190, 45);
-            this.guna2Button2.TabIndex = 27;
-            this.guna2Button2.Text = "Onayla";
+            this.btnBeklemedeBakiyeOnay.AutoRoundedCorners = true;
+            this.btnBeklemedeBakiyeOnay.BorderRadius = 21;
+            this.btnBeklemedeBakiyeOnay.CheckedState.Parent = this.btnBeklemedeBakiyeOnay;
+            this.btnBeklemedeBakiyeOnay.CustomImages.Parent = this.btnBeklemedeBakiyeOnay;
+            this.btnBeklemedeBakiyeOnay.DisabledState.Parent = this.btnBeklemedeBakiyeOnay;
+            this.btnBeklemedeBakiyeOnay.FillColor = System.Drawing.Color.Aqua;
+            this.btnBeklemedeBakiyeOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBeklemedeBakiyeOnay.ForeColor = System.Drawing.Color.Black;
+            this.btnBeklemedeBakiyeOnay.HoverState.Parent = this.btnBeklemedeBakiyeOnay;
+            this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(921, 175);
+            this.btnBeklemedeBakiyeOnay.Name = "btnBeklemedeBakiyeOnay";
+            this.btnBeklemedeBakiyeOnay.ShadowDecoration.Parent = this.btnBeklemedeBakiyeOnay;
+            this.btnBeklemedeBakiyeOnay.Size = new System.Drawing.Size(190, 45);
+            this.btnBeklemedeBakiyeOnay.TabIndex = 27;
+            this.btnBeklemedeBakiyeOnay.Text = "Onayla";
+            this.btnBeklemedeBakiyeOnay.Click += new System.EventHandler(this.btnBeklemedeBakiyeOnay_Click);
             // 
             // groupBox3
             // 
@@ -324,14 +334,6 @@
             this.dgvMevcutUye.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMevcutUye.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // lblTarih
-            // 
-            this.lblTarih.AutoSize = true;
-            this.lblTarih.Location = new System.Drawing.Point(1001, 21);
-            this.lblTarih.Name = "lblTarih";
-            this.lblTarih.Size = new System.Drawing.Size(0, 25);
-            this.lblTarih.TabIndex = 29;
-            // 
             // AdminPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,10 +369,10 @@
         private System.Windows.Forms.PictureBox btnCikis;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvUrunOnay;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnUrunOnay;
         private System.Windows.Forms.GroupBox groupBox2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvBeklemedeBakiye;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnBeklemedeBakiyeOnay;
         private System.Windows.Forms.GroupBox groupBox3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvMevcutUye;
         private System.Windows.Forms.Label lblTarih;

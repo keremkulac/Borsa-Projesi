@@ -60,7 +60,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.Aqua;
-            this.label2.Location = new System.Drawing.Point(81, 328);
+            this.label2.Location = new System.Drawing.Point(81, 333);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 20);
@@ -78,7 +78,7 @@
             this.btnGirisYap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGirisYap.ForeColor = System.Drawing.Color.Black;
             this.btnGirisYap.HoverState.Parent = this.btnGirisYap;
-            this.btnGirisYap.Location = new System.Drawing.Point(110, 428);
+            this.btnGirisYap.Location = new System.Drawing.Point(110, 433);
             this.btnGirisYap.Name = "btnGirisYap";
             this.btnGirisYap.ShadowDecoration.Parent = this.btnGirisYap;
             this.btnGirisYap.Size = new System.Drawing.Size(190, 45);
@@ -135,7 +135,7 @@
             this.txtSifre.ForeColor = System.Drawing.Color.Black;
             this.txtSifre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSifre.HoverState.Parent = this.txtSifre;
-            this.txtSifre.Location = new System.Drawing.Point(65, 360);
+            this.txtSifre.Location = new System.Drawing.Point(65, 365);
             this.txtSifre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.PasswordChar = '\0';
@@ -150,7 +150,7 @@
             // 
             this.lblUyeOl.AutoSize = true;
             this.lblUyeOl.LinkColor = System.Drawing.Color.Silver;
-            this.lblUyeOl.Location = new System.Drawing.Point(173, 491);
+            this.lblUyeOl.Location = new System.Drawing.Point(173, 496);
             this.lblUyeOl.Name = "lblUyeOl";
             this.lblUyeOl.Size = new System.Drawing.Size(53, 19);
             this.lblUyeOl.TabIndex = 3;

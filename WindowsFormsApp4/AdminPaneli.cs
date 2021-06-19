@@ -16,7 +16,7 @@ namespace WindowsFormsApp4
 
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
-        string secilmisItem = null;
+       // string secilmisItem = null;
         public void LoginFormDon()
         {
             this.Hide();
@@ -33,7 +33,7 @@ namespace WindowsFormsApp4
         void LoadKullanicilar()
         {
             DataSet ds = data.KullanicilariCek();
-            dgvUrunOnay.DataSource = ds.Tables[0];
+            dgvMevcutUye.DataSource = ds.Tables[0];
         }
 
         void OnaylanmamisBakiyeKullanicilari()
@@ -57,7 +57,6 @@ namespace WindowsFormsApp4
             lblTarih.Text = bugun.ToString();
         }
 
-
         //private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         //{
         //    foreach (DataGridViewRow row in dataGridView2.SelectedRows)
@@ -68,21 +67,6 @@ namespace WindowsFormsApp4
         //    }
         //}
 
-        private void btnUrunOnay_Click(object sender, EventArgs e)
-        {
-            _connection.Open();
-            string itemId = dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[5].Value.ToString();
-            string komutString = String.Format("UPDATE Itemler SET ItemOnay=@ItemOnay WHERE ItemID = {0}", Int32.Parse(itemId));
-            SqlCommand komut = new SqlCommand(komutString, _connection);
-            komut.Parameters.AddWithValue("@ItemOnay", 0);
-            //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
-            komut.ExecuteNonQuery();
-            //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
-            _connection.Close();
-            MessageBox.Show("Item onay bilgisi Güncellendi.");
-            LoadItemler();
-        }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -90,26 +74,37 @@ namespace WindowsFormsApp4
             loginForm.Show();
         }
 
-        private void btnBeklemedeBakiyeOnay_Click(object sender, EventArgs e)
-        {
-            
-            _connection.Open();
-            string kulAdi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[0].Value.ToString();
-            double beklemedekiBakiye = Convert.ToDouble(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[10].Value.ToString());
-            data.BakiyeEkle(kulAdi, beklemedekiBakiye);
-            OnaylanmamisBakiyeKullanicilari();
-            LoadKullanicilar();
-            _connection.Close();
-        }
-
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void dgvMevcutUye_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void btnUrunOnay_Click(object sender, EventArgs e)
+        {
+            _connection.Open();
+            string islemID = dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[0].Value.ToString();
+            string komutString = String.Format("UPDATE ItemIslemKaydi SET ItemOnay=@ItemOnay WHERE IslemID = {0}", Int32.Parse(islemID));
+            SqlCommand komut = new SqlCommand(komutString, _connection);
+            komut.Parameters.AddWithValue("@ItemOnay", 0);
+            //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
+            komut.ExecuteNonQuery();
+            //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
+            _connection.Close();
+            MessageBox.Show("Ürün satışı onaylandı ve item onay bilgisi Güncellendi.");
+            LoadItemler();
+        }
+
+        private void btnBeklemedeBakiyeOnay_Click(object sender, EventArgs e)
+        {
+            _connection.Open();
+            string kulAdi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[0].Value.ToString();
+            double beklemedekiBakiye = Convert.ToDouble(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[3].Value.ToString());
+            data.BakiyeEkle(kulAdi, beklemedekiBakiye);
+            OnaylanmamisBakiyeKullanicilari();
+            LoadKullanicilar();
+            MessageBox.Show("Bakiye onaylandı ve kullanıcının bakiye bilgisi güncellendi.");
+            _connection.Close();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace WindowsFormsApp4
             string pass = txtSifre.Text;
             _connection.Open();
             ///  SqlCommand _sqlCommand = new SqlCommand("Select * From GirisBilgileri", _connection);
-            SqlDataAdapter komut = new SqlDataAdapter("select * from Kullanicilar where KullaniciAdi = '" + user + "' and sifre='" + pass + "'", _connection);
+            SqlDataAdapter komut = new SqlDataAdapter("select * from Kullanicilar where KullaniciAdi = '" + user + "' and Sifre='" + pass + "'", _connection);
             DataTable dt = new System.Data.DataTable();
             komut.Fill(dt);
             if (dt.Rows.Count == 1)
