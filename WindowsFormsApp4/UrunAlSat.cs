@@ -304,49 +304,26 @@ namespace WindowsFormsApp4
             loginForm.Show();
         }
 
-        public void bakiyeEkle(string dovizKur)
+        public void bakiyeEkle()
         {
             paraBirimi = cmbParaBirimi.Text;
-            MessageBox.Show("local : "+ cmbParaBirimi.Text);
-            dovizKur = dovizKur.Replace('.', ',');
-            double bakiyeTLDegeri = Convert.ToDouble(dovizKur) * Convert.ToDouble(txtBakiyeMiktar.Text);
-            
+            double bakiyeTLDegeri = Convert.ToDouble(txtBakiyeMiktar.Text);
+
             bakiyeTLDegeri = Math.Round(bakiyeTLDegeri, 2);
             DataRow dt = data.kullaniciDegerleri(isim);
             baglanti.BeklemeyeBakiyeYolla(isim, bakiyeTLDegeri, paraBirimi);
-            
+
             double bakiye = Convert.ToDouble(dt["KullaniciBakiye"].ToString());
             lblBakiye.Text = bakiye.ToString();
             Console.WriteLine(bakiyeTLDegeri);
-             
-            
-        }
 
-     
+
+        }
 
         private void btnBakiyeYukle_Click(object sender, EventArgs e)
         {
 
-
-             
-            string dovizKur;
-
-            if (paraBirimi == "TRY")
-            {
-                dovizKur = "1";
-                bakiyeEkle(dovizKur);
-            }
-
-
-
-            else
-            {
-                DovizKuru doviz = new DovizKuru();
-              string dovizKuru =   doviz.DovizKuruStr(paraBirimi);
-
-                               
-                bakiyeEkle(dovizKuru);
-            }
+            bakiyeEkle();
             MessageBox.Show("Bakiye yükleme istediğiniz işleme alınmıştır. Admin tarafından onaylandıktan sonra bakiyeniz güncellenecektir.");
         }
 
@@ -360,7 +337,7 @@ namespace WindowsFormsApp4
             string raporBaslangic = raporTarihBaslangic.Text;
             string raporBitis = raporTarihBitis.Text;
             string itemAd = txtItemAd.Text;
-            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis,isim, isim);
+            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis, isim, isim);
             dgvIslemKaydi.DataSource = ds.Tables[0];
         }
 
@@ -401,9 +378,9 @@ namespace WindowsFormsApp4
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void cmbParaBirimi_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            paraBirimi = cmbParaBirimi.Text;
         }
     }
 }
