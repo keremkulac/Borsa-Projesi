@@ -35,9 +35,9 @@ namespace WindowsFormsApp4
             return ds;
         }
 
-        public DataSet ItemleriCekByItemAdi(string itemAdi, string kulAdi,string islemTur)
+        public DataSet ItemleriCekByItemAdi(string itemAdi, string kulAdi, string islemTur)
         {
-            ConnectionControl();          
+            ConnectionControl();
             string sorgu = String.Format("SELECT [Ürün Adı]=ItemAdi,[Ürün Fiyatı]=ItemFiyat,[Ürün Miktarı]=ItemMiktar,Satıcı=ItemSatici,ID=IslemID FROM ItemIslemKaydi where ItemAdi ='" + itemAdi + "' AND IslemTur ='" + islemTur + "' AND ItemSatici != '" + kulAdi + "' AND ItemMiktar != 0 ORDER BY ItemFiyat ASC", itemAdi, kulAdi);
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
@@ -60,7 +60,7 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-        public void islemKaydiEkle(string itemAdi, double urunFiyati, int urunMiktari, string saticiAdi,string aliciAdi , string islemTarihi,string islemTuru,int itemOnay)
+        public void islemKaydiEkle(string itemAdi, double urunFiyati, int urunMiktari, string saticiAdi, string aliciAdi, string islemTarihi, string islemTuru, int itemOnay)
         {
             ConnectionControl();
             SqlCommand command = new SqlCommand(
@@ -77,16 +77,17 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-        public DataSet ItemKaydiCek(string itemAdi,string baslangic,string bitis)
+        public DataSet ItemKaydiCek(string itemAdi, string baslangic, string bitis,string alici,string satici)
         {
             ConnectionControl();
             //string sorgu = String.Format("SELECT* FROM itemler WHERE ItemAdi = '{0}'  AND itemSahibi != '{1}' ORDERBY ItemFiyat ASC", itemAdi, kulAdi); 
-            string sorgu = "select[Ürün Adı] = ItemAdi, Fiyat = ItemFiyat, Miktar = ItemMiktar, Satıcı = ItemSatici, Alıcı = ItemAlici, Tarih = ItemIslemTarih,[İşlem Tür] = IslemTur From ItemIslemKaydi where ItemAdi='" + itemAdi + "' and ItemIslemTarih between '"+ baslangic + "' and '"+ bitis + "'";
+            //string sorgu = "select[Ürün Adı] = ItemAdi, Fiyat = ItemFiyat, Miktar = ItemMiktar, Satıcı = ItemSatici, Alıcı = ItemAlici, Tarih = ItemIslemTarih,[İşlem Tür] = IslemTur From ItemIslemKaydi where ItemAdi='" + itemAdi + "' and ItemIslemTarih between '" + baslangic + "' and '" + bitis + "'";
+            string sorgu = "select[Ürün Adı] = ItemAdi, Fiyat = ItemFiyat, Miktar = ItemMiktar, Satıcı = ItemSatici, Alıcı = ItemAlici, Tarih = ItemIslemTarih,[İşlem Tür] = IslemTur From ItemIslemKaydi where ItemAdi='" + itemAdi + "'  and (ItemAlici='"+alici+ "' or ItemSatici='" + satici + "') and ItemIslemTarih between '" + baslangic + "' and '" + bitis + "'";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             _connection.Close();
-            return ds;        
+            return ds;
         }
         public void ConnectionControl()
         {

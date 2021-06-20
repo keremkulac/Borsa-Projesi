@@ -21,13 +21,14 @@ namespace WindowsFormsApp4
         //    _tarihBaslangic = tarihBaslangic;
         //    _tarihBitis = tarihBitis;
         //}
-        public void PDFRaporAl(DataGridView dgvIslemKaydi)
+        public void PDFCiktisiAl(DataGridView dgvIslemKaydi)
         {
             SaveFileDialog save = new SaveFileDialog();
             save.OverwritePrompt = false;
             save.Title = "PDF Dosyaları";
             save.DefaultExt = "pdf";
             save.Filter = "PDF Dosyaları (*.pdf)|*.pdf|Tüm Dosyalar(*.*)|*.*";
+            
             if (save.ShowDialog() == DialogResult.OK)
             {
                 PdfPTable pdfTable = new PdfPTable(dgvIslemKaydi.ColumnCount);
@@ -69,33 +70,11 @@ namespace WindowsFormsApp4
                     pdfDoc.Open();
                     pdfDoc.Add(pdfTable);
                     pdfDoc.Close();
-                    stream.Close();
+                    pdfDoc.Close();
                 }
             }
         }
-        public void PDFCiktisiAl(string urunAdi, int urunFiyat, int urunMiktar, string saticiAdi, string aliciAdi, string tarih, string islemTur)
-        {
-            DataSet ds = new DataSet();
-            ItemlerDatabase kayit = new ItemlerDatabase();
-            //  ds = kayit.ItemKaydiCek();
-
-            iTextSharp.text.Document rapor = new iTextSharp.text.Document();
-            PdfWriter.GetInstance(rapor, new FileStream("C:Deneme.Pdf", FileMode.Create));
-            if (rapor.IsOpen() == false)
-            {
-                rapor.Open();
-            }
-            rapor.Add(new Paragraph("Ürün Adı     " + urunAdi));
-            rapor.Add(new Paragraph("Ürün Fiyati  " + urunFiyat + "TL"));
-            rapor.Add(new Paragraph("Ürün Miktari " + urunMiktar + "kg"));
-            rapor.Add(new Paragraph("Satici Adi   " + saticiAdi));
-            rapor.Add(new Paragraph("Alici Adi    " + aliciAdi));
-            rapor.Add(new Paragraph("Islem Tarihi " + tarih));
-            rapor.Add(new Paragraph("Islem Türü   " + islemTur));
-            MessageBox.Show("PDF türünde rapor alma başarılı");
-            rapor.Close();
-        }
-
+   
         public void ExcelCiktisiAl(DataGridView dgvIslemKaydi)
         {
             Microsoft.Office.Interop.Excel.Application uyg = new Microsoft.Office.Interop.Excel.Application();
@@ -116,11 +95,53 @@ namespace WindowsFormsApp4
                     myRange.Value2 = dgvIslemKaydi[i, j].Value;
                 }
             }
+            MessageBox.Show("EXCEL türünde rapor alma başarılı.");
         }
 
-        public void CSVCiktisiAl()
+        public void CSVCiktisiAl(DataGridView dgvIslemKaydi)
         {
-
+            // Don't save if no data is returned
+            if (dgvIslemKaydi.Rows.Count == 0)
+            {
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            // Column headers
+            string columnsHeader = "";
+            for (int i = 0; i < dgvIslemKaydi.Columns.Count; i++)
+            {
+                columnsHeader += dgvIslemKaydi.Columns[i].Name + ",";
+            }
+            sb.Append(columnsHeader + Environment.NewLine);
+            // Go through each cell in the datagridview
+            foreach (DataGridViewRow dgvRow in dgvIslemKaydi.Rows)
+            {
+                // Make sure it's not an empty row.
+                if (!dgvRow.IsNewRow)
+                {
+                    for (int c = 0; c < dgvRow.Cells.Count; c++)
+                    {
+                        // Append the cells data followed by a comma to delimit.
+                        sb.Append(dgvRow.Cells[c].Value + ",");
+                    }
+                    // Add a new line in the text file.
+                    sb.Append(Environment.NewLine);
+                }
+            }
+            // Load up the save file dialog with the default option as saving as a .csv file.
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV files (*.csv)|*.csv";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // If they've selected a save location...
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.FileName, false))
+                {
+                    // Write the stringbuilder text to the the file.
+                    sw.WriteLine(sb.ToString());
+                }
+            }
+            // Confirm to the user it has been completed.
+            MessageBox.Show("CSV türünde rapor alma başarılı.");
         }
 
         public void DATCiktisiAl()

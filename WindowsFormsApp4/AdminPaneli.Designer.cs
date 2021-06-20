@@ -161,7 +161,7 @@
             this.btnUrunOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnUrunOnay.ForeColor = System.Drawing.Color.Black;
             this.btnUrunOnay.HoverState.Parent = this.btnUrunOnay;
-            this.btnUrunOnay.Location = new System.Drawing.Point(921, 174);
+            this.btnUrunOnay.Location = new System.Drawing.Point(921, 176);
             this.btnUrunOnay.Name = "btnUrunOnay";
             this.btnUrunOnay.ShadowDecoration.Parent = this.btnUrunOnay;
             this.btnUrunOnay.Size = new System.Drawing.Size(190, 45);
@@ -219,11 +219,11 @@
             this.dgvBeklemedeBakiye.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBeklemedeBakiye.EnableHeadersVisualStyles = false;
             this.dgvBeklemedeBakiye.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvBeklemedeBakiye.Location = new System.Drawing.Point(19, 56);
+            this.dgvBeklemedeBakiye.Location = new System.Drawing.Point(14, 49);
             this.dgvBeklemedeBakiye.Name = "dgvBeklemedeBakiye";
             this.dgvBeklemedeBakiye.RowHeadersVisible = false;
             this.dgvBeklemedeBakiye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBeklemedeBakiye.Size = new System.Drawing.Size(1092, 99);
+            this.dgvBeklemedeBakiye.Size = new System.Drawing.Size(1097, 99);
             this.dgvBeklemedeBakiye.TabIndex = 28;
             this.dgvBeklemedeBakiye.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBeklemedeBakiye.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -258,7 +258,7 @@
             this.btnBeklemedeBakiyeOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBeklemedeBakiyeOnay.ForeColor = System.Drawing.Color.Black;
             this.btnBeklemedeBakiyeOnay.HoverState.Parent = this.btnBeklemedeBakiyeOnay;
-            this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(921, 175);
+            this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(921, 169);
             this.btnBeklemedeBakiyeOnay.Name = "btnBeklemedeBakiyeOnay";
             this.btnBeklemedeBakiyeOnay.ShadowDecoration.Parent = this.btnBeklemedeBakiyeOnay;
             this.btnBeklemedeBakiyeOnay.Size = new System.Drawing.Size(190, 45);

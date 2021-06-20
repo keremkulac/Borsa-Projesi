@@ -71,9 +71,9 @@ namespace WindowsFormsApp4
             loginForm.Show();
         }
 
-        void LoadItemler(string itemAdi,string islemTur)
+        void LoadItemler(string itemAdi, string islemTur)
         {
-            DataSet ds = itemlerData.ItemleriCekByItemAdi(itemAdi, isim,islemTur);
+            DataSet ds = itemlerData.ItemleriCekByItemAdi(itemAdi, isim, islemTur);
             dgvUrunler.DataSource = ds.Tables[0];
         }
         // >> beklemedeOlanBakiye & bakiyeOnay 
@@ -105,7 +105,7 @@ namespace WindowsFormsApp4
 
         private void guna2ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            LoadItemler(cmbUrunSecimi.Text,"Satış");
+            LoadItemler(cmbUrunSecimi.Text, "Satış");
         }
 
         public static String GetTimestamp(DateTime value)
@@ -132,7 +132,7 @@ namespace WindowsFormsApp4
                     {
                         urunAdi = Datarow.Cells[0].Value.ToString(),
                         urunFiyati = Convert.ToDouble(Datarow.Cells[1].Value.ToString()),
-                        urunMiktari = Convert.ToInt32(Datarow.Cells[2].Value.ToString()),  
+                        urunMiktari = Convert.ToInt32(Datarow.Cells[2].Value.ToString()),
                         satici = Datarow.Cells[3].Value.ToString(),
                         islemID = Convert.ToInt32(Datarow.Cells[4].Value.ToString())
                     };
@@ -209,15 +209,15 @@ namespace WindowsFormsApp4
             }
             else
             {
-                int istenilenFiyat;
+                double istenilenFiyat;
                 object bulunanItem;
-                istenilenFiyat = int.Parse(txtUrunAlFiyat.Text);
-                bulunanItem = urunler.Find(urun => (int)urun.GetType().GetProperty("urunFiyati").GetValue(urun) == istenilenFiyat);
+                istenilenFiyat = Convert.ToDouble(txtUrunAlFiyat.Text);
+                bulunanItem = urunler.Find(urun => (double)urun.GetType().GetProperty("urunFiyati").GetValue(urun) == istenilenFiyat);
                 foreach (object item in urunler)
                 {
                     string satici;
                     int urunMiktari;
-                    int urunFiyati;
+                    double urunFiyati;
                     int islemID;
                     if (bulunanItem == null)
                     {
@@ -226,9 +226,10 @@ namespace WindowsFormsApp4
                     }
                     else
                     {
+                        string itemAdi = (string)item.GetType().GetProperty("urunAdi").GetValue(item);
                         islemID = (int)bulunanItem.GetType().GetProperty("islemID").GetValue(bulunanItem);
                         satici = (string)bulunanItem.GetType().GetProperty("satici").GetValue(bulunanItem);
-                        urunFiyati = (int)bulunanItem.GetType().GetProperty("urunFiyati").GetValue(bulunanItem);
+                        urunFiyati = (double)bulunanItem.GetType().GetProperty("urunFiyati").GetValue(bulunanItem);
                         urunMiktari = (int)bulunanItem.GetType().GetProperty("urunMiktari").GetValue(bulunanItem);
                         DataRow dtSatici = data.kullaniciDegerleri(satici);
                         double kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
@@ -248,6 +249,10 @@ namespace WindowsFormsApp4
                                 int saticiYeniUrunMiktari = urunMiktari - alinanMiktar;
                                 itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, islemID);
                                 LoadItemler(cmbUrunSecimi.Text, "Satış");
+                                string islemTarihi = DateTime.UtcNow.ToString("dd-MM-yyyy");
+                                string islemTuru = "Alış";
+                                int itemOnay = 0;
+                                itemlerData.islemKaydiEkle(itemAdi, urunFiyati, alinanMiktar, satici, isim, islemTarihi, islemTuru, itemOnay);
                                 alinanMiktar = alinanMiktar - urunMiktari;
                                 break;
                             }
@@ -326,11 +331,6 @@ namespace WindowsFormsApp4
             MessageBox.Show("Bakiye yükleme istediğiniz işleme alınmıştır. Admin tarafından onaylandıktan sonra bakiyeniz güncellenecektir.");
         }
 
-        public void dgvDoldur()
-        {
-
-        }
-
         private void btnGetir_Click(object sender, EventArgs e)
         {
             //select* from ItemIslemKaydi where ItemAdi = 'Erik' and ItemIslemTarih between '17-06-2021' and '19-06-2021'
@@ -341,7 +341,7 @@ namespace WindowsFormsApp4
             string raporBaslangic = raporTarihBaslangic.Text;
             string raporBitis = raporTarihBitis.Text;
             string itemAd = txtItemAd.Text;
-            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis);
+            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis,isim, isim);
             dgvIslemKaydi.DataSource = ds.Tables[0];
         }
 
@@ -354,7 +354,7 @@ namespace WindowsFormsApp4
             string raporBaslangic = raporTarihBaslangic.Text;
             string raporBitis = raporTarihBitis.Text;
             string itemAd = txtItemAd.Text;
-            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis);
+            DataSet ds = itemlerData.ItemKaydiCek(itemAd, raporBaslangic, raporBitis, isim, isim);
             dgvIslemKaydi.DataSource = ds.Tables[0];
             //string urunAdi = dgvIslemKaydi.Rows[dgvIslemKaydi.CurrentRow.Index].Cells[0].Value.ToString();
             //int urunFiyat = Convert.ToInt32(dgvIslemKaydi.Rows[dgvIslemKaydi.CurrentRow.Index].Cells[1].Value.ToString());
@@ -368,21 +368,19 @@ namespace WindowsFormsApp4
             switch (cmbRaporTuru.Text)
             {
                 case "CSV":
-                    //rapor.CSVCiktisiAl();
+                    rapor.CSVCiktisiAl(dgvIslemKaydi);
                     break;
                 case "XLSX":
-                   rapor.ExcelCiktisiAl(dgvIslemKaydi);
+                    rapor.ExcelCiktisiAl(dgvIslemKaydi);
                     break;
                 case "DAT":
-                  //  rapor.DATCiktisiAl();
+                    //  rapor.DATCiktisiAl();
                     break;
                 case "PDF":
-                    rapor.PDFRaporAl(dgvIslemKaydi);
-                    //  rapor.PDFCiktisiAl(urunAdi, urunFiyat, urunMiktar, saticiAdi, aliciAdi, tarih, islemTur);
+                    rapor.PDFCiktisiAl(dgvIslemKaydi);
                     break;
             }
         }
-
     }
 }
 
