@@ -17,11 +17,19 @@ namespace WindowsFormsApp4
 {
     public partial class UrunAlSat : Form
     {
+        string paraBirimi;
         string isim; // giriş yapan kullanıcının adı
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
         KullanicilarDatabase baglanti = new KullanicilarDatabase();
         ItemlerDatabase itemlerData = new ItemlerDatabase();
+        public string dovizGlobal; //global bakiye değeri
+
+        public UrunAlSat()
+        {
+
+
+        }
         public UrunAlSat(string _user)
         {
             InitializeComponent();
@@ -298,35 +306,46 @@ namespace WindowsFormsApp4
 
         public void bakiyeEkle(string dovizKur)
         {
+            paraBirimi = cmbParaBirimi.Text;
+            MessageBox.Show("local : "+ cmbParaBirimi.Text);
             dovizKur = dovizKur.Replace('.', ',');
             double bakiyeTLDegeri = Convert.ToDouble(dovizKur) * Convert.ToDouble(txtBakiyeMiktar.Text);
+            
             bakiyeTLDegeri = Math.Round(bakiyeTLDegeri, 2);
             DataRow dt = data.kullaniciDegerleri(isim);
-            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeTLDegeri);
-            //double beklemedeBakiye = Convert.ToDouble(dt["BeklemedeBakiye"].ToString());
-            //lblOnaylanmamisBakiye.Text = beklemedeBakiye.ToString();
+            baglanti.BeklemeyeBakiyeYolla(isim, bakiyeTLDegeri, paraBirimi);
+            
             double bakiye = Convert.ToDouble(dt["KullaniciBakiye"].ToString());
             lblBakiye.Text = bakiye.ToString();
             Console.WriteLine(bakiyeTLDegeri);
+             
+            
         }
+
+     
 
         private void btnBakiyeYukle_Click(object sender, EventArgs e)
         {
-            string paraBirimi = cmbParaBirimi.Text;
+
+
+             
             string dovizKur;
+
             if (paraBirimi == "TRY")
             {
                 dovizKur = "1";
                 bakiyeEkle(dovizKur);
             }
+
+
+
             else
             {
-                string bugun = " http://www.tcmb.gov.tr/kurlar/today.xml";
-                var xmldoc = new XmlDocument();
-                xmldoc.Load(bugun);
-                DateTime tarih = Convert.ToDateTime(xmldoc.SelectSingleNode("//Tarih_Date").Attributes["Tarih"].Value);
-                dovizKur = xmldoc.SelectSingleNode("Tarih_Date/Currency[@Kod='" + paraBirimi + "']/BanknoteSelling").InnerXml;
-                bakiyeEkle(dovizKur);
+                DovizKuru doviz = new DovizKuru();
+              string dovizKuru =   doviz.DovizKuruStr(paraBirimi);
+
+                               
+                bakiyeEkle(dovizKuru);
             }
             MessageBox.Show("Bakiye yükleme istediğiniz işleme alınmıştır. Admin tarafından onaylandıktan sonra bakiyeniz güncellenecektir.");
         }
@@ -374,12 +393,17 @@ namespace WindowsFormsApp4
                     rapor.ExcelCiktisiAl(dgvIslemKaydi);
                     break;
                 case "DAT":
-                    //  rapor.DATCiktisiAl();
+                    rapor.DATCiktisiAl(dgvIslemKaydi);
                     break;
                 case "PDF":
                     rapor.PDFCiktisiAl(dgvIslemKaydi);
                     break;
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

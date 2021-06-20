@@ -23,6 +23,8 @@ namespace WindowsFormsApp4
         //}
         public void PDFCiktisiAl(DataGridView dgvIslemKaydi)
         {
+            iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+            iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(STF_Helvetica_Turkish, 7, iTextSharp.text.Font.NORMAL);
             SaveFileDialog save = new SaveFileDialog();
             save.OverwritePrompt = false;
             save.Title = "PDF Dosyaları";
@@ -39,7 +41,7 @@ namespace WindowsFormsApp4
                 pdfTable.DefaultCell.BorderWidth = 1; // kenarlık kalınlığı  // Bu alanlarla oynarak tasarımı iyileştirebilirsiniz.
                 foreach (DataGridViewColumn column in dgvIslemKaydi.Columns)
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, fontTitle));
                     cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240); // hücre arka plan rengi
                     pdfTable.AddCell(cell);
                 }
@@ -55,7 +57,7 @@ namespace WindowsFormsApp4
                             }
                             else
                             {
-                                pdfTable.AddCell(cell.Value.ToString());
+                                pdfTable.AddCell(new PdfPCell(new Phrase(cell.Value.ToString(), fontTitle)));
                             }
                         }
                     }
@@ -63,7 +65,7 @@ namespace WindowsFormsApp4
                 catch (NullReferenceException)
                 {
                 }
-                using (FileStream stream = new FileStream(save.FileName + ".pdf", FileMode.Create))
+                using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                 {
                     Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);// sayfa boyutu.
                     PdfWriter.GetInstance(pdfDoc, stream);
@@ -100,53 +102,92 @@ namespace WindowsFormsApp4
 
         public void CSVCiktisiAl(DataGridView dgvIslemKaydi)
         {
-            // Don't save if no data is returned
+            // Eğer veri yoksa bir şey yapma
             if (dgvIslemKaydi.Rows.Count == 0)
             {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            // Column headers
+            // Sütün başlıkları
             string columnsHeader = "";
             for (int i = 0; i < dgvIslemKaydi.Columns.Count; i++)
             {
                 columnsHeader += dgvIslemKaydi.Columns[i].Name + ",";
             }
+            
             sb.Append(columnsHeader + Environment.NewLine);
-            // Go through each cell in the datagridview
+            // Her cell'in üzerinden geç
             foreach (DataGridViewRow dgvRow in dgvIslemKaydi.Rows)
             {
-                // Make sure it's not an empty row.
+                // satırın boş olup olmadığını kontrol et
                 if (!dgvRow.IsNewRow)
                 {
                     for (int c = 0; c < dgvRow.Cells.Count; c++)
                     {
-                        // Append the cells data followed by a comma to delimit.
-                        sb.Append(dgvRow.Cells[c].Value + ",");
+                        sb.Append(dgvRow.Cells[c].Value.ToString().Trim() + ",");
                     }
-                    // Add a new line in the text file.
+                    // yeni bir boş satır ekle
+                    
                     sb.Append(Environment.NewLine);
                 }
             }
-            // Load up the save file dialog with the default option as saving as a .csv file.
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "CSV files (*.csv)|*.csv";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                // If they've selected a save location...
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.FileName, false))
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.FileName, false, new UTF8Encoding(true)))
                 {
-                    // Write the stringbuilder text to the the file.
+
+                    // stringbuilder'i dosyaya yaz
                     sw.WriteLine(sb.ToString());
                 }
             }
-            // Confirm to the user it has been completed.
+            // Rapor işlemi başarılı
             MessageBox.Show("CSV türünde rapor alma başarılı.");
         }
 
-        public void DATCiktisiAl()
+        public void DATCiktisiAl(DataGridView dgvIslemKaydi)
         {
+            // Eğer veri yoksa bir şey yapma
+            if (dgvIslemKaydi.Rows.Count == 0)
+            {
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            // Sütün başlıkları
+            string columnsHeader = "";
+            for (int i = 0; i < dgvIslemKaydi.Columns.Count; i++)
+            {
+                columnsHeader += dgvIslemKaydi.Columns[i].Name + ",";
+            }
 
+            sb.Append(columnsHeader + Environment.NewLine);
+            // Her cell'in üzerinden geç
+            foreach (DataGridViewRow dgvRow in dgvIslemKaydi.Rows)
+            {
+                // satırın boş olup olmadığını kontrol et
+                if (!dgvRow.IsNewRow)
+                {
+                    for (int c = 0; c < dgvRow.Cells.Count; c++)
+                    {
+                        sb.Append(dgvRow.Cells[c].Value.ToString().Trim() + ",");
+                    }
+
+                    sb.Append(Environment.NewLine);
+                }
+            }
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "DAT files (*.dat)|*.dat";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.FileName, false, new UTF8Encoding(true)))
+                {
+
+                    sw.WriteLine(sb.ToString());
+                }
+            }
+            // DAT türünde rapor alma başarılı olduğunda
+            MessageBox.Show("DAT türünde rapor alma başarılı.");
         }
 
     }

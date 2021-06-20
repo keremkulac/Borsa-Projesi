@@ -77,18 +77,39 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-        public void BeklemeyeBakiyeYolla(string kulAdi, double bakiyeMiktari)
+        public void BeklemeyeBakiyeYolla(string kulAdi, double bakiyeMiktari, string Bakiye)
         {
             _connection.Open();
-            string komutString = String.Format("UPDATE Kullanicilar SET BeklemedeBakiye = (BeklemedeBakiye+ @BekleyenBakiyeMiktari), BakiyeOnay = 1 WHERE KullaniciAdi = @KulAdimiz");
+            string komutString = String.Format("UPDATE Kullanicilar SET BeklemedeBakiye = (BeklemedeBakiye+ @BekleyenBakiyeMiktari), BakiyeOnay = 1, BakiyeParaBirimi = @BakiyeParaBirimi WHERE KullaniciAdi = @KulAdimiz");
             SqlCommand komut = new SqlCommand(komutString, _connection);
             komut.Parameters.AddWithValue("@BekleyenBakiyeMiktari", bakiyeMiktari);
             komut.Parameters.AddWithValue("@KulAdimiz", kulAdi);
+            komut.Parameters.AddWithValue("@BakiyeParaBirimi", Bakiye);
             //Parametrelerimize Form üzerinde ki kontrollerden girilen verileri aktarıyoruz.
             komut.ExecuteNonQuery();
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
         }
+
+
+        //public void BakiyeParaBirimi(string Bakiye, string kulAdi)
+        //{
+
+
+        //    _connection.Open();
+
+        //    string komutString = String.Format("UPDATE Kullanicilar SET BakiyeParaBirimi=@ItemOnay WHERE kulAdi = {0}", kulAdi);
+        //    SqlCommand komut = new SqlCommand(komutString, _connection);
+        //    komut.Parameters.AddWithValue("@BakiyeParaBirimi", Bakiye);
+
+        //    komut.ExecuteNonQuery();
+        //    System.Windows.Forms.MessageBox.Show("Başarıyla onaya düştü!");
+        //    _connection.Close();
+        //}
+
+
+
+
 
         public DataRow kullaniciDegerleri(string kulAdi)
         {
@@ -110,5 +131,18 @@ namespace WindowsFormsApp4
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
         }
+
+   
+
+
+
+    
+    
+    
+    
+    
     }
+
+
+
 }

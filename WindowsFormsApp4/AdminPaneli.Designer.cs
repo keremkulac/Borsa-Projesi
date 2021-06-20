@@ -62,9 +62,10 @@
             // btnGeri
             // 
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
-            this.btnGeri.Location = new System.Drawing.Point(12, 12);
+            this.btnGeri.Location = new System.Drawing.Point(16, 15);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(30, 29);
+            this.btnGeri.Size = new System.Drawing.Size(40, 36);
             this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnGeri.TabIndex = 21;
             this.btnGeri.TabStop = false;
@@ -73,7 +74,8 @@
             // btnCikis
             // 
             this.btnCikis.Image = ((System.Drawing.Image)(resources.GetObject("btnCikis.Image")));
-            this.btnCikis.Location = new System.Drawing.Point(1213, 12);
+            this.btnCikis.Location = new System.Drawing.Point(1617, 15);
+            this.btnCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(24, 24);
             this.btnCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -87,9 +89,11 @@
             this.groupBox1.Controls.Add(this.btnUrunOnay);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.Aqua;
-            this.groupBox1.Location = new System.Drawing.Point(61, 42);
+            this.groupBox1.Location = new System.Drawing.Point(81, 52);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1130, 237);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1507, 292);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Satış Onayı Bekleyen Kullanıcılar";
@@ -122,11 +126,13 @@
             this.dgvUrunOnay.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUrunOnay.EnableHeadersVisualStyles = false;
             this.dgvUrunOnay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvUrunOnay.Location = new System.Drawing.Point(14, 56);
+            this.dgvUrunOnay.Location = new System.Drawing.Point(19, 69);
+            this.dgvUrunOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUrunOnay.Name = "dgvUrunOnay";
             this.dgvUrunOnay.RowHeadersVisible = false;
+            this.dgvUrunOnay.RowHeadersWidth = 51;
             this.dgvUrunOnay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUrunOnay.Size = new System.Drawing.Size(1097, 99);
+            this.dgvUrunOnay.Size = new System.Drawing.Size(1463, 122);
             this.dgvUrunOnay.TabIndex = 27;
             this.dgvUrunOnay.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUrunOnay.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -153,7 +159,7 @@
             // btnUrunOnay
             // 
             this.btnUrunOnay.AutoRoundedCorners = true;
-            this.btnUrunOnay.BorderRadius = 21;
+            this.btnUrunOnay.BorderRadius = 26;
             this.btnUrunOnay.CheckedState.Parent = this.btnUrunOnay;
             this.btnUrunOnay.CustomImages.Parent = this.btnUrunOnay;
             this.btnUrunOnay.DisabledState.Parent = this.btnUrunOnay;
@@ -161,10 +167,11 @@
             this.btnUrunOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnUrunOnay.ForeColor = System.Drawing.Color.Black;
             this.btnUrunOnay.HoverState.Parent = this.btnUrunOnay;
-            this.btnUrunOnay.Location = new System.Drawing.Point(921, 176);
+            this.btnUrunOnay.Location = new System.Drawing.Point(1228, 217);
+            this.btnUrunOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUrunOnay.Name = "btnUrunOnay";
             this.btnUrunOnay.ShadowDecoration.Parent = this.btnUrunOnay;
-            this.btnUrunOnay.Size = new System.Drawing.Size(190, 45);
+            this.btnUrunOnay.Size = new System.Drawing.Size(253, 55);
             this.btnUrunOnay.TabIndex = 26;
             this.btnUrunOnay.Text = "Onayla";
             this.btnUrunOnay.Click += new System.EventHandler(this.btnUrunOnay_Click);
@@ -176,19 +183,23 @@
             this.groupBox2.Controls.Add(this.btnBeklemedeBakiyeOnay);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.ForeColor = System.Drawing.Color.Aqua;
-            this.groupBox2.Location = new System.Drawing.Point(61, 291);
+            this.groupBox2.Location = new System.Drawing.Point(81, 358);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1130, 237);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1507, 292);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bakiye Onayı Bekleyen Kullanıcılar";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // lblTarih
             // 
             this.lblTarih.AutoSize = true;
-            this.lblTarih.Location = new System.Drawing.Point(1001, 21);
+            this.lblTarih.Location = new System.Drawing.Point(1335, 26);
+            this.lblTarih.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTarih.Name = "lblTarih";
-            this.lblTarih.Size = new System.Drawing.Size(0, 25);
+            this.lblTarih.Size = new System.Drawing.Size(0, 29);
             this.lblTarih.TabIndex = 29;
             // 
             // dgvBeklemedeBakiye
@@ -219,11 +230,13 @@
             this.dgvBeklemedeBakiye.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBeklemedeBakiye.EnableHeadersVisualStyles = false;
             this.dgvBeklemedeBakiye.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvBeklemedeBakiye.Location = new System.Drawing.Point(14, 49);
+            this.dgvBeklemedeBakiye.Location = new System.Drawing.Point(19, 60);
+            this.dgvBeklemedeBakiye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvBeklemedeBakiye.Name = "dgvBeklemedeBakiye";
             this.dgvBeklemedeBakiye.RowHeadersVisible = false;
+            this.dgvBeklemedeBakiye.RowHeadersWidth = 51;
             this.dgvBeklemedeBakiye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBeklemedeBakiye.Size = new System.Drawing.Size(1097, 99);
+            this.dgvBeklemedeBakiye.Size = new System.Drawing.Size(1463, 122);
             this.dgvBeklemedeBakiye.TabIndex = 28;
             this.dgvBeklemedeBakiye.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBeklemedeBakiye.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -250,7 +263,7 @@
             // btnBeklemedeBakiyeOnay
             // 
             this.btnBeklemedeBakiyeOnay.AutoRoundedCorners = true;
-            this.btnBeklemedeBakiyeOnay.BorderRadius = 21;
+            this.btnBeklemedeBakiyeOnay.BorderRadius = 26;
             this.btnBeklemedeBakiyeOnay.CheckedState.Parent = this.btnBeklemedeBakiyeOnay;
             this.btnBeklemedeBakiyeOnay.CustomImages.Parent = this.btnBeklemedeBakiyeOnay;
             this.btnBeklemedeBakiyeOnay.DisabledState.Parent = this.btnBeklemedeBakiyeOnay;
@@ -258,10 +271,11 @@
             this.btnBeklemedeBakiyeOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBeklemedeBakiyeOnay.ForeColor = System.Drawing.Color.Black;
             this.btnBeklemedeBakiyeOnay.HoverState.Parent = this.btnBeklemedeBakiyeOnay;
-            this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(921, 169);
+            this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(1228, 208);
+            this.btnBeklemedeBakiyeOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBeklemedeBakiyeOnay.Name = "btnBeklemedeBakiyeOnay";
             this.btnBeklemedeBakiyeOnay.ShadowDecoration.Parent = this.btnBeklemedeBakiyeOnay;
-            this.btnBeklemedeBakiyeOnay.Size = new System.Drawing.Size(190, 45);
+            this.btnBeklemedeBakiyeOnay.Size = new System.Drawing.Size(253, 55);
             this.btnBeklemedeBakiyeOnay.TabIndex = 27;
             this.btnBeklemedeBakiyeOnay.Text = "Onayla";
             this.btnBeklemedeBakiyeOnay.Click += new System.EventHandler(this.btnBeklemedeBakiyeOnay_Click);
@@ -271,9 +285,11 @@
             this.groupBox3.Controls.Add(this.dgvMevcutUye);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.ForeColor = System.Drawing.Color.Aqua;
-            this.groupBox3.Location = new System.Drawing.Point(61, 539);
+            this.groupBox3.Location = new System.Drawing.Point(81, 663);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1130, 227);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1507, 279);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mevcut Üye Bilgileri";
@@ -306,11 +322,13 @@
             this.dgvMevcutUye.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvMevcutUye.EnableHeadersVisualStyles = false;
             this.dgvMevcutUye.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvMevcutUye.Location = new System.Drawing.Point(14, 49);
+            this.dgvMevcutUye.Location = new System.Drawing.Point(19, 60);
+            this.dgvMevcutUye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMevcutUye.Name = "dgvMevcutUye";
             this.dgvMevcutUye.RowHeadersVisible = false;
+            this.dgvMevcutUye.RowHeadersWidth = 51;
             this.dgvMevcutUye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMevcutUye.Size = new System.Drawing.Size(1097, 150);
+            this.dgvMevcutUye.Size = new System.Drawing.Size(1463, 185);
             this.dgvMevcutUye.TabIndex = 1;
             this.dgvMevcutUye.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMevcutUye.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -336,16 +354,17 @@
             // 
             // AdminPaneli
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(1249, 786);
+            this.ClientSize = new System.Drawing.Size(1665, 967);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnGeri);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPaneli";

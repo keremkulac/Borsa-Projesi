@@ -16,7 +16,9 @@ namespace WindowsFormsApp4
 
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
-       // string secilmisItem = null;
+        
+
+        // string secilmisItem = null;
         public void LoginFormDon()
         {
             this.Hide();
@@ -91,6 +93,8 @@ namespace WindowsFormsApp4
             komut.ExecuteNonQuery();
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
+
+         
             MessageBox.Show("Ürün satışı onaylandı ve item onay bilgisi Güncellendi.");
             LoadItemler();
         }
@@ -103,8 +107,17 @@ namespace WindowsFormsApp4
             data.BakiyeEkle(kulAdi, beklemedekiBakiye);
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
+            UrunAlSat formUrunAlSat = new UrunAlSat();
+
+           
+
             MessageBox.Show("Bakiye onaylandı ve kullanıcının bakiye bilgisi güncellendi.");
             _connection.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
