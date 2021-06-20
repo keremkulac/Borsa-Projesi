@@ -28,7 +28,7 @@ namespace WindowsFormsApp4
         public DataSet BakiyeleriOnaylanmamisKullanicilar()
         {
             ConnectionControl();
-            string sorgu = "SELECT [Kullanıcı Adı]=KullaniciAdi,[Ad Soyad]=AdSoyad,Bakiye=KullaniciBakiye,[Onaylanacak Bakiye Miktar]=BeklemedeBakiye FROM Kullanicilar where BakiyeOnay = 1";
+            string sorgu = "SELECT [Kullanıcı Adı]=KullaniciAdi,[Ad Soyad]=AdSoyad,Bakiye=KullaniciBakiye,[Onaylanacak Bakiye Miktar]=BeklemedeBakiye,[Para Birimi]=BakiyeParaBirimi FROM Kullanicilar where BakiyeOnay = 1";
             SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
             DataSet ds = new DataSet();
             da.Fill(ds);

@@ -9,9 +9,6 @@ namespace WindowsFormsApp4
 {
     class DovizKuru
     {
-
-         
-
         public string DovizKuruStr(string paraBirimi)
         {
             System.Windows.Forms.MessageBox.Show("Test:"+paraBirimi);

@@ -61,6 +61,8 @@
     <Compile Include="DovizKuru.cs" />
     <Compile Include="ItemlerDatabase.cs" />
     <Compile Include="Rapor.cs" />
+    <Compile Include="SatinAlmaEmri.cs" />
+    <Compile Include="SatinAlmaEmriDatabase.cs" />
     <Compile Include="UrunAlSat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +89,7 @@
     <Compile Include="VeritabaniSinifi.cs" />
     <EmbeddedResource Include="AdminPaneli.resx">
       <DependentUpon>AdminPaneli.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UrunAlSat.resx">
       <DependentUpon>UrunAlSat.cs</DependentUpon>

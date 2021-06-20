@@ -49,6 +49,7 @@
             this.btnBeklemedeBakiyeOnay = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvMevcutUye = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.btnGeri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,13 +58,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBeklemedeBakiye)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMevcutUye)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGeri
             // 
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.Location = new System.Drawing.Point(16, 15);
-            this.btnGeri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(4);
             this.btnGeri.Name = "btnGeri";
             this.btnGeri.Size = new System.Drawing.Size(40, 36);
             this.btnGeri.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -75,7 +77,7 @@
             // 
             this.btnCikis.Image = ((System.Drawing.Image)(resources.GetObject("btnCikis.Image")));
             this.btnCikis.Location = new System.Drawing.Point(1617, 15);
-            this.btnCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCikis.Margin = new System.Windows.Forms.Padding(4);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(24, 24);
             this.btnCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -85,14 +87,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.dgvUrunOnay);
             this.groupBox1.Controls.Add(this.btnUrunOnay);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.Aqua;
             this.groupBox1.Location = new System.Drawing.Point(81, 52);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1507, 292);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
@@ -127,7 +130,7 @@
             this.dgvUrunOnay.EnableHeadersVisualStyles = false;
             this.dgvUrunOnay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUrunOnay.Location = new System.Drawing.Point(19, 69);
-            this.dgvUrunOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUrunOnay.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUrunOnay.Name = "dgvUrunOnay";
             this.dgvUrunOnay.RowHeadersVisible = false;
             this.dgvUrunOnay.RowHeadersWidth = 51;
@@ -168,7 +171,7 @@
             this.btnUrunOnay.ForeColor = System.Drawing.Color.Black;
             this.btnUrunOnay.HoverState.Parent = this.btnUrunOnay;
             this.btnUrunOnay.Location = new System.Drawing.Point(1228, 217);
-            this.btnUrunOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUrunOnay.Margin = new System.Windows.Forms.Padding(4);
             this.btnUrunOnay.Name = "btnUrunOnay";
             this.btnUrunOnay.ShadowDecoration.Parent = this.btnUrunOnay;
             this.btnUrunOnay.Size = new System.Drawing.Size(253, 55);
@@ -184,9 +187,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.ForeColor = System.Drawing.Color.Aqua;
             this.groupBox2.Location = new System.Drawing.Point(81, 358);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1507, 292);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
@@ -231,7 +234,7 @@
             this.dgvBeklemedeBakiye.EnableHeadersVisualStyles = false;
             this.dgvBeklemedeBakiye.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBeklemedeBakiye.Location = new System.Drawing.Point(19, 60);
-            this.dgvBeklemedeBakiye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBeklemedeBakiye.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBeklemedeBakiye.Name = "dgvBeklemedeBakiye";
             this.dgvBeklemedeBakiye.RowHeadersVisible = false;
             this.dgvBeklemedeBakiye.RowHeadersWidth = 51;
@@ -272,7 +275,7 @@
             this.btnBeklemedeBakiyeOnay.ForeColor = System.Drawing.Color.Black;
             this.btnBeklemedeBakiyeOnay.HoverState.Parent = this.btnBeklemedeBakiyeOnay;
             this.btnBeklemedeBakiyeOnay.Location = new System.Drawing.Point(1228, 208);
-            this.btnBeklemedeBakiyeOnay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBeklemedeBakiyeOnay.Margin = new System.Windows.Forms.Padding(4);
             this.btnBeklemedeBakiyeOnay.Name = "btnBeklemedeBakiyeOnay";
             this.btnBeklemedeBakiyeOnay.ShadowDecoration.Parent = this.btnBeklemedeBakiyeOnay;
             this.btnBeklemedeBakiyeOnay.Size = new System.Drawing.Size(253, 55);
@@ -286,9 +289,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.ForeColor = System.Drawing.Color.Aqua;
             this.groupBox3.Location = new System.Drawing.Point(81, 663);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1507, 279);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
@@ -323,7 +326,7 @@
             this.dgvMevcutUye.EnableHeadersVisualStyles = false;
             this.dgvMevcutUye.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMevcutUye.Location = new System.Drawing.Point(19, 60);
-            this.dgvMevcutUye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvMevcutUye.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMevcutUye.Name = "dgvMevcutUye";
             this.dgvMevcutUye.RowHeadersVisible = false;
             this.dgvMevcutUye.RowHeadersWidth = 51;
@@ -352,6 +355,16 @@
             this.dgvMevcutUye.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMevcutUye.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(295, 217);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(676, 150);
+            this.dataGridView1.TabIndex = 28;
+            // 
             // AdminPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,7 +377,7 @@
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnGeri);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPaneli";
@@ -378,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBeklemedeBakiye)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMevcutUye)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,5 +409,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvMevcutUye;
         private System.Windows.Forms.Label lblTarih;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

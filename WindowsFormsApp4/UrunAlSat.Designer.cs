@@ -117,9 +117,9 @@ namespace WindowsFormsApp4
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(842, 420);
+            this.tabPage3.Size = new System.Drawing.Size(842, 423);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bakiye Yükle";
             // 
@@ -172,7 +172,7 @@ namespace WindowsFormsApp4
             this.lblBakiye.AutoSize = true;
             this.lblBakiye.Location = new System.Drawing.Point(679, 26);
             this.lblBakiye.Name = "lblBakiye";
-            this.lblBakiye.Size = new System.Drawing.Size(0, 29);
+            this.lblBakiye.Size = new System.Drawing.Size(0, 25);
             this.lblBakiye.TabIndex = 26;
             // 
             // label12
@@ -180,7 +180,7 @@ namespace WindowsFormsApp4
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(22, 133);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 29);
+            this.label12.Size = new System.Drawing.Size(115, 25);
             this.label12.TabIndex = 34;
             this.label12.Text = "Para Miktarı";
             // 
@@ -191,7 +191,7 @@ namespace WindowsFormsApp4
             this.label6.ForeColor = System.Drawing.Color.Aqua;
             this.label6.Location = new System.Drawing.Point(581, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 29);
+            this.label6.Size = new System.Drawing.Size(93, 25);
             this.label6.TabIndex = 13;
             this.label6.Text = "Bakiyem:";
             // 
@@ -200,7 +200,7 @@ namespace WindowsFormsApp4
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(22, 77);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(138, 29);
+            this.label13.Size = new System.Drawing.Size(105, 25);
             this.label13.TabIndex = 33;
             this.label13.Text = "Para Birimi";
             // 
@@ -235,6 +235,7 @@ namespace WindowsFormsApp4
             this.cmbParaBirimi.ShadowDecoration.Parent = this.cmbParaBirimi;
             this.cmbParaBirimi.Size = new System.Drawing.Size(108, 36);
             this.cmbParaBirimi.TabIndex = 32;
+            this.cmbParaBirimi.SelectedIndexChanged += new System.EventHandler(this.cmbParaBirimi_SelectedIndexChanged);
             // 
             // guna2Button1
             // 
@@ -302,10 +303,10 @@ namespace WindowsFormsApp4
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tabPage2.Controls.Add(this.dgvUrunler);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(842, 420);
+            this.tabPage2.Size = new System.Drawing.Size(842, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ürün Al";
             // 
@@ -422,7 +423,7 @@ namespace WindowsFormsApp4
             this.label8.ForeColor = System.Drawing.Color.Aqua;
             this.label8.Location = new System.Drawing.Point(338, 34);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(196, 26);
+            this.label8.Size = new System.Drawing.Size(152, 20);
             this.label8.TabIndex = 9;
             this.label8.Text = "Fiyat (İsteğe bağlı):";
             // 
@@ -508,7 +509,7 @@ namespace WindowsFormsApp4
             this.label11.ForeColor = System.Drawing.Color.Aqua;
             this.label11.Location = new System.Drawing.Point(14, 80);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 26);
+            this.label11.Size = new System.Drawing.Size(89, 20);
             this.label11.TabIndex = 4;
             this.label11.Text = "Miktar(kg):";
             // 
@@ -519,7 +520,7 @@ namespace WindowsFormsApp4
             this.label4.ForeColor = System.Drawing.Color.Aqua;
             this.label4.Location = new System.Drawing.Point(14, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 26);
+            this.label4.Size = new System.Drawing.Size(110, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ürün Seçiniz:";
             // 
@@ -530,13 +531,12 @@ namespace WindowsFormsApp4
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabPage1.ForeColor = System.Drawing.Color.Aqua;
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(842, 420);
+            this.tabPage1.Size = new System.Drawing.Size(842, 423);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ürün Sat";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
@@ -674,7 +674,7 @@ namespace WindowsFormsApp4
             this.label3.Location = new System.Drawing.Point(82, 176);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 26);
+            this.label3.Size = new System.Drawing.Size(188, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Ürün Miktarı Giriniz(kg):";
             // 
@@ -686,7 +686,7 @@ namespace WindowsFormsApp4
             this.label2.Location = new System.Drawing.Point(82, 111);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 52);
+            this.label2.Size = new System.Drawing.Size(158, 40);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ürünün Kilogram\r\n Fiyatını Giriniz(TL):";
             // 
@@ -698,7 +698,7 @@ namespace WindowsFormsApp4
             this.label1.Location = new System.Drawing.Point(82, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 26);
+            this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ürün Adı:";
             // 
@@ -742,10 +742,10 @@ namespace WindowsFormsApp4
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tabPage4.Location = new System.Drawing.Point(4, 31);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(842, 420);
+            this.tabPage4.Size = new System.Drawing.Size(842, 423);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rapor";
             // 
@@ -815,7 +815,7 @@ namespace WindowsFormsApp4
             this.label17.ForeColor = System.Drawing.Color.Aqua;
             this.label17.Location = new System.Drawing.Point(37, 49);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(110, 25);
+            this.label17.Size = new System.Drawing.Size(89, 20);
             this.label17.TabIndex = 45;
             this.label17.Text = "Rapor Türü";
             // 
@@ -863,7 +863,7 @@ namespace WindowsFormsApp4
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label16.Location = new System.Drawing.Point(578, 59);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(88, 25);
+            this.label16.Size = new System.Drawing.Size(71, 20);
             this.label16.TabIndex = 42;
             this.label16.Text = "Ürün Adı";
             // 
@@ -873,7 +873,7 @@ namespace WindowsFormsApp4
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label15.Location = new System.Drawing.Point(312, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(102, 25);
+            this.label15.Size = new System.Drawing.Size(81, 20);
             this.label15.TabIndex = 41;
             this.label15.Text = "Bitiş Tarihi";
             // 
@@ -884,7 +884,7 @@ namespace WindowsFormsApp4
             this.label14.ForeColor = System.Drawing.Color.Aqua;
             this.label14.Location = new System.Drawing.Point(6, 59);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 25);
+            this.label14.Size = new System.Drawing.Size(120, 20);
             this.label14.TabIndex = 40;
             this.label14.Text = "Başlangıç Tarihi";
             // 
@@ -950,14 +950,14 @@ namespace WindowsFormsApp4
             this.raporTarihBitis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.raporTarihBitis.Location = new System.Drawing.Point(399, 55);
             this.raporTarihBitis.Name = "raporTarihBitis";
-            this.raporTarihBitis.Size = new System.Drawing.Size(146, 30);
+            this.raporTarihBitis.Size = new System.Drawing.Size(146, 26);
             this.raporTarihBitis.TabIndex = 38;
             // 
             // txtItemAd
             // 
             this.txtItemAd.Location = new System.Drawing.Point(655, 53);
             this.txtItemAd.Name = "txtItemAd";
-            this.txtItemAd.Size = new System.Drawing.Size(134, 36);
+            this.txtItemAd.Size = new System.Drawing.Size(134, 30);
             this.txtItemAd.TabIndex = 34;
             // 
             // raporTarihBaslangic
@@ -966,12 +966,12 @@ namespace WindowsFormsApp4
             this.raporTarihBaslangic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.raporTarihBaslangic.Location = new System.Drawing.Point(132, 55);
             this.raporTarihBaslangic.Name = "raporTarihBaslangic";
-            this.raporTarihBaslangic.Size = new System.Drawing.Size(146, 30);
+            this.raporTarihBaslangic.Size = new System.Drawing.Size(146, 26);
             this.raporTarihBaslangic.TabIndex = 37;
             // 
             // UrunAlSat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(876, 524);

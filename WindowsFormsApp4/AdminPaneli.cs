@@ -16,7 +16,7 @@ namespace WindowsFormsApp4
 
         static VeritabaniSinifi connect = new VeritabaniSinifi();
         public static SqlConnection _connection = new SqlConnection(connect.BaglantiAdresi);
-        
+
 
         // string secilmisItem = null;
         public void LoginFormDon()
@@ -31,6 +31,7 @@ namespace WindowsFormsApp4
         }
         KullanicilarDatabase data = new KullanicilarDatabase();
         ItemlerDatabase itemlerData = new ItemlerDatabase();
+        SatinAlmaEmriDatabase emirDt = new SatinAlmaEmriDatabase();
 
         void LoadKullanicilar()
         {
@@ -93,8 +94,11 @@ namespace WindowsFormsApp4
             komut.ExecuteNonQuery();
             //Veritabanında değişiklik yapacak komut işlemi bu satırda gerçekleşiyor.
             _connection.Close();
+          
+            EmirKontrol();
 
-         
+
+
             MessageBox.Show("Ürün satışı onaylandı ve item onay bilgisi Güncellendi.");
             LoadItemler();
         }
@@ -103,18 +107,65 @@ namespace WindowsFormsApp4
         {
             _connection.Open();
             string kulAdi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[0].Value.ToString();
-            double beklemedekiBakiye = Convert.ToDouble(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[3].Value.ToString());
+
+            string paraBirimi = dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[4].Value.ToString();
+            string dovizKur;
+
+            if (paraBirimi == "TRY")
+            {
+                dovizKur = "1";
+            }
+            else
+            {
+                DovizKuru dovizObjesi = new DovizKuru();
+                dovizKur = dovizObjesi.DovizKuruStr(paraBirimi);
+                dovizKur = dovizKur.Replace('.', ',');
+            }
+
+            double beklemedekiBakiye = Convert.ToDouble(dovizKur) * Convert.ToDouble(dgvBeklemedeBakiye.Rows[dgvBeklemedeBakiye.CurrentRow.Index].Cells[3].Value.ToString());
+
+            MessageBox.Show(String.Format("Kullanıcının {0} para birimli döviz kuru eklenmiş bakiyesi: {1}", paraBirimi, beklemedekiBakiye));
             data.BakiyeEkle(kulAdi, beklemedekiBakiye);
             OnaylanmamisBakiyeKullanicilari();
             LoadKullanicilar();
-            UrunAlSat formUrunAlSat = new UrunAlSat();
 
-           
 
             MessageBox.Show("Bakiye onaylandı ve kullanıcının bakiye bilgisi güncellendi.");
             _connection.Close();
         }
 
+        public void EmirKontrol()
+        {
+            string urunAdi = dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[1].Value.ToString();
+            double urunFiyat = Convert.ToDouble(dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[2].Value.ToString());
+            int urunMiktar = Convert.ToInt32(dgvUrunOnay.Rows[dgvUrunOnay.CurrentRow.Index].Cells[3].Value.ToString());
+            
+            DataSet dt = emirDt.EmirleriCek(urunAdi);
+
+            if (dt.Tables[0].Rows.Count!=0)
+            {
+
+                string gelenUrunAdi = dt.Tables[0].Rows[0]["Urun_Adi"].ToString();
+                double gelenUrunFiyat = Convert.ToDouble(dt.Tables[0].Rows[0]["Urun_Fiyat"].ToString());
+                int gelenUrunMiktar = int.Parse(dt.Tables[0].Rows[0]["Urun_Miktar"].ToString());
+                // MessageBox.Show("Ürün adı:" + gelenUrunAdi +"Ürün fiyat:"+ gelenUrunFiyat +"Urun miktar: "+ gelenUrunMiktar);
+                if (gelenUrunFiyat<=urunFiyat)
+                {
+                    //Satımı gerceklestir 
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seçili ürü");
+            }
+            
+
+
+        }
+     
+        
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
