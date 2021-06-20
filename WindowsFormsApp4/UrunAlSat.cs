@@ -374,7 +374,7 @@ namespace WindowsFormsApp4
                     rapor.ExcelCiktisiAl(dgvIslemKaydi);
                     break;
                 case "DAT":
-                    //  rapor.DATCiktisiAl();
+                    rapor.DATCiktisiAl(dgvIslemKaydi);
                     break;
                 case "PDF":
                     rapor.PDFCiktisiAl(dgvIslemKaydi);
