@@ -25,17 +25,16 @@ namespace WindowsFormsApp4
         ItemlerDatabase itemlerData = new ItemlerDatabase();
         public string dovizGlobal; //global bakiye değeri
 
-        public UrunAlSat()
-        {
 
 
-        }
         public UrunAlSat(string _user)
         {
             InitializeComponent();
             isim = _user;
         }
+
         KullanicilarDatabase data = new KullanicilarDatabase();
+        
         void UrunEkle(Item urunObjesi)
         {
             ConnectionControl();
@@ -123,6 +122,10 @@ namespace WindowsFormsApp4
 
         private void btnUrunAl_Click(object sender, EventArgs e)
         {
+            DataSet muhasebeciVerileri = data.MuhasebeciVerileriniCek();
+            string muhasebeciKullaniciAdi = muhasebeciVerileri.Tables[0].Rows[0]["KullaniciAdi"].ToString();
+            double muhasebeciBakiyeMiktari = Convert.ToDouble(muhasebeciVerileri.Tables[0].Rows[0]["KullaniciBakiye"].ToString());
+
             int alinanMiktar = int.Parse(txtUrunAlMiktar.Text); // datagrid 1 
             DataRow dt = data.kullaniciDegerleri(isim);
 
@@ -167,17 +170,25 @@ namespace WindowsFormsApp4
                         double kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
                         bakiyedenDusulecekFiyat = alinanMiktar * urunFiyati;
                         double saticiBakiyesi = Convert.ToDouble(dtSatici["KullaniciBakiye"].ToString());
+                        // komisyonlu fiyat hesapla
+                        double komisyonluFiyat = bakiyedenDusulecekFiyat * 1 / 100;
+
                         if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
                         {
                             if (alinanMiktar <= urunMiktari)
                             {
+                                // ürün 100 lira, 1 lira muhasebeciye, 101 lira alıcıdan tahsil edilecek, satıcıya 100 lira gidecek
+
                                 saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                                 saticiBakiyesi = Math.Round(saticiBakiyesi, 2);
-                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat - komisyonluFiyat;
                                 bizimBakiyemiz = Math.Round(bizimBakiyemiz, 2);
-                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, alinanMiktar, seciliUrun), "Satın alım işlemi");
+                                MessageBox.Show(String.Format("{0} adlı satıcıdan {1} kg {2} satın alındı", satici.Trim(), alinanMiktar, seciliUrun.Trim()), "Satın alım işlemi");
                                 baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                                 baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
+                                double muhasebeciYeniBakiyeMiktari = muhasebeciBakiyeMiktari + komisyonluFiyat;
+                                baglanti.KullaniciBakiyeDegistir(muhasebeciKullaniciAdi, muhasebeciYeniBakiyeMiktari);
+                                MessageBox.Show("Ürünün fiyatına %1'lik değer eklenip alıcıdan tahsil edilmiştir. Tahsil edilen değer muhasebecinin bakiyesine eklenmiştir.");
                                 int saticiYeniUrunMiktari = urunMiktari - alinanMiktar;
                                 itemlerData.ItemlerUrunMiktariGuncelle(satici, saticiYeniUrunMiktari, islemID);
                                 LoadItemler(cmbUrunSecimi.Text, "Satış");
@@ -186,17 +197,22 @@ namespace WindowsFormsApp4
                                 int itemOnay = 0;
                                 itemlerData.islemKaydiEkle(itemAdi, urunFiyati, alinanMiktar, satici, isim, islemTarihi, islemTuru, itemOnay);
                                 alinanMiktar = alinanMiktar - urunMiktari;
-                                //string itemAdi, int urunFiyati, int urunMiktari, string aliciAdi, string saticiAdi,string alimTarihi,string islemTuru
+                                // string itemAdi, int urunFiyati, int urunMiktari, string aliciAdi, string saticiAdi,string alimTarihi,string islemTuru
                                 // alicinin odeyecegi tutara %1 ekleyip bunu alicidan kes ve muhasebeciye ekle
                                 break;
                             }
                             else if (alinanMiktar > urunMiktari)
                             {
                                 alinanMiktar = alinanMiktar - urunMiktari;
-                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, alinanMiktar, seciliUrun), "Satın alım işlemi");
+                                MessageBox.Show(String.Format("{0} adlı satıcıdan {1} kg {2} satın alındı", satici.Trim(), alinanMiktar, seciliUrun.Trim()), "Satın alım işlemi");
                                 saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                                 saticiBakiyesi = Math.Round(saticiBakiyesi, 2);
-                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat - komisyonluFiyat;
+
+                                double muhasebeciYeniBakiyeMiktari = muhasebeciBakiyeMiktari + komisyonluFiyat;
+                                baglanti.KullaniciBakiyeDegistir(muhasebeciKullaniciAdi, muhasebeciYeniBakiyeMiktari);
+                                MessageBox.Show("Ürünün fiyatına %1'lik değer eklenip alıcıdan tahsil edilmiştir. Tahsil edilen değer muhasebecinin bakiyesine eklenmiştir.");
+
                                 bizimBakiyemiz = Math.Round(bizimBakiyemiz, 2);
                                 baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                                 baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
@@ -230,11 +246,9 @@ namespace WindowsFormsApp4
                     if (bulunanItem == null)
                     {
                         SatinAlimEmriVer(isim, seciliUrun, alinanMiktar, istenilenFiyat);
-
-
-
-
                         MessageBox.Show("item bulunamadi");
+                        break;
+
                     }
                     else
                     {
@@ -247,15 +261,22 @@ namespace WindowsFormsApp4
                         double kacUrunAlabilirim = bizimBakiyemiz / urunFiyati;
                         bakiyedenDusulecekFiyat = alinanMiktar * urunFiyati;
                         double saticiBakiyesi = Convert.ToDouble(dtSatici["KullaniciBakiye"].ToString());
+                        double komisyonluFiyat = bakiyedenDusulecekFiyat * 1 / 100;
+
                         if (bizimBakiyemiz > bakiyedenDusulecekFiyat)
                         {
                             if (alinanMiktar <= urunMiktari)
                             {
                                 saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                                 saticiBakiyesi = Math.Round(saticiBakiyesi, 2);
-                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat - komisyonluFiyat;
+
+                                double muhasebeciYeniBakiyeMiktari = muhasebeciBakiyeMiktari + komisyonluFiyat;
+                                baglanti.KullaniciBakiyeDegistir(muhasebeciKullaniciAdi, muhasebeciYeniBakiyeMiktari);
+                                MessageBox.Show("Ürünün fiyatına %1'lik değer eklenip alıcıdan tahsil edilmiştir. Tahsil edilen değer muhasebecinin bakiyesine eklenmiştir.");
+
                                 bizimBakiyemiz = Math.Round(bizimBakiyemiz, 2);
-                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, alinanMiktar, seciliUrun), "Satın alım işlemi");
+                                MessageBox.Show(String.Format("{0} adlı satıcıdan {1} kg {2} satın alındı", satici.Trim(), alinanMiktar, seciliUrun.Trim()), "Satın alım işlemi");
                                 baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                                 baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);
                                 int saticiYeniUrunMiktari = urunMiktari - alinanMiktar;
@@ -271,10 +292,14 @@ namespace WindowsFormsApp4
                             else if (alinanMiktar > urunMiktari)
                             {
                                 alinanMiktar = alinanMiktar - urunMiktari;
-                                MessageBox.Show(String.Format("satici {0} kullanıcısından {1} kg {2} satın alındı", satici, alinanMiktar, seciliUrun), "Satın alım işlemi");
+                                MessageBox.Show(String.Format("{0} adlı satıcıdan {1} kg {2} satın alındı", satici.Trim(), alinanMiktar, seciliUrun.Trim()), "Satın alım işlemi");
                                 saticiBakiyesi = saticiBakiyesi + bakiyedenDusulecekFiyat;
                                 saticiBakiyesi = Math.Round(saticiBakiyesi, 2);
-                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat;
+                                bizimBakiyemiz = bizimBakiyemiz - bakiyedenDusulecekFiyat - komisyonluFiyat;
+                                double muhasebeciYeniBakiyeMiktari = muhasebeciBakiyeMiktari + komisyonluFiyat;
+                                baglanti.KullaniciBakiyeDegistir(muhasebeciKullaniciAdi, muhasebeciYeniBakiyeMiktari);
+                                MessageBox.Show("Ürünün fiyatına %1'lik değer eklenip alıcıdan tahsil edilmiştir. Tahsil edilen değer muhasebecinin bakiyesine eklenmiştir.");
+
                                 bizimBakiyemiz = Math.Round(bizimBakiyemiz, 2);
                                 baglanti.KullaniciBakiyeDegistir(isim, bizimBakiyemiz);
                                 baglanti.KullaniciBakiyeDegistir(satici, saticiBakiyesi);

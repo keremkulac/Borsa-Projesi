@@ -36,7 +36,16 @@ namespace WindowsFormsApp4
             return ds;
         }
 
-
+        public DataSet MuhasebeciVerileriniCek()
+        {
+            ConnectionControl();
+            string sorgu = "SELECT [KullaniciAdi]=KullaniciAdi,[KullaniciBakiye]=KullaniciBakiye FROM Kullanicilar WHERE KullaniciTuru ='Muhasebe'";
+            SqlDataAdapter da = new SqlDataAdapter(sorgu, _connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            _connection.Close();
+            return ds;
+        }
 
         public void KullaniciEkle(Kullanici kullaniciObjesi)
         {
