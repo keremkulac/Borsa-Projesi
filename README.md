@@ -11,8 +11,7 @@
 > ![Image 1](https://i.imgur.com/ZKwvPDk.png) <br>
 > Üye Ol form
 > ![Image 1](https://i.imgur.com/sRW8rR2.png) <br>
-### Admin olarak giriş yapan bir kullanıcının karşısına aşağıdaki gibi bir panel çıkar. Bu panelden onay bekleyen ürünleri onaylama, onay bekleyen kullanıcı 
-bakiyelerini onaylama işlemlerini yapabilirler ve o anki üyelerin tüm bilgilerini görüntüleyebilirler.
+### Admin olarak giriş yapan bir kullanıcının karşısına aşağıdaki gibi bir panel çıkar. Bu panelden onay bekleyen ürünleri onaylama, onay bekleyen kullanıcı bakiyelerini onaylama işlemlerini yapabilirler ve o anki üyelerin tüm bilgilerini görüntüleyebilirler.
 > Admin panel form
 > ![Image 1](https://i.imgur.com/OgtfkyC.png) <br>
 
