@@ -51,10 +51,10 @@ namespace WindowsFormsApp4
         {
             ConnectionControl();
             SqlCommand command = new SqlCommand(
-                "Insert into Kullanicilar values(@KullaniciAdi,@Sifre,@AdSoyad,@TcNo,@Telefon,@Email,@Adres,@KullaniciTuru, @KullaniciBakiye, @BakiyeOnay,@BeklemedeBakiye)", _connection);
+                "Insert into Kullanicilar values(@KullaniciAdi,@Sifre,@AdSoyad,@TcNo,@Telefon,@Email,@Adres,@KullaniciTuru, @KullaniciBakiye, @BakiyeOnay,@BeklemedeBakiye,@BakiyeParaBirimi)", _connection);
             command.Parameters.AddWithValue("@KullaniciAdi", kullaniciObjesi.KulAdi);
             command.Parameters.AddWithValue("@Sifre", kullaniciObjesi.Sifre);
-            command.Parameters.AddWithValue("@AdSoyad", kullaniciObjesi.AdSoyad);  
+            command.Parameters.AddWithValue("@AdSoyad", kullaniciObjesi.AdSoyad);
             command.Parameters.AddWithValue("@TcNo", kullaniciObjesi.Tc);
             command.Parameters.AddWithValue("@Telefon", kullaniciObjesi.TelefonNo);
             command.Parameters.AddWithValue("@Email", kullaniciObjesi.Email);
@@ -63,6 +63,7 @@ namespace WindowsFormsApp4
             command.Parameters.AddWithValue("@KullaniciBakiye", kullaniciObjesi.MevcutBakiye);
             command.Parameters.AddWithValue("@BakiyeOnay", kullaniciObjesi.BakiyeOnay);
             command.Parameters.AddWithValue("@BeklemedeBakiye", kullaniciObjesi.BeklemedeBakiye);
+            command.Parameters.AddWithValue("@BakiyeParaBirimi", kullaniciObjesi.BakiyeParaBirimi);
             command.ExecuteNonQuery();
             _connection.Close();
         }
@@ -143,15 +144,15 @@ namespace WindowsFormsApp4
             _connection.Close();
         }
 
-   
 
 
 
-    
-    
-    
-    
-    
+
+
+
+
+
+
     }
 
 

@@ -8,19 +8,21 @@ namespace WindowsFormsApp4
 {
     class Kullanici
     {
-  
 
-         public string KulAdi { get; set; }
-         public string AdSoyad { get; set; }
-         public string Sifre { get; set; }
-         public long Tc { get; set; }
-         public long TelefonNo { get; set; }
-         public string Email { get; set; }
-         public string Adres { get; set; }
-         public string KullaniciTuru { get; set; }
-         public decimal MevcutBakiye { get; set; }
-         public int BakiyeOnay { get; set; }
+
+        public string KulAdi { get; set; }
+        public string AdSoyad { get; set; }
+        public string Sifre { get; set; }
+        public long Tc { get; set; }
+        public long TelefonNo { get; set; }
+        public string Email { get; set; }
+        public string Adres { get; set; }
+        public string KullaniciTuru { get; set; }
+        public decimal MevcutBakiye { get; set; }
+        public int BakiyeOnay { get; set; }
         public decimal BeklemedeBakiye { get; set; }
+
+        public string BakiyeParaBirimi { get; set; }
 
         public Kullanici()
         {
@@ -28,6 +30,7 @@ namespace WindowsFormsApp4
             MevcutBakiye = 0;
             BakiyeOnay = 0;
             AdSoyad = "Atanmadi";
+            BakiyeParaBirimi = "TRY";
         }
 
 

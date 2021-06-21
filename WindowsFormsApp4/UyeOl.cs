@@ -50,6 +50,7 @@ namespace WindowsFormsApp4
                 MevcutBakiye = 0,
                 BakiyeOnay = 0,
                 BeklemedeBakiye = 0,
+                BakiyeParaBirimi = "TRY"
             });
 
             MessageBox.Show("Sayın " + txtKullaniciAdi.Text + " Başarıyla üye oldunuz!");
