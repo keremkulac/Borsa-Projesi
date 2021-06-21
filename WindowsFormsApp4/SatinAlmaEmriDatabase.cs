@@ -31,7 +31,7 @@ namespace WindowsFormsApp4
         public DataSet EmirleriCek(string urunAdi)
         {
             ConnectionControl();
-             SqlDataAdapter da = new SqlDataAdapter(String.Format("SELECT [Urun_Adi]=AlinacakItem, [Urun_Fiyat]=Fiyat, [Urun_Miktar]=Miktar FROM AlimEmirleri WHERE AlinacakItem= '{0}' ", urunAdi), _connection);
+             SqlDataAdapter da = new SqlDataAdapter(String.Format("SELECT [Urun_Adi]=AlinacakItem, [Urun_Fiyat]=Fiyat, [Urun_Miktar]=Miktar, [Satici]=EmirSahibi FROM AlimEmirleri WHERE AlinacakItem= '{0}' ", urunAdi), _connection);
              DataSet ds = new DataSet();
             da.Fill(ds);
             _connection.Close();

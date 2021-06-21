@@ -144,14 +144,33 @@ namespace WindowsFormsApp4
 
             if (dt.Tables[0].Rows.Count!=0)
             {
-
+                string satisEmriniVeren = dt.Tables[0].Rows[0]["Satici"].ToString();
                 string gelenUrunAdi = dt.Tables[0].Rows[0]["Urun_Adi"].ToString();
                 double gelenUrunFiyat = Convert.ToDouble(dt.Tables[0].Rows[0]["Urun_Fiyat"].ToString());
                 int gelenUrunMiktar = int.Parse(dt.Tables[0].Rows[0]["Urun_Miktar"].ToString());
                 // MessageBox.Show("Ürün adı:" + gelenUrunAdi +"Ürün fiyat:"+ gelenUrunFiyat +"Urun miktar: "+ gelenUrunMiktar);
-                if (gelenUrunFiyat<=urunFiyat)
+                if (gelenUrunFiyat>=urunFiyat) //biz 3tlden almak istiyoruz ve satış yapan kişi 3 veya daha düşüğe satıyosa
                 {
-                    //Satımı gerceklestir 
+                 
+                    DataRow kullaniciData = data.kullaniciDegerleri(satisEmriniVeren); //emri geçen kişinin bakiyesi
+
+                    double kullaniciSatisEmriBakiye = Convert.ToDouble(kullaniciData["KullaniciBakiye"].ToString());
+                    if (gelenUrunMiktar<=urunMiktar) //biz x tane almak istiyosak ve satıcıda x veya daha fazla varsa
+                    {
+                        double maliyet = gelenUrunMiktar * urunFiyat;
+                        if (kullaniciSatisEmriBakiye>= maliyet) //bakiye yeterli ise
+                        {
+                            //Satımı gerceklestir 
+                            //Burada satisEmriniVeren kisiye gelenUrunAdi degiskeninden gelenUrunMiktar kadar eklenecek
+
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Satış emri mevcuttu fakat yetersiz bakiyeden dolayı emir gerçekleşmedi.");
+                        }
+
+                    }
 
 
                 }

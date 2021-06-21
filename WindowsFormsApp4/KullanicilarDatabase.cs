@@ -36,6 +36,8 @@ namespace WindowsFormsApp4
             return ds;
         }
 
+
+
         public void KullaniciEkle(Kullanici kullaniciObjesi)
         {
             ConnectionControl();
