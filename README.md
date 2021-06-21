@@ -28,3 +28,7 @@ bakiyelerini onaylama işlemlerini yapabilirler ve o anki üyelerin tüm bilgile
 #### Kullanıcı, Bakiye işlemi Admin tarafından onaylanınca sağ üstte Bakiyem kısmında güncel bakiyesini görebilir.
 > Bakiye yükle sekmesi
 ![Image 1](https://i.imgur.com/dO3iPsS.png) <br>
+
+> Rapor sekmesi
+ #### Rapor sekmesinde ilgili kullanıcı daha önceden yaptığı alım ve satım işlemlerini başlangıç ve bitiş tarihi seçerek veri tabanındaki verileri filtreleyip görüntüleyebilir, buradaki kullanıcıya gösterilen tablodaki verileri PDF, EXCEL, CSV veya DAT dosya formatlarında dışarıya çıktı olarak alabilir.
+ ![Image 1](https://i.imgur.com/wXtBF0S.png) <br>
